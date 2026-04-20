@@ -3,91 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatrice & Federico | 2026</title>
+    <title>Beatrice & Federico | 29.08.2026</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@300;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --forest: #2d3e33;
-            --soft-green: #8fa89b;
-            --sand: #f4f1ee;
-            --white: #ffffff;
-            --text: #4a4a4a;
+            --forest-deep: #283618; /* Verde bosco sofisticato */
+            --gold-muted: #bda671;  /* Oro spazzolato */
+            --bg-pearl: #fdfdfb;    /* Bianco perla */
+            --text-main: #3d3d3d;
+            --accent-soft: #f4f1ea;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            line-height: 1.7; 
-            color: var(--text); 
-            background-color: var(--sand);
+            font-family: 'Afacad Flux', sans-serif; 
+            line-height: 1.8; 
+            color: var(--text-main); 
+            background-color: var(--bg-pearl);
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: -0.02em; }
-        
-        .container { padding: 80px 24px; max-width: 850px; margin: auto; }
+        h1, h2, h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 400; 
+            letter-spacing: 0.01em; 
+            color: var(--forest-deep);
+        }
 
-        /* HERO SECTION - MINIMAL */
+        .container { padding: 120px 24px; max-width: 800px; margin: auto; }
+
+        /* HERO - REFINED ELEGANCE */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?q=80&w=2000') no-repeat center center/cover;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), 
+                        url('https://images.unsplash.com/photo-1546190255-451a91afc548?q=80&w=2070') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: white;
             text-align: center;
         }
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 8px; }
-        .hero-content p { font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; }
+        .hero-content h1 { font-size: 3.8rem; margin-bottom: 10px; color: white; font-style: italic; }
+        .hero-content p { font-size: 0.9rem; letter-spacing: 5px; text-transform: uppercase; font-weight: 300; }
 
-        /* SEZIONI */
-        .section-title { font-size: 2.2rem; color: var(--forest); margin-bottom: 12px; text-align: center; }
-        .section-intro { text-align: center; color: var(--soft-green); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 40px; display: block; }
+        /* TITOLI SEZIONE */
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; position: relative; display: inline-block; padding-bottom: 15px; }
+        .section-header h2::after { 
+            content: ''; position: absolute; bottom: 0; left: 25%; width: 50%; height: 1px; background: var(--gold-muted); 
+        }
 
-        /* PROGRAMMA PULITO */
-        .grid-schedule { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
-        .event-box { background: var(--white); padding: 32px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); }
-        .event-box strong { color: var(--soft-green); font-size: 0.9rem; display: block; margin-bottom: 8px; }
-        .event-box h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--forest); }
-        .event-box p { font-size: 0.95rem; opacity: 0.8; }
+        /* PROGRAMMA EDITORIALE */
+        .schedule-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+        .event-item { 
+            display: flex; align-items: flex-start; gap: 30px; 
+            padding: 30px; border-bottom: 1px solid var(--accent-soft);
+        }
+        .time { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold-muted); min-width: 80px; }
+        .event-details h3 { font-size: 1.4rem; margin-bottom: 5px; }
+        .event-details p { font-size: 1rem; opacity: 0.75; font-weight: 300; }
         
-        .map-btn { 
-            display: inline-block; margin-top: 15px; font-size: 0.8rem; font-weight: 700;
-            color: var(--forest); text-decoration: none; border-bottom: 2px solid var(--soft-green);
+        .location-link { 
+            display: inline-block; margin-top: 10px; font-size: 0.8rem; 
+            color: var(--forest-deep); text-decoration: none; border-bottom: 1px solid var(--gold-muted);
+            transition: 0.3s;
+        }
+        .location-link:hover { color: var(--gold-muted); }
+
+        /* INFO & REGALO - SOFT TOUCH */
+        .gift-section { 
+            background-color: var(--accent-soft); 
+            padding: 60px; border-radius: 4px; text-align: center; margin: 60px 0;
+            border: 1px solid #e9e5db;
+        }
+        .gift-section h3 { margin-bottom: 20px; font-size: 1.8rem; }
+        .iban { 
+            font-size: 1.1rem; letter-spacing: 2px; margin-top: 20px; 
+            padding: 15px; display: inline-block; color: var(--forest-deep);
+            border-bottom: 1px solid var(--gold-muted);
         }
 
-        /* INFO & REGALO */
-        .info-section { background: var(--forest); color: var(--sand); border-radius: 24px; padding: 60px 40px; margin: 40px 0; }
-        .info-section h2 { color: var(--white); margin-bottom: 20px; }
-        .iban-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; margin-top: 20px; font-family: monospace; font-size: 1.1rem; border: 1px dashed rgba(255,255,255,0.2); }
-
-        /* BOTTONE */
+        /* BOTTONE SOTTILE */
         .btn {
-            background: var(--forest); color: var(--white); padding: 16px 40px;
-            text-decoration: none; border-radius: 8px; font-weight: 600; transition: 0.3s;
-            border: none; cursor: pointer; font-size: 1rem;
+            background: var(--forest-deep); color: white; padding: 18px 45px;
+            text-decoration: none; border-radius: 2px; font-size: 0.9rem;
+            letter-spacing: 2px; transition: 0.4s; border: 1px solid var(--forest-deep);
+            cursor: pointer; text-transform: uppercase;
         }
-        .btn:hover { background: var(--soft-green); }
+        .btn:hover { background: transparent; color: var(--forest-deep); }
 
-        /* FORM RSVP */
-        .rsvp-card { background: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-top: 40px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        .form-group { display: flex; flex-direction: column; margin-bottom: 20px; text-align: left; }
-        label { font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; color: var(--forest); }
+        /* RSVP MINIMALISTA */
+        .rsvp-container { max-width: 550px; margin: 80px auto 0; }
+        .form-group { margin-bottom: 25px; text-align: left; }
+        label { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 8px; display: block; }
         input, select, textarea { 
-            padding: 12px; border: 1px solid #e1e1e1; background: #fafafa; 
-            border-radius: 6px; font-family: inherit; font-size: 1rem;
+            width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #d1d1d1; 
+            background: transparent; font-family: inherit; font-size: 1rem; outline: none;
+            transition: border-color 0.3s;
         }
+        input:focus { border-bottom-color: var(--forest-deep); }
 
-        footer { text-align: center; padding: 80px 20px; opacity: 0.6; font-size: 0.9rem; }
+        footer { text-align: center; padding: 100px 24px; font-size: 0.8rem; letter-spacing: 3px; color: var(--gold-muted); }
 
         @media (max-width: 600px) {
-            .grid-schedule, .form-row { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.5rem; }
+            .event-item { flex-direction: column; gap: 10px; }
+            .hero-content h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -95,94 +119,108 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>B&F</h1>
             <p>29 Agosto 2026</p>
+            <h1>Beatrice & Federico</h1>
         </div>
     </header>
 
     <section class="container">
-        <span class="section-intro">Il Programma</span>
-        <h2 class="section-title">Dove e Quando</h2>
+        <div class="section-header">
+            <h2>Il Programma</h2>
+        </div>
         
-        <div class="grid-schedule">
-            <div class="event-box">
-                <strong>17:00</strong>
-                <h3>La Cerimonia</h3>
-                <p>Rocca dei Bentivoglio, Bazzano (BO)</p>
-                <a href="https://maps.app.goo.gl/P6U1E7XmR8E9L7U97" target="_blank" class="map-btn">MAPPA</a>
+        <div class="schedule-grid">
+            <div class="event-item">
+                <div class="time">17:00</div>
+                <div class="event-details">
+                    <h3>La Cerimonia</h3>
+                    <p>Rocca dei Bentivoglio, Bazzano</p>
+                    <a href="https://formspree.io/f/mwvwrrdd" target="_blank" class="location-link">Visualizza Mappa</a>
+                </div>
             </div>
-            <div class="event-box">
-                <strong>18:00</strong>
-                <h3>Ricevimento</h3>
-                <p>Castellazzo di Monteveglio (BO)</p>
-                <a href="https://maps.app.goo.gl/3mU7L6Yx9N5Z2S7B8" target="_blank" class="map-btn">MAPPA</a>
+
+            <div class="event-item">
+                <div class="time">18:00</div>
+                <div class="event-details">
+                    <h3>Ricevimento</h3>
+                    <p>Castellazzo di Monteveglio</p>
+                    <a href="https://formspree.io/f/mwvwrrdd" target="_blank" class="location-link">Visualizza Mappa</a>
+                </div>
             </div>
-            <div class="event-box">
-                <strong>20:00</strong>
-                <h3>Cena</h3>
-                <p>In giardino, tra i vigneti</p>
+
+            <div class="event-item">
+                <div class="time">20:00</div>
+                <div class="event-details">
+                    <h3>Cena</h3>
+                    <p>Un percorso conviviale tra i sapori della collina.</p>
+                </div>
             </div>
-            <div class="event-box">
-                <strong>22:00</strong>
-                <h3>Party</h3>
-                <p>Musica e open bar nel fienile</p>
+
+            <div class="event-item">
+                <div class="time">22:00</div>
+                <div class="event-details">
+                    <h3>Party</h3>
+                    <p>Musica, brindisi e balli nel fienile.</p>
+                </div>
             </div>
         </div>
 
-        <div class="info-section">
-            <h2>Pensieri per noi</h2>
-            <p>La vostra presenza è il nostro regalo preferito. Se volete contribuire al nostro futuro insieme, potete farlo qui:</p>
-            <div class="iban-card">IT 00 A 12345 67890 123456789012</div>
-            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
-                <strong>Dress Code:</strong> Country Chic. <br>Saremo su prato e ghiaia, scegliete scarpe comode!
+        <div class="gift-section">
+            <h3>Il nostro futuro</h3>
+            <p>La vostra partecipazione è il nostro dono più caro. Qualora desideriate contribuire al nostro inizio, potete farlo qui:</p>
+            <div class="iban">IT 00 A 12345 67890 123456789012</div>
+            <p style="margin-top: 40px; font-size: 0.85rem; font-style: italic; opacity: 0.8;">
+                Dress Code: Country Chic — Scarpe comode consigliate.
             </p>
         </div>
 
-        <div id="rsvp" style="text-align: center; margin-top: 60px;">
-            <span class="section-intro">RSVP</span>
-            <h2 class="section-title">Ci sarete?</h2>
-            <p>Confermate la vostra presenza entro il 15 Luglio 2026.</p>
-
-            <div class="rsvp-card">
-                <form action="https://formspree.io/f/mwvwrrdd" method="POST" class="rsvp-form">
-                    <div class="form-group">
-                        <label>Nome e Cognome</label>
-                        <input type="text" name="Nomi" placeholder="I vostri nomi" required>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Parteciperete?</label>
-                            <select name="Conferma">
-                                <option value="Si">Sì, ci saremo!</option>
-                                <option value="No">No, purtroppo no</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Bambini?</label>
-                            <select name="Bambini">
-                                <option value="0">No</option>
-                                <option value="1">Sì, 1 bambino</option>
-                                <option value="2+">Sì, 2 o più</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Intolleranze o preferenze alimentari</label>
-                        <textarea name="Note" placeholder="Celiachia, Vegano, Allergie..." rows="3"></textarea>
-                    </div>
-
-                    <input type="text" name="_gotcha" style="display:none">
-                    <button type="submit" class="btn">INVIA CONFERMA</button>
-                </form>
+        <div id="rsvp" class="rsvp-container">
+            <div class="section-header">
+                <h2>Ci sarete?</h2>
+                <p style="font-size: 0.9rem; color: var(--gold-muted); margin-top: 10px;">Vi preghiamo di confermare entro il 15 Luglio 2026</p>
             </div>
+
+            <form action="https://formspree.io/f/mwvwrrdd" method="POST">
+                <div class="form-group">
+                    <label>Nomi degli invitati</label>
+                    <input type="text" name="Nomi" placeholder="Beatrice e Federico" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="form-group">
+                        <label>Presenza</label>
+                        <select name="Conferma">
+                            <option value="Sì">Sì, con gioia</option>
+                            <option value="No">No, con dispiacere</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Bambini</label>
+                        <select name="Bambini">
+                            <option value="0">Nessuno</option>
+                            <option value="1">Sì, uno</option>
+                            <option value="2+">Sì, due o più</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Note, allergie o canzoni</label>
+                    <textarea name="Messaggio" placeholder="Scrivici qui..." rows="2"></textarea>
+                </div>
+
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="btn">Invia conferma</button>
+                </div>
+            </form>
         </div>
     </section>
 
     <footer>
-        <p>Beatrice & Federico — 29.08.2026</p>
-        <p style="margin-top: 10px;">#BeaEFeWedding</p>
+        <p>B & F — 29 . 08 . 2026</p>
+        <p style="margin-top: 5px; opacity: 0.5;">#BeaEFeWedding</p>
     </footer>
 
 </body>
