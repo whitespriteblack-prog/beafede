@@ -3,99 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatrice & Federico | 29.08.2026</title>
+    <title>B&F 🔥 29.08.2026</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --salvia: #7d8b6f;
-            --terra: #5d4037;
-            --crema: #fdfaf5;
-            --oro-antico: #c5a059;
+            --orange-vibe: #ff6b35; /* Arancione energetico */
+            --dark-green: #1a433e; /* Verde foresta scuro */
+            --warm-cream: #fff8f0; /* Crema caldo di sfondo */
+            --text-dark: #2b2b2b;
+            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Montserrat', sans-serif; 
-            line-height: 1.8; 
-            color: var(--terra); 
-            background-color: var(--crema);
+            font-family: 'Space Grotesk', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-dark); 
+            background-color: var(--warm-cream);
             scroll-behavior: smooth;
+            font-weight: 300;
         }
 
-        h1, h2, h3 { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; }
-        .script-font { font-family: 'Dancing Script', cursive; text-transform: none; font-size: 1.6em; color: var(--salvia); }
+        /* TITOLI BOLD & FUN */
+        h1, h2, h3 { font-family: 'Shrikhand', cursive; font-weight: normal; text-transform: none; letter-spacing: 0; }
+        
+        .container { padding: 100px 20px; max-width: 1000px; margin: auto; }
 
-        .container { padding: 80px 20px; max-width: 900px; margin: auto; text-align: center; }
-
+        /* HERO SECTION - YOUNG VIBES */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), 
-                        url('https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=2072') no-repeat center center/cover;
+            background: linear-gradient(135deg, rgba(255,107,53,0.8), rgba(26,67,62,0.8)), 
+                        url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--white);
             text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%); /* Taglio obliquo moderno */
         }
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
-        .hero-content p { font-size: 1.4rem; font-weight: 300; letter-spacing: 4px; }
+        .hero-content h1 { font-size: 5rem; line-height: 1; margin-bottom: 15px; transform: rotate(-2deg); }
+        .hero-content p { font-size: 1.8rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
 
-        .section-title { font-size: 2.2rem; color: var(--salvia); margin-bottom: 10px; }
-        .divider { width: 60px; height: 3px; background: var(--oro-antico); margin: 20px auto; }
+        /* SEZIONI DINAMICHE */
+        .section-title { font-size: 3.5rem; color: var(--dark-green); margin-bottom: 10px; position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 15px; background: var(--orange-vibe); z-index: -1; opacity: 0.5; }
+        
+        .subtitle-vibe { font-size: 1.2rem; color: var(--orange-vibe); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 50px; display: block; }
 
-        .schedule { margin: 50px 0; display: flex; flex-direction: column; gap: 40px; }
-        .event-card strong { color: var(--oro-antico); font-size: 1.3rem; display: block; margin-bottom: 5px; }
-        .location-tag { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--salvia); font-weight: 600; }
+        /* TIMELINE MODERNA */
+        .schedule { margin: 60px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+        .event-card { background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 10px 10px 0 var(--dark-green); border: 2px solid var(--dark-green); transition: 0.3s; text-align: left;}
+        .event-card:hover { transform: translate(-5px, -5px); box-shadow: 15px 15px 0 var(--orange-vibe); }
+        .event-card strong { color: var(--orange-vibe); font-size: 1.5rem; display: block; margin-bottom: 10px; font-weight: 700;}
+        .event-card h3 { font-size: 1.8rem; color: var(--dark-green); margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; text-transform: uppercase;}
+        .location-tag { font-size: 0.9rem; font-weight: 500; color: var(--text-dark); background: #eee; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 10px;}
 
         .map-link {
             display: inline-block;
-            margin-top: 10px;
-            font-size: 0.75rem;
-            color: var(--salvia);
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: var(--dark-green);
             text-decoration: none;
-            border-bottom: 1px solid var(--salvia);
-            padding-bottom: 2px;
-            transition: 0.3s;
-        }
-        .map-link:hover { color: var(--oro-antico); border-color: var(--oro-antico); }
-
-        .info-box {
-            background: white;
-            border: 1px solid #e0d8c3;
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 4px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--orange-vibe);
         }
 
+        /* INFO & REGALO BOX */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; text-align: left; }
+        .gift-box { background: var(--dark-green); color: var(--warm-cream); padding: 40px; border-radius: 20px; }
+        .gift-box h3 { color: var(--orange-vibe); margin-bottom: 20px; }
+        .iban { margin-top: 25px; font-weight: 700; font-size: 1.1rem; color: var(--white); word-break: break-all; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;}
+
+        /* BOTTONE GIGANTE */
         .btn {
             display: inline-block;
-            background: var(--salvia);
-            color: white;
-            padding: 18px 50px;
+            background: var(--orange-vibe);
+            color: var(--white);
+            padding: 20px 60px;
             text-decoration: none;
-            transition: 0.4s;
-            font-weight: 600;
+            transition: 0.3s;
+            font-weight: 700;
             letter-spacing: 2px;
-            border: 1px solid var(--salvia);
+            text-transform: uppercase;
+            border: none;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
         }
-        .btn:hover { background: transparent; color: var(--salvia); }
+        .btn:hover { background: var(--dark-green); transform: scale(1.05); }
 
-        .rsvp-form { display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 40px auto 0; text-align: left; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        /* FORM RSVP CLEAN */
+        .rsvp-form { display: flex; flex-direction: column; gap: 25px; max-width: 600px; margin: 50px auto 0; text-align: left; background: var(--white); padding: 40px; border-radius: 20px; border: 2px solid #eee;}
         .form-group { display: flex; flex-direction: column; }
-        label { font-size: 0.75rem; font-weight: 600; margin-bottom: 5px; color: var(--salvia); text-transform: uppercase; }
-        input, select, textarea { padding: 12px; border: 1px solid #d8d0b9; background: white; font-family: 'Montserrat', sans-serif; width: 100%; border-radius: 4px; }
+        label { font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; color: var(--dark-green); text-transform: uppercase; letter-spacing: 1px;}
+        input, select, textarea { padding: 15px; border: 2px solid #eee; background: var(--warm-cream); font-family: inherit; width: 100%; border-radius: 10px; font-size: 1rem;}
+        input:focus, select:focus, textarea:focus { border-color: var(--orange-vibe); outline: none; }
 
-        footer { padding: 80px 20px; background: var(--terra); color: #c9bcaf; text-align: center; }
+        footer { padding: 100px 20px; background: var(--dark-green); color: rgba(255,248,240,0.6); text-align: center; }
+        footer h2 { color: var(--orange-vibe); font-size: 3rem; transform: rotate(1deg); margin-bottom: 10px;}
 
-        @media (max-width: 600px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .form-row { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .section-title { font-size: 2.5rem; }
+            .info-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -103,103 +117,109 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Beatrice & Federico</h1>
+            <h1>Bea & Fede</h1>
             <p>29 • 08 • 2026</p>
         </div>
     </header>
 
-    <section class="container">
-        <span class="script-font">Salva la data</span>
-        <h2 class="section-title">Il Programma</h2>
-        <div class="divider"></div>
+    <section class="container" style="text-align: center;">
+        <h2 class="section-title">Get Ready</h2>
+        <span class="subtitle-vibe">Ecco il piano d'attacco</span>
         
         <div class="schedule">
             <div class="event-card">
-                <strong>Ore 17:00</strong>
-                <h3>La Cerimonia</h3>
+                <strong>17:00</strong>
+                <h3>SIAMO SERI</h3>
+                <p>La Cerimonia formale (ma non troppo).</p>
                 <p class="location-tag">Rocca dei Bentivoglio, Bazzano</p>
-                <a href="https://maps.app.goo.gl/P6U1E7XmR8E9L7U97" target="_blank" class="map-link">📍 Apri su Google Maps</a>
+                <a href="https://maps.app.goo.gl/P6U1E7XmR8E9L7U97" target="_blank" class="map-link">📍 Mappa</a>
             </div>
 
             <div class="event-card">
-                <strong>Ore 18:00</strong>
-                <h3>Aperitivo di Benvenuto</h3>
+                <strong>18:00</strong>
+                <h3>SPRITZ O'CLOCK</h3>
+                <p>Aperitivo, abbracci e primi brindisi.</p>
                 <p class="location-tag">Castellazzo di Monteveglio</p>
-                <a href="https://maps.app.goo.gl/3mU7L6Yx9N5Z2S7B8" target="_blank" class="map-link">📍 Apri su Google Maps</a>
+                <a href="https://maps.app.goo.gl/3mU7L6Yx9N5Z2S7B8" target="_blank" class="map-link">📍 Mappa</a>
             </div>
 
             <div class="event-card">
-                <strong>Ore 20:00</strong>
-                <h3>La Cena</h3>
-                <p>Momento conviviale nel parco del Castellazzo</p>
+                <strong>20:00</strong>
+                <h3>FOOD & WINE</h3>
+                <p>Cena seria sotto le stelle. Portate fame.</p>
             </div>
 
             <div class="event-card">
-                <strong>Ore 22:00</strong>
-                <h3>Il Party</h3>
-                <p>Musica, brindisi e balli fino a notte fonda</p>
+                <strong>22:00</strong>
+                <h3>WILD PARTY</h3>
+                <p>DJ Set, Open Bar e zero dignità.</p>
             </div>
         </div>
     </section>
 
-    <section style="background-color: #f2eee3;">
+    <section style="background-color: var(--dark-green); color: var(--warm-cream);">
         <div class="container">
-            <h2 class="section-title">Pensieri per noi</h2>
-            <div class="info-box">
-                <p>La vostra presenza è il regalo più prezioso. Se desiderate farci un omaggio, potete contribuire al nostro futuro insieme.</p>
-                <p style="margin-top:25px; font-weight:600; font-size: 1.1rem; color: var(--salvia); letter-spacing: 1px;">
-                    IBAN: IT 00 A 12345 67890 123456789012
-                </p>
+            <div class="info-grid">
+                <div class="gift-box">
+                    <h3>⚡️ REGALO?</h3>
+                    <p>La vostra presenza è già un regalo enorme. Se però volete darci una mano a costruire il nostro futuro insieme, ogni contributo è benaccetto!</p>
+                    <p class="iban">IBAN: IT 00 A 12345 67890 123456789012</p>
+                </div>
+                <div style="padding: 40px;">
+                    <h3 style="font-family: 'Shrikhand'; color: var(--orange-vibe); font-size: 2rem; margin-bottom: 20px;">DRESS CODE</h3>
+                    <p style="font-size: 1.3rem; font-weight: 500;">COUNTRY CHIC</p>
+                    <p style="margin-top: 15px; opacity: 0.8;">Belli ma comodi. Saremo in collina e sul prato, quindi le scarpe giuste sono fondamentali per ballare tutto il tempo!</p>
+                </div>
             </div>
-            <p><strong>Dress Code:</strong> Country Chic.<br>
-            <small>Data la natura delle location, suggeriamo caldamente l'uso di scarpe comode.</small></p>
         </div>
     </section>
 
-    <section id="rsvp" class="container">
-        <h2 class="section-title">RSVP</h2>
-        <p>Confermate la vostra partecipazione entro il 15 Luglio 2026.</p>
+    <section id="rsvp" class="container" style="text-align: center;">
+        <h2 class="section-title">Ci sei?</h2>
+        <span class="subtitle-vibe">Conferma la tua wave</span>
+        <p>Facci sapere se vieni a fare festa con noi entro il 15 Luglio 2026.</p>
         
         <form action="https://formspree.io/f/mwvwrrdd" method="POST" class="rsvp-form">
             <div class="form-group">
-                <label>Nome e Cognome degli invitati</label>
-                <input type="text" name="nomi" placeholder="Es. Beatrice e Federico" required>
+                <label>Chi sei / Chi siete?</label>
+                <input type="text" name="nomi" placeholder="I vostri nomi" required>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <label>Parteciperete?</label>
+                    <label>La tua risposta</label>
                     <select name="conferma">
-                        <option value="si">Sì, verremo a fare festa!</option>
-                        <option value="no">Purtroppo non riusciremo</option>
+                        <option value="si">Sì, non vedo l'ora! 🔥</option>
+                        <option value="no">No, brinderò da lontano 😢</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Portate bambini?</label>
+                    <label>Bambini a bordo?</label>
                     <select name="bambini">
-                        <option value="0">No</option>
-                        <option value="1">Sì, 1 bambino</option>
-                        <option value="2+">Sì, 2 o più bambini</option>
+                        <option value="0">No bambini</option>
+                        <option value="1">Sì, 1</option>
+                        <option value="2+">Sì, 2 o più</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Intolleranze, allergie o preferenze alimentari</label>
-                <textarea name="dieta" placeholder="Es: Celiachia, Vegano, no lattosio..." rows="3"></textarea>
+                <label>Dieta, Allergie o Voglie Speciali</label>
+                <textarea name="dieta" placeholder="Es: Vegano, no glutine, o la tua canzone preferita..." rows="3"></textarea>
             </div>
 
             <input type="text" name="_gotcha" style="display:none">
 
-            <div class="form-group" style="text-align: center;">
-                <button type="submit" class="btn">INVIA CONFERMA</button>
+            <div class="form-group" style="text-align: center; margin-top: 20px;">
+                <button type="submit" class="btn">CONFERMA ORA</button>
             </div>
         </form>
     </section>
 
     <footer>
-        <p>BEATRICE & FEDERICO</p>
-        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">29.08.2026 • #BeaEFeWedding</p>
+        <h2>B & F</h2>
+        <p style="font-size: 1.1rem; font-weight: 500; letter-spacing: 2px;">29 AGOSTO 2026</p>
+        <p style="font-size: 0.9rem; margin-top: 20px; opacity: 0.5;">#BeaEFeWedding • Preparatevi.</p>
     </footer>
 
 </body>
