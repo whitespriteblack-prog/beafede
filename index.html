@@ -4,13 +4,13 @@
     <title>Matrimonio di Bea & Fede</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #8fa194; 
             --text-color: #333d36;
             --line-color: rgba(51, 61, 54, 0.3);
-            --active-color: #000000; /* Colore più forte per la sezione attiva */
+            --active-color: #000000;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,6 +21,7 @@
             color: var(--text-color);
             scroll-behavior: smooth;
             overflow-x: hidden;
+            font-weight: 300; /* Stile leggero di base */
         }
 
         /* Navigazione */
@@ -36,13 +37,12 @@
             text-transform: uppercase; 
             font-size: 0.8rem; 
             letter-spacing: 1.5px;
-            opacity: 0.5; /* Più chiaro quando non è selezionato */
+            opacity: 0.5;
             transition: 0.3s;
             padding-bottom: 5px;
             border-bottom: 1px solid transparent;
         }
 
-        /* STILE PER IL LINK ATTIVO IN ALTO */
         nav a.active {
             opacity: 1;
             color: var(--active-color);
@@ -51,19 +51,31 @@
 
         /* Struttura Sezioni */
         section {
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Centra tutto perfettamente dato che non c'è il titolo h2 */
+            justify-content: center;
             padding: 20px;
             text-align: center;
-            position: relative;
         }
 
-        /* NASCONDIAMO I TITOLI H2 DENTRO LE SEZIONI */
+        /* STILE UNIFICATO PER TUTTI I TITOLI (Location, Programma, WedShoots) */
+        h2, .titolo-sezione { 
+            display: block;
+            font-family: 'EB Garamond', serif !important;
+            font-size: 1.6rem !important; 
+            font-weight: 300 !important; /* Sottile come chiesto */
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: none;
+            color: var(--text-color);
+        }
+
+        /* Nascondiamo h2 dove non serve ma lo lasciamo visibile per WedShoots */
         h2 { display: none; }
+        #foto h2 { display: block; }
 
         .section-content {
             display: flex;
@@ -73,34 +85,19 @@
             width: 100%;
             max-width: 600px;
         }
+
+        /* Home */
         #home h1 {
-            font-size: 2.5rem; /* Grandezza standard per computer */
-            white-space: nowrap; /* Forza la riga unica */
+            white-space: nowrap;
+            font-weight: 300;
+            font-size: clamp(1.8rem, 7vw, 2.5rem);
+            margin: 5px 0;
         }
 
-        @media (max-width: 600px) {
-            #home h1 {
-                font-size: 1.8rem; /* Si rimpicciolisce solo su cellulare per stare in una riga */
-            }
-        }
-        
-       #foto h2 { 
-            display: flex !important; 
-            font-family: 'EB Garamond', serif !important; 
-            font-size: 1.6rem !important; /* Stessa dimensione di Rocca dei Bentivoglio */
-            font-weight: 500 !important;   /* Stesso peso visivo */
-            letter-spacing: normal !important; 
-            text-transform: none !important;
-            margin-bottom: 20px !important;
-            color: var(--text-color);
-        }
-        
-        h1 { font-size: 3.5rem; font-weight: 400; margin-bottom: 10px; }
         hr { width: 60%; border: 0; border-top: 1px solid var(--line-color); margin: 0 auto; }
         .info-text { font-size: 1.2rem; line-height: 1.4; }
-        .iban { font-size: 1.2rem; letter-spacing: 1px; padding: 15px; border: 1px solid var(--line-color); display: inline-block; }
-
-        form { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 12px; margin: 0 auto; }
+        
+        /* Form e Bottoni */
         input, textarea, select {
             background: transparent; border: none;
             border-bottom: 1px solid var(--line-color); padding: 10px;
@@ -123,8 +120,7 @@
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            nav a { font-size: 0.6rem; margin: 0 4px; letter-spacing: 1px; }
+            nav a { font-size: 0.6rem; margin: 0 4px; }
         }
     </style>
 </head>
@@ -139,111 +135,83 @@
         <a href="#rsvp">RSVP</a>
     </nav>
 
-<section id="home" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh;">
-        <div class="section-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-            
-            <img src="logo1.png" alt="Logo" style="width: 140px; mix-blend-mode: multiply; opacity: 0.9; margin-bottom: 20px; display: block;">
-            
-            <h1 style="white-space: nowrap; font-size: clamp(1.8rem, 7vw, 2.5rem); margin: 5px 0; width: 100%; text-align: center; font-weight: 300 !important; font-family: 'EB Garamond', serif;">
-                Beatrice & Federico
-            </h1>
-            
-            <p style="font-size: 0.9rem; letter-spacing: 5px; margin-top: 5px; text-align: center; opacity: 0.7; text-transform: uppercase; font-weight: 300;">
-                29 AGOSTO 2026
-            </p>
-            
+    <section id="home">
+        <div class="section-content" style="align-items: center;">
+            <img src="logo1.png" alt="Logo" style="width: 140px; mix-blend-mode: multiply; opacity: 0.9; margin-bottom: 10px;">
+            <h1>Beatrice & Federico</h1>
+            <p style="font-size: 0.9rem; letter-spacing: 5px; opacity: 0.7; text-transform: uppercase;">29 AGOSTO 2026</p>
         </div>
     </section>
+
     <hr>
 
     <section id="location">
-        <h2>Location</h2>
         <div class="section-content">
             <div>
-                <strong style="font-family: 'EB Garamond', serif; font-size: 1.6rem; display: block; margin-bottom: 5px; font-weight: 500; color: var(--text-color);">
-                    Rocca dei Bentivoglio, Bazzano
-                </strong>
+                <strong class="titolo-sezione">Rocca dei Bentivoglio, Bazzano</strong>
                 <p style="font-style: italic; font-size: 1.2rem; opacity: 0.9;">Il luogo dove ci scambieremo le promesse.</p>
-                <a href="https://www.google.com/maps/place/Rocca+dei+Bentivoglio+e+Museo/@44.5032817,11.0809058,17z/data=!3m1!4b1!4m6!3m5!1s0x477fded475a7a06d:0x5a77bcb3c7b04a3a!8m2!3d44.5032779!4d11.0834807!16s%2Fg%2F12385022?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: var(--text-color); font-size: 0.8rem; text-decoration: underline; opacity: 0.7; display: inline-block; margin-top: 10px; font-style: italic;">
-                    Apri in Google Maps
-                </a>
+                <a href="#" target="_blank" style="color: var(--text-color); font-size: 0.8rem; text-decoration: underline; opacity: 0.7; display: inline-block; margin-top: 10px; font-style: italic;">Apri in Google Maps</a>
             </div>
 
             <div>
-                <strong style="font-family: 'EB Garamond', serif; font-size: 1.6rem; display: block; margin-bottom: 5px; font-weight: 500; color: var(--text-color);">
-                    Il Castellazzo, Monteveglio
-                </strong>
+                <strong class="titolo-sezione">Il Castellazzo, Monteveglio</strong>
                 <p style="font-style: italic; font-size: 1.2rem; opacity: 0.9;">Festeggeremo insieme circondati dalla natura.</p>
-                <a href="https://www.google.com/maps/place/Il+Castellazzo/@44.4709488,11.0523118,17z/data=!3m1!4b1!4m9!3m8!1s0x477fdf5cfb57cfe5:0xf6e6162a94120226!5m2!4m1!1i2!8m2!3d44.470945!4d11.0548867!16s%2Fg%2F1tjjn6qp?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: var(--text-color); font-size: 0.8rem; text-decoration: underline; opacity: 0.7; display: inline-block; margin-top: 10px; font-style: italic;">
-                    Apri in Google Maps
-                </a>
+                <a href="#" target="_blank" style="color: var(--text-color); font-size: 0.8rem; text-decoration: underline; opacity: 0.7; display: inline-block; margin-top: 10px; font-style: italic;">Apri in Google Maps</a>
             </div>
-
-            <p style="font-style: italic; font-size: 1.1rem; opacity: 0.8;">Le due location distano 8 minuti in auto.</p>
         </div>
     </section>
 
     <hr>
 
     <section id="programma">
-        <h2>Programma</h2>
         <div class="section-content">
             <div>
-                <strong style="font-family: 'EB Garamond', serif; font-size: 1.6rem; display: block; margin-bottom: 15px; font-weight: 500; color: var(--text-color);">
-                    Rocca dei Bentivoglio, Bazzano
-                </strong>
+                <strong class="titolo-sezione">Rocca dei Bentivoglio, Bazzano</strong>
                 <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
-                    <strong style="font-size: 1.5rem; width: 60px; text-align: right;">17:00</strong>
-                    <span style="font-size: 1.3rem; font-style: italic; opacity: 0.9; width: 100px; text-align: left;">Cerimonia</span>
+                    <span style="font-size: 1.5rem;">17:00</span>
+                    <span style="font-size: 1.3rem; font-style: italic; opacity: 0.9;">Cerimonia</span>
                 </div>
             </div>
 
-<div style="margin: 25px auto; display: flex; align-items: center; justify-content: center; gap: 8px; opacity: 0.7;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; opacity: 0.7; margin: -10px 0;">
                 <span style="font-size: 1.1rem;">🚗</span>
-                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;">8'</span>
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px;">8 minuti</span>
             </div>
             
             <div>
-                <strong style="font-family: 'EB Garamond', serif; font-size: 1.6rem; display: block; margin-bottom: 20px; font-weight: 500; color: var(--text-color);">
-                    Il Castellazzo, Monteveglio
-                </strong>
+                <strong class="titolo-sezione">Il Castellazzo, Monteveglio</strong>
                 <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
-                    
-                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
-                        <strong style="font-size: 1.5rem; width: 60px; text-align: right;">18:00</strong>
-                        <span style="font-size: 1.3rem; font-style: italic; opacity: 0.9; width: 100px; text-align: left;">Stuzzichini</span>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <span style="font-size: 1.5rem;">18:00</span>
+                        <span style="font-size: 1.3rem; font-style: italic; opacity: 0.9;">Stuzzichini</span>
                     </div>
-
-                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
-                        <strong style="font-size: 1.5rem; width: 60px; text-align: right;">20:00</strong>
-                        <span style="font-size: 1.3rem; font-style: italic; opacity: 0.9; width: 100px; text-align: left;">Cena</span>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <span style="font-size: 1.5rem;">20:00</span>
+                        <span style="font-size: 1.3rem; font-style: italic; opacity: 0.9;">Cena</span>
                     </div>
-
-                    <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
-                        <strong style="font-size: 1.5rem; width: 60px; text-align: right;">22:00</strong>
-                        <span style="font-size: 1.3rem; font-style: italic; opacity: 0.9; width: 100px; text-align: left;">Party</span>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <span style="font-size: 1.5rem;">22:00</span>
+                        <span style="font-size: 1.3rem; font-style: italic; opacity: 0.9;">Party</span>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
+
     <hr>
 
     <section id="foto">
         <h2>WedShoots</h2>
         <div class="section-content">
             <p class="info-text">C'è un fotografo in giro ma se volete condividere sfumature personali potete scaricare l'app</p>
-            
             <div>
                 <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 15px;">
-                    <a href="#" target="_blank" class="btn-link">iPhone</a>
-                    <a href="#" target="_blank" class="btn-link">Android</a>
+                    <a href="#" class="btn-link">iPhone</a>
+                    <a href="#" class="btn-link">Android</a>
                 </div>
-                <p style="font-size: 0.8rem; text-transform: uppercase;">Inserisci qui testo codice:</p>
-                <p style="font-size: 2rem; letter-spacing: 4px;"><strong>ITa424c233</strong></p>
+                <p style="font-size: 0.8rem; text-transform: uppercase; opacity: 0.7;">Codice Album:</p>
+                <p style="font-size: 2rem; letter-spacing: 4px;">ITa424c233</p>
             </div>
-
             <div>
                 <img src="qrcode.png" alt="QR Code" style="width: 100px; opacity: 0.8;">
             </div>
@@ -252,22 +220,15 @@
 
     <hr>
 
-
-    <hr>
-
     <section id="...">
-        <h2>...</h2>
         <div class="section-content">
-            <div style="text-align: center;">
-                <p style="font-family: 'EB Garamond', serif; font-size: 1.8rem; font-style: italic; line-height: 1.3; color: var(--text-color); margin-bottom: 20px;">
-                    La vostra presenza è il regalo più bello, <br>
-                    ma se desiderate contribuire al nostro futuro insieme:
-                </p>
-            </div>
-            
-            <div class="iban" style="margin-top: 10px; border: none; padding: 0;">
-                <p style="text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px; opacity: 0.7; letter-spacing: 1px;">IBAN di Beatrice e Federico</p>
-                <strong style="font-size: 1.3rem; letter-spacing: 1px; display: block;">IT57Y0707236670000000767183</strong>
+            <p style="font-size: 1.8rem; font-style: italic; line-height: 1.3;">
+                La vostra presenza è il regalo più bello, <br>
+                ma se desiderate contribuire al nostro futuro insieme:
+            </p>
+            <div style="margin-top: 10px;">
+                <p style="text-transform: uppercase; font-size: 0.8rem; opacity: 0.7; letter-spacing: 1px; margin-bottom: 5px;">IBAN di Beatrice e Federico</p>
+                <strong style="font-size: 1.3rem; letter-spacing: 1px;">IT57Y0707236670000000767183</strong>
             </div>
         </div>
     </section>
@@ -275,33 +236,16 @@
     <hr>
 
     <section id="rsvp">
-        <h2>RSVP</h2>
+        <h2 style="display: block;">RSVP</h2>
         <div class="section-content">
-            <p class="info-text" style="margin-bottom: 5px;">Compila il form per confermare la tua presenza.</p>
-            
+            <p class="info-text">Compila il form per confermare la tua presenza.</p>
             <form action="https://formspree.io/f/mwvwrrdd" method="POST">
                 <input type="text" name="nome" placeholder="Nome e Cognome" required>
-                
                 <select name="partecipazione" required>
                     <option value="" disabled selected>Parteciperai?</option>
                     <option value="si">Sì, con piacere</option>
                     <option value="no">Purtroppo non potrò</option>
                 </select>
-
-                <select name="bambini">
-                    <option value="" disabled selected>Saranno presenti bambini?</option>
-                    <option value="0">No</option>
-                    <option value="1">Sì, 1 bambino</option>
-                    <option value="2">Sì, 2 bambini</option>
-                   
-                </select>
-
-                <input type="text" name="note_bambini" placeholder="Note bimbi (es. seggioloni, menu dedicato)">
-
-                <input type="text" name="intolleranze" placeholder="Intolleranze, allergie o preferenze">
-
-                <textarea name="domande" rows="2" placeholder="Altre domande o messaggi per noi"></textarea>
-                
                 <button type="submit">Invia Conferma</button>
             </form>
         </div>
@@ -310,7 +254,6 @@
     <script>
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll("nav a");
-
         window.addEventListener("scroll", () => {
             let current = "";
             sections.forEach((section) => {
@@ -320,7 +263,6 @@
                     current = section.getAttribute("id");
                 }
             });
-
             navLinks.forEach((a) => {
                 a.classList.remove("active");
                 if (a.getAttribute("href").includes(current)) {
@@ -329,6 +271,5 @@
             });
         });
     </script>
-
 </body>
 </html>
