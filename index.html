@@ -9,9 +9,15 @@
 
     <style>
         :root {
+            /* Tonalità Slavia e Toni Organici */
             --sage-main: #8ba88e;   /* Verde Salvia elegante */
             --sage-light: #f1f4f1;  /* Sfondo salvia chiarissimo */
             --sage-dark: #5a6d5c;   /* Salvia scuro per testi */
+            
+            /* Colore Foresta Profondo per il Bouquet (per CSS mask) */
+            --forest-deep: #283618; /* Il verde ricolorato */
+            
+            --gold-subtle: #c2b280; /* Oro sabbia */
             --white-pure: #ffffff;
             --text-dark: #333d34;
         }
@@ -33,20 +39,38 @@
             color: var(--sage-dark);
         }
 
-        .container { padding: 80px 24px 100px; max-width: 800px; margin: auto; }
+        .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
         /* HEADER CON LOGO (Al posto della Hero) */
         .site-header {
-            padding: 80px 24px 40px;
+            padding: 80px 24px 60px;
             text-align: center;
-            background-color: var(--sage-light); /* Un fondo leggero per l'header */
+            background-color: var(--sage-light); /* Fondo leggero */
             border-bottom: 1px solid #e8ede8;
+            position: relative;
         }
 
-        .wedding-logo {
-            max-width: 180px; /* Regola la grandezza del logo qui */
+        /* Il bouquet modificato programmaticamente */
+        .wedding-bouquet {
+            max-width: 250px; /* Regola la grandezza del bouquet qui */
             height: auto;
             margin-bottom: 30px;
+            
+            /* Tecnica CSS Mask per ricolorare un'immagine monocromatica */
+            background-color: var(--forest-deep); /* Applica il colore Foresta Profondo */
+            -webkit-mask: url('bouquet.png') no-repeat center; /* Usa bouquet.png come maschera */
+            mask: url('bouquet.png') no-repeat center;
+            
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            
+            /* Fallback per browser che non supportano mask (visualizza originale) */
+            background-image: url('bouquet.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            
+            /* Aggiungi un filtro di luminosità per schiarire leggermente il verde foresta */
+            filter: brightness(1.1);
         }
 
         .site-header h1 { 
@@ -126,14 +150,14 @@
 
         @media (max-width: 768px) {
             .site-header h1 { font-size: 2.8rem; }
-            .wedding-logo { max-width: 140px; }
+            .wedding-bouquet { max-width: 200px; }
         }
 
         @media (max-width: 600px) {
             .event-row { flex-direction: column; gap: 5px; padding: 25px 0; }
             .form-card { padding: 30px 20px; }
             .iban-code { font-size: 0.8rem; width: 100%; overflow-wrap: break-word; }
-            .site-header { padding: 60px 20px 30px; }
+            .site-header { padding: 60px 20px 40px; }
         }
     </style>
 </head>
@@ -141,7 +165,7 @@
 
     <header class="site-header">
         <div class="container-header">
-            <img src="logo1.png" alt="Logo Beatrice & Federico" class="wedding-logo">
+            <div class="wedding-bouquet"></div>
             
             <h1>Beatrice & Federico</h1>
             <p>29 Agosto 2026</p>
@@ -169,7 +193,7 @@
                 <div class="event-info">
                     <h3>Ricevimento</h3>
                     <p>Castellazzo di Monteveglio</p>
-                    <a href="https://maps.app.goo.gl/9Z3F3yGvW6fS9S8u81" target="_blank" class="map-link">Google Maps</a>
+                    <a href="http://googleusercontent.com/maps.google.com/11" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
