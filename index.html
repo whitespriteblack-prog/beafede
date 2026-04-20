@@ -9,15 +9,9 @@
 
     <style>
         :root {
-            /* Tonalità Slavia e Toni Organici */
-            --sage-main: #8ba88e;   /* Verde Salvia elegante */
-            --sage-light: #f1f4f1;  /* Sfondo salvia chiarissimo */
-            --sage-dark: #5a6d5c;   /* Salvia scuro per testi */
-            
-            /* Colore Foresta Profondo per il Bouquet (per CSS mask) */
-            --forest-deep: #283618; /* Il verde ricolorato */
-            
-            --gold-subtle: #c2b280; /* Oro sabbia */
+            --sage-main: #8ba88e;   
+            --sage-light: #f1f4f1;  
+            --sage-dark: #5a6d5c;   
             --white-pure: #ffffff;
             --text-dark: #333d34;
         }
@@ -39,38 +33,24 @@
             color: var(--sage-dark);
         }
 
-        .container { padding: 100px 24px; max-width: 800px; margin: auto; }
+        .container { padding: 60px 24px 100px; max-width: 800px; margin: auto; }
 
-        /* HEADER CON LOGO (Al posto della Hero) */
+        /* HEADER */
         .site-header {
-            padding: 80px 24px 60px;
+            padding: 60px 24px 40px;
             text-align: center;
-            background-color: var(--sage-light); /* Fondo leggero */
+            background-color: var(--sage-light);
             border-bottom: 1px solid #e8ede8;
-            position: relative;
         }
 
-        /* Il bouquet modificato programmaticamente */
+        /* FILTRO PER RICOLORARE L'IMMAGINE IN VERDE SALVIA */
         .wedding-bouquet {
-            max-width: 250px; /* Regola la grandezza del bouquet qui */
+            max-width: 200px;
             height: auto;
-            margin-bottom: 30px;
-            
-            /* Tecnica CSS Mask per ricolorare un'immagine monocromatica */
-            background-color: var(--forest-deep); /* Applica il colore Foresta Profondo */
-            -webkit-mask: url('bouquet.png') no-repeat center; /* Usa bouquet.png come maschera */
-            mask: url('bouquet.png') no-repeat center;
-            
-            -webkit-mask-size: contain;
-            mask-size: contain;
-            
-            /* Fallback per browser che non supportano mask (visualizza originale) */
-            background-image: url('bouquet.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            
-            /* Aggiungi un filtro di luminosità per schiarire leggermente il verde foresta */
-            filter: brightness(1.1);
+            margin-bottom: 20px;
+            /* Questo filtro trasforma il nero/grigio scuro dell'immagine in un verde salvia */
+            filter: sepia(1) saturate(0.5) hue-rotate(80deg) brightness(0.8);
+            mix-blend-mode: multiply; /* Rende lo sfondo bianco trasparente se caricato su fondo colorato */
         }
 
         .site-header h1 { 
@@ -91,7 +71,7 @@
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
 
-        /* SCHEDULE SALVIA */
+        /* SCHEDULE */
         .schedule-list { margin-top: 40px; }
         .event-row { 
             display: flex; align-items: baseline; gap: 40px; 
@@ -99,8 +79,8 @@
         }
         .event-row:last-child { border-bottom: 1px solid #eee; }
         .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); min-width: 70px; }
-        .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); }
-        .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
+        .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; }
+        .event-info p { font-size: 0.95rem; color: #666; }
         
         .map-link { 
             display: inline-block; margin-top: 8px; font-size: 0.75rem; 
@@ -108,13 +88,12 @@
             font-weight: 500;
         }
 
-        /* GIFT BOX SALVIA */
+        /* GIFT AREA */
         .gift-area { 
             background-color: var(--sage-light); 
             padding: 60px 40px; border-radius: 20px; text-align: center; margin: 80px 0;
             border: 1px solid #e8ede8;
         }
-        .gift-area h3 { margin-bottom: 20px; }
         .iban-code { 
             font-size: 1.1rem; letter-spacing: 1px; margin-top: 20px; 
             padding: 15px; display: inline-block; color: var(--sage-dark);
@@ -122,42 +101,33 @@
             font-family: monospace;
         }
 
-        /* BOTTONE SALVIA */
+        /* BOTTONE */
         .btn-submit {
             background: var(--sage-main); color: white; padding: 18px 50px;
             text-decoration: none; border-radius: 50px; font-size: 0.9rem;
             letter-spacing: 2px; transition: 0.3s ease; border: none;
             cursor: pointer; text-transform: uppercase; font-weight: 500;
-            box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3);
         }
-        .btn-submit:hover { background: var(--sage-dark); transform: translateY(-2px); }
+        .btn-submit:hover { background: var(--sage-dark); }
 
-        /* RSVP SALVIA */
+        /* RSVP */
         .form-card { 
             background: white; padding: 50px; border-radius: 20px; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
         }
-        .form-group { margin-bottom: 30px; }
-        label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
+        .form-group { margin-bottom: 30px; text-align: left;}
+        label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 600; }
         input, select, textarea { 
             width: 100%; padding: 12px; border: 1px solid #e8ede8; 
             background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem;
-            transition: all 0.3s;
         }
-        input:focus { border-color: var(--sage-main); outline: none; background: white; }
 
-        footer { text-align: center; padding: 80px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: #fafafa; border-top: 1px solid #eee; }
-
-        @media (max-width: 768px) {
-            .site-header h1 { font-size: 2.8rem; }
-            .wedding-bouquet { max-width: 200px; }
-        }
+        footer { text-align: center; padding: 80px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); }
 
         @media (max-width: 600px) {
-            .event-row { flex-direction: column; gap: 5px; padding: 25px 0; }
-            .form-card { padding: 30px 20px; }
-            .iban-code { font-size: 0.8rem; width: 100%; overflow-wrap: break-word; }
-            .site-header { padding: 60px 20px 40px; }
+            .event-row { flex-direction: column; gap: 5px; }
+            .site-header h1 { font-size: 2.5rem; }
+            .wedding-bouquet { max-width: 150px; }
         }
     </style>
 </head>
@@ -165,7 +135,7 @@
 
     <header class="site-header">
         <div class="container-header">
-            <div class="wedding-bouquet"></div>
+            <img src="bouquet.png" alt="Bouquet" class="wedding-bouquet">
             
             <h1>Beatrice & Federico</h1>
             <p>29 Agosto 2026</p>
@@ -173,7 +143,7 @@
     </header>
 
     <section class="container">
-        <div class="section-header">
+        <div class="section-header" style="text-align: center;">
             <span>The Plan</span>
             <h2>Il Programma</h2>
         </div>
@@ -184,7 +154,7 @@
                 <div class="event-info">
                     <h3>La Cerimonia</h3>
                     <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="https://maps.app.goo.gl/9Z3F3yGvW6fS9S8u80" target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://maps.app.goo.gl/..." target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
@@ -193,7 +163,7 @@
                 <div class="event-info">
                     <h3>Ricevimento</h3>
                     <p>Castellazzo di Monteveglio</p>
-                    <a href="http://googleusercontent.com/maps.google.com/11" target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://maps.app.goo.gl/..." target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
@@ -224,7 +194,7 @@
             <div class="section-header">
                 <span>R.S.V.P.</span>
                 <h2>Ci sarete?</h2>
-                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Vi chiediamo gentilmente di confermare entro il 15 Luglio 2026</p>
+                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Conferma entro il 15 Luglio 2026</p>
             </div>
 
             <div class="form-card">
@@ -254,7 +224,7 @@
 
                     <div class="form-group">
                         <label>Note e intolleranze</label>
-                        <textarea name="Messaggio" placeholder="Eventuali allergie, preferenze alimentari o canzoni..." rows="3"></textarea>
+                        <textarea name="Messaggio" placeholder="Scrivici qui..." rows="3"></textarea>
                     </div>
 
                     <input type="text" name="_gotcha" style="display:none">
