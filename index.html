@@ -3,75 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Nostro Matrimonio | 2026</title>
+    <title>Beatrice & Federico | 29.08.2026</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CSS INTEGRATO (Così non serve il file esterno) --- */
+        :root {
+            --salvia: #7d8b6f;
+            --terra: #5d4037;
+            --crema: #fdfaf5;
+            --oro-antico: #c5a059;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             font-family: 'Montserrat', sans-serif; 
-            line-height: 1.6; 
-            color: #333; 
-            background-color: #fff;
+            line-height: 1.8; 
+            color: var(--terra); 
+            background-color: var(--crema);
             scroll-behavior: smooth;
         }
 
-        h1, h2, .couple-names { font-family: 'Playfair Display', serif; }
+        h1, h2, h3 { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; }
+        .script-font { font-family: 'Dancing Script', cursive; text-transform: none; font-size: 1.6em; color: var(--salvia); }
 
-        .container { padding: 60px 20px; max-width: 800px; margin: auto; text-align: center; }
+        .container { padding: 80px 20px; max-width: 900px; margin: auto; text-align: center; }
 
-        /* HERO SECTION */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), 
+                        url('https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=2072') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
         }
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero-content p { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+        .hero-content p { font-size: 1.4rem; font-weight: 300; letter-spacing: 4px; }
 
-        /* SECTIONS */
-        .section-title { font-size: 2.5rem; color: #d4af37; margin-bottom: 20px; }
-        .bg-cream { background-color: #faf7f2; }
+        .section-title { font-size: 2.2rem; color: var(--salvia); margin-bottom: 10px; }
+        .divider { width: 60px; height: 3px; background: var(--oro-antico); margin: 20px auto; }
 
-        /* TIMELINE */
-        .event { margin: 30px 0; padding: 20px; border-bottom: 1px dashed #d4af37; }
-        .time { font-weight: bold; color: #d4af37; font-size: 1.2rem; display: block; }
+        .schedule { margin: 50px 0; display: flex; flex-direction: column; gap: 40px; }
+        .event-card strong { color: var(--oro-antico); font-size: 1.3rem; display: block; margin-bottom: 5px; }
+        .location-tag { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--salvia); font-weight: 600; }
 
-        /* BUTTONS */
+        .map-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: var(--salvia);
+            text-decoration: none;
+            border-bottom: 1px solid var(--salvia);
+            padding-bottom: 2px;
+            transition: 0.3s;
+        }
+        .map-link:hover { color: var(--oro-antico); border-color: var(--oro-antico); }
+
+        .info-box {
+            background: white;
+            border: 1px solid #e0d8c3;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
         .btn {
             display: inline-block;
-            background: #d4af37;
+            background: var(--salvia);
             color: white;
-            padding: 15px 40px;
+            padding: 18px 50px;
             text-decoration: none;
-            border-radius: 30px;
-            margin-top: 20px;
-            transition: 0.3s;
-            font-weight: bold;
+            transition: 0.4s;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 1px solid var(--salvia);
+            cursor: pointer;
+            border-radius: 4px;
         }
-        .btn:hover { background: #b8962d; transform: scale(1.05); }
+        .btn:hover { background: transparent; color: var(--salvia); }
 
-        /* FORM */
-        .rsvp-form { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
-        input, select, textarea {
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-family: inherit;
-        }
+        .rsvp-form { display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 40px auto 0; text-align: left; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; }
+        label { font-size: 0.75rem; font-weight: 600; margin-bottom: 5px; color: var(--salvia); text-transform: uppercase; }
+        input, select, textarea { padding: 12px; border: 1px solid #d8d0b9; background: white; font-family: 'Montserrat', sans-serif; width: 100%; border-radius: 4px; }
 
-        footer { padding: 40px; font-size: 0.9rem; color: #999; background: #eee; text-align: center; }
+        footer { padding: 80px 20px; background: var(--terra); color: #c9bcaf; text-align: center; }
 
         @media (max-width: 600px) {
             .hero-content h1 { font-size: 2.5rem; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -79,61 +103,103 @@
 
     <header class="hero">
         <div class="hero-content">
-            <p>Salva la Data</p>
-            <h1>Giulia & Marco</h1>
-            <p>20.06.2026</p>
-            <a href="#rsvp" class="btn">Io ci sarò!</a>
+            <h1>Beatrice & Federico</h1>
+            <p>29 • 08 • 2026</p>
         </div>
     </header>
 
     <section class="container">
-        <h2 class="section-title">Il Nostro Giorno</h2>
-        <p>Non vediamo l'ora di festeggiare con voi. Ecco i dettagli della giornata:</p>
+        <span class="script-font">Salva la data</span>
+        <h2 class="section-title">Il Programma</h2>
+        <div class="divider"></div>
         
-        <div class="event">
-            <span class="time">16:30</span>
-            <h3>Cerimonia</h3>
-            <p>Basilica di Santo Stefano, Bologna</p>
-        </div>
+        <div class="schedule">
+            <div class="event-card">
+                <strong>Ore 17:00</strong>
+                <h3>La Cerimonia</h3>
+                <p class="location-tag">Rocca dei Bentivoglio, Bazzano</p>
+                <a href="https://maps.app.goo.gl/P6U1E7XmR8E9L7U97" target="_blank" class="map-link">📍 Apri su Google Maps</a>
+            </div>
 
-        <div class="event">
-            <span class="time">19:00</span>
-            <h3>Ricevimento</h3>
-            <p>Villa Altea - Aperitivo, Cena e Brindisi</p>
-        </div>
+            <div class="event-card">
+                <strong>Ore 18:00</strong>
+                <h3>Aperitivo di Benvenuto</h3>
+                <p class="location-tag">Castellazzo di Monteveglio</p>
+                <a href="https://maps.app.goo.gl/3mU7L6Yx9N5Z2S7B8" target="_blank" class="map-link">📍 Apri su Google Maps</a>
+            </div>
 
-        <div class="event">
-            <span class="time">23:30</span>
-            <h3>Party</h3>
-            <p>Musica, Drink e balli scatenati</p>
+            <div class="event-card">
+                <strong>Ore 20:00</strong>
+                <h3>La Cena</h3>
+                <p>Momento conviviale nel parco del Castellazzo</p>
+            </div>
+
+            <div class="event-card">
+                <strong>Ore 22:00</strong>
+                <h3>Il Party</h3>
+                <p>Musica, brindisi e balli fino a notte fonda</p>
+            </div>
         </div>
     </section>
 
-    <section class="bg-cream">
+    <section style="background-color: #f2eee3;">
         <div class="container">
-            <h2 class="section-title">Viaggio di Nozze</h2>
-            <p>Il vostro affetto è il regalo più bello. Se volete aiutarci a volare in Polinesia, potete farlo qui:</p>
-            <p style="margin-top:20px; font-weight:bold;">IBAN: IT 00 X 00000 00000 000000000000</p>
+            <h2 class="section-title">Pensieri per noi</h2>
+            <div class="info-box">
+                <p>La vostra presenza è il regalo più prezioso. Se desiderate farci un omaggio, potete contribuire al nostro futuro insieme.</p>
+                <p style="margin-top:25px; font-weight:600; font-size: 1.1rem; color: var(--salvia); letter-spacing: 1px;">
+                    IBAN: IT 00 A 12345 67890 123456789012
+                </p>
+            </div>
+            <p><strong>Dress Code:</strong> Country Chic.<br>
+            <small>Data la natura delle location, suggeriamo caldamente l'uso di scarpe comode.</small></p>
         </div>
     </section>
 
     <section id="rsvp" class="container">
-        <h2 class="section-title">Conferma la presenza</h2>
-        <p>Facci sapere se sarai dei nostri entro il 15 Maggio.</p>
+        <h2 class="section-title">RSVP</h2>
+        <p>Confermate la vostra partecipazione entro il 15 Luglio 2026.</p>
         
-        <form class="rsvp-form">
-            <input type="text" placeholder="Nome e Cognome" required>
-            <select>
-                <option>Sì, verrò a fare festa!</option>
-                <option>Purtroppo non posso venire</option>
-            </select>
-            <textarea placeholder="Allergie o canzoni preferite?"></textarea>
-            <button type="submit" class="btn" style="border:none; cursor:pointer;">Invia Messaggio</button>
+        <form action="https://formspree.io/f/mwvwrrdd" method="POST" class="rsvp-form">
+            <div class="form-group">
+                <label>Nome e Cognome degli invitati</label>
+                <input type="text" name="nomi" placeholder="Es. Beatrice e Federico" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Parteciperete?</label>
+                    <select name="conferma">
+                        <option value="si">Sì, verremo a fare festa!</option>
+                        <option value="no">Purtroppo non riusciremo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Portate bambini?</label>
+                    <select name="bambini">
+                        <option value="0">No</option>
+                        <option value="1">Sì, 1 bambino</option>
+                        <option value="2+">Sì, 2 o più bambini</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Intolleranze, allergie o preferenze alimentari</label>
+                <textarea name="dieta" placeholder="Es: Celiachia, Vegano, no lattosio..." rows="3"></textarea>
+            </div>
+
+            <input type="text" name="_gotcha" style="display:none">
+
+            <div class="form-group" style="text-align: center;">
+                <button type="submit" class="btn">INVIA CONFERMA</button>
+            </div>
         </form>
     </section>
 
     <footer>
-        <p>#GiuliaEMarco2026<br>Fatto con amore.</p>
+        <p>BEATRICE & FEDERICO</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">29.08.2026 • #BeaEFeWedding</p>
     </footer>
 
 </body>
