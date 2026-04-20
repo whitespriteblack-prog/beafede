@@ -3,268 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatrice & Federico — 29.08.26</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #8fa194;
-            --text-color: #ffffff;
-            --line-color: rgba(255, 255, 255, 0.4);
-            --font-main: 'Cormorant Garamond', serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-main);
-            text-align: center;
-            -webkit-font-smoothing: antialiased;
-            font-weight: 300;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 10px;
-            background: rgba(143, 161, 148, 0.95);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        section {
-            min-height: 80vh;
-            padding: 120px 25px 80px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .divider {
-            width: 60%;
-            height: 1px;
-            background-color: var(--line-color);
-            margin: 0 auto;
-            border: none;
-        }
-
-        h1 { font-size: clamp(2.5rem, 10vw, 3.8rem); font-weight: 300; margin-bottom: 10px; line-height: 1.1; }
-        h2 { font-size: 2.2rem; font-weight: 300; margin-bottom: 45px; font-style: italic; text-transform: lowercase; }
-        h3 { font-size: 1.8rem; font-weight: 300; margin: 15px 0 8px; }
-        
-        /* Stile per le immagini */
-        .img-fluid { 
-            max-width: 100%; 
-            height: auto; 
-            display: block; 
-            margin: 0 auto;
-        }
-        
-        .logo-main { width: 120px; margin-bottom: 30px; }
-        .logo-location { width: 90px; margin-bottom: 15px; }
-        .qr-code { width: 140px; margin-top: 20px; }
-
-        .btn-link {
-            font-size: 0.9rem;
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px dashed var(--line-color);
-            padding-bottom: 3px;
-            text-transform: lowercase;
-        }
-
-        .prog-item { margin: 40px 0; }
-        .time { display: block; font-size: 1.5rem; margin-bottom: 5px; }
-        .travel { margin: 30px 0; opacity: 0.8; font-size: 1.3rem; }
-
-        .app-grid { display: flex; gap: 15px; justify-content: center; margin: 30px 0; }
-        .btn-app {
-            border: 1px solid white;
-            padding: 10px 25px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        form { width: 100%; text-align: left; margin-top: 40px; }
-        .input-box { margin-bottom: 30px; }
-        label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 10px; opacity: 0.9; }
-        input, select, textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--line-color);
-            color: white;
-            padding: 10px 0;
-            font-family: var(--font-main);
-            font-size: 1.15rem;
-            outline: none;
-            border-radius: 0;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: white;
-            color: var(--bg-color);
-            border: none;
-            padding: 18px;
-            font-family: var(--font-main);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 3rem; }
-            section { padding-top: 100px; }
-        }
-    </style>
+    <title>Sposi 2026 | Save the Date</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#location">Location</a>
-        <a href="#programma">Programma</a>
-        <a href="#foto">Foto</a>
-        <a href="#regalo">Regalo</a>
-        <a href="#rsvp">RSVP</a>
-    </nav>
-
-    <section id="home">
-        <img src="logo1.png" alt="Logo B&F" class="img-fluid logo-main">
-        <h1>Beatrice & Federico</h1>
-        <p style="letter-spacing: 5px; margin-top: 15px; opacity: 0.8;">29 . 08 . 2026</p>
-    </section>
-
-    <hr class="divider">
-
-    <section id="location">
-        <h2>le location</h2>
-        
-        <div style="margin-bottom: 70px;">
-            <img src="rocca.png" alt="Logo Rocca" class="img-fluid logo-location">
-            <h3>Rocca dei Bentivoglio, Bazzano</h3>
-            <p>Il luogo dove ci scambieremo le promesse.</p>
-            <a href="https://maps.google.com/?q=Rocca+dei+Bentivoglio+Bazzano" target="_blank" class="btn-link">apri la mappa</a>
+    <header class="hero">
+        <div class="hero-content">
+            <p class="subtitle">FINALMENTE CI SPOSIAMO</p>
+            <h1>Giulia & Marco</h1>
+            <p class="date">20 Giugno 2026 • Bologna</p>
+            <a href="#rsvp" class="btn">Conferma Presenza</a>
         </div>
+    </header>
 
-        <div>
-            <img src="spiga.png" alt="Logo Castellazzo" class="img-fluid logo-location">
-            <h3>Il Castellazzo, Monteveglio</h3>
-            <p>Festeggeremo insieme circondati dalla natura.</p>
-            <a href="https://maps.google.com/?q=Il+Castellazzo+Monteveglio" target="_blank" class="btn-link">apri la mappa</a>
+    <section id="program" class="container">
+        <h2 class="section-title">Il Programma</h2>
+        <div class="timeline">
+            <div class="event">
+                <span class="time">16:30</span>
+                <h3>La Cerimonia</h3>
+                <p>Presso la Chiesa di San Domenico, Bologna. Puntuali, vi controlliamo!</p>
+            </div>
+            <div class="event">
+                <span class="time">18:30</span>
+                <h3>Aperitivo e Cena</h3>
+                <p>Villa delle Rose. Spritz, musica e buon cibo.</p>
+            </div>
+            <div class="event">
+                <span class="time">23:00</span>
+                <h3>Party Time</h3>
+                <p>Open bar e DJ set fino a quando reggono i piedi.</p>
+            </div>
         </div>
     </section>
 
-    <hr class="divider">
-
-    <section id="programma">
-        <h2>il programma</h2>
-        <div class="prog-item">
-            <strong>Rocca dei Bentivoglio</strong>
-            <span class="time">17:00</span>
-            Cerimonia
-        </div>
-
-        <div class="travel">
-            🚗 <br> <span style="font-size: 0.8rem; letter-spacing: 2px;">8 MINUTI</span>
-        </div>
-
-        <div class="prog-item">
-            <strong>Il Castellazzo</strong>
-            <span class="time">18:00</span> Stuzzichini<br>
-            <span class="time">20:00</span> Cena<br>
-            <span class="time">22:00</span> Party
+    <section id="info" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Info Utili</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Dress Code</h3>
+                    <p>Elegant ma comodi per ballare. Le sneakers sono le benvenute dopo cena!</p>
+                </div>
+                <div class="card">
+                    <h3>Regalo</h3>
+                    <p>Il regalo più grande è la vostra presenza. Se volete contribuire al nostro viaggio in Giappone:</p>
+                    <strong>IT 12 X 01234 12345 000000123456</strong>
+                </div>
+            </div>
         </div>
     </section>
 
-    <hr class="divider">
-
-    <section id="foto">
-        <h2>wedshoots</h2>
-        <p style="max-width: 500px; margin: 0 auto;">C'è un fotografo in giro ma se volete condividere sfumature personali con tutti potete scaricare l'app</p>
-        
-        <div class="app-grid">
-            <a href="https://apps.apple.com/it/app/wedshoots/id660530745" class="btn-app">IOS</a>
-            <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" class="btn-app">ANDROID</a>
-        </div>
-
-        <p style="margin: 30px 0;">Codice album: <strong>ITa424c233</strong></p>
-        <p style="font-size: 0.9rem; opacity: 0.7;">oppure inquadra il codice:</p>
-        <img src="qrcode.png" alt="QR Code Wedshoots" class="img-fluid qr-code">
-    </section>
-
-    <hr class="divider">
-
-    <section id="regalo">
-        <p style="font-size: 1.4rem; margin-bottom: 25px;">La vostra presenza è il regalo più bello,</p>
-        <p style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.8; margin-bottom: 10px;">MA SE DESIDERATE CONTRIBUIRE AL NOSTRO FUTURO:</p>
-        <p>
-            <strong>IBAN di Beatrice e Federico</strong><br>
-            <span style="letter-spacing: 1px; font-size: 1.1rem;">IT57Y0707236670000000767183</span>
-        </p>
-    </section>
-
-    <hr class="divider">
-
-    <section id="rsvp">
-        <h2>rsvp</h2>
-        <form action="https://formspree.io/f/mwvwrrdd" method="POST">
-            <div class="input-box">
-                <label>Nome e Cognome</label>
-                <input type="text" name="name" placeholder="Inserisci il tuo nome" required>
-            </div>
-
-            <div class="input-box">
-                <label>Presenza</label>
-                <select name="attendance">
-                    <option value="confermo">Sì, ci sarò!</option>
-                    <option value="declino">Purtroppo non potrò esserci</option>
-                </select>
-            </div>
-
-            <div class="input-box">
-                <label>Numero di bambini</label>
-                <select name="kids">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
-            </div>
-
-            <div class="input-box">
-                <label>Note alimentari</label>
-                <textarea name="diet" rows="2" placeholder="Allergie, intolleranze..."></textarea>
-            </div>
-
-            <div class="input-box">
-                <label>Messaggio per noi</label>
-                <textarea name="msg" rows="2"></textarea>
-            </div>
-
-            <button type="submit" class="btn-submit">Invia Conferma</button>
+    <section id="rsvp" class="container">
+        <h2 class="section-title">Ci sarai?</h2>
+        <p class="center">Ti preghiamo di confermare entro il 20 Maggio 2026.</p>
+        <form class="rsvp-form">
+            <input type="text" placeholder="Nome e Cognome" required>
+            <select>
+                <option value="si">Sì, ci sarò!</option>
+                <option value="no">No, purtroppo non riesco</option>
+            </select>
+            <textarea placeholder="Allergie, intolleranze o canzoni che vuoi sentire?"></textarea>
+            <button type="submit" class="btn">Invia Conferma</button>
         </form>
     </section>
 
-    <footer style="padding: 60px 0; font-size: 0.7rem; opacity: 0.5; letter-spacing: 3px;">
-        B & F — 2026
+    <footer>
+        <p>#GiuliaEMarco2026 — Creato con ❤️ per i nostri amici.</p>
     </footer>
 
 </body>
