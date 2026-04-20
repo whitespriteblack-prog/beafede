@@ -3,116 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatrice & Federico - 29/08/26</title>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+    <title>B&F — 29.08.26</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #8fa194;
-            --text-color: #ffffff; /* Bianco per contrasto con il verde salvia */
-            --accent-color: #f4f4f4;
-            --font-family: 'EB Garamond', serif;
+            --text-color: #ffffff;
+            --accent-color: rgba(255, 255, 255, 0.6);
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Montserrat', sans-serif;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: var(--font-family);
+            font-family: var(--sans);
             margin: 0;
             padding: 0;
-            text-align: center;
-            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Navigazione Invisibile */
         nav {
-            padding: 20px;
-            position: sticky;
+            padding: 30px;
+            position: fixed;
+            width: 100%;
             top: 0;
-            background-color: var(--bg-color);
             z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            background: linear-gradient(to bottom, rgba(143, 161, 148, 0.8), transparent);
         }
 
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 300;
         }
 
         section {
-            padding: 80px 20px;
-            max-width: 800px;
+            padding: 120px 20px;
+            max-width: 900px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
         }
 
-        hr {
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .divider {
             width: 60%;
-            border: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.4);
-            margin: 40px auto;
+            height: 1px;
+            background-color: var(--accent-color);
+            margin: 60px auto;
+            border: none;
         }
 
-        h1 { font-weight: 400; font-size: 3rem; margin-bottom: 10px; }
-        h2 { font-weight: 400; font-size: 2rem; margin-bottom: 30px; }
+        /* Home */
+        .home-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-main { width: 120px; filter: brightness(0) invert(1); margin-bottom: 40px; }
         
-        .logo-main { width: 150px; margin-bottom: 20px; }
-        .logo-location { width: 80px; margin-bottom: 15px; }
+        h1 { 
+            font-family: var(--serif);
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 300;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .date {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            margin-top: 10px;
+            letter-spacing: 5px;
+            opacity: 0.8;
+        }
+
+        /* Location */
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) { .location-grid { grid-template-columns: 1fr; } }
+
+        .loc-card img { width: 60px; margin-bottom: 20px; opacity: 0.9; }
         
-        .btn {
+        h3 { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; margin-bottom: 10px; }
+        
+        .maps-link {
             display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            border: 1px solid var(--text-color);
+            margin-top: 15px;
             color: var(--text-color);
             text-decoration: none;
-            transition: all 0.3s;
+            border-bottom: 1px solid var(--accent-color);
+            font-size: 0.8rem;
+            padding-bottom: 3px;
         }
 
-        .btn:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        /* Programma */
+        .timeline {
+            font-family: var(--serif);
+            font-size: 1.4rem;
         }
 
-        .maps-link {
-            color: var(--text-color);
-            font-style: italic;
-            display: block;
-            margin-top: 10px;
+        .time-slot { margin: 30px 0; }
+        .time-slot span { display: block; font-size: 0.9rem; font-family: var(--sans); opacity: 0.7; margin-top: 5px; }
+
+        .travel-time {
+            font-size: 0.8rem;
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
         }
 
-        /* Form RSVP */
+        /* Form */
         form {
+            max-width: 450px;
+            margin: 40px auto 0;
             text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
         }
 
-        label { display: block; margin-top: 15px; }
-        
+        .input-group { margin-bottom: 25px; }
+
+        label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
         input, select, textarea {
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: none;
+            border-bottom: 1px solid var(--accent-color);
             color: white;
-            font-family: var(--font-family);
+            padding: 10px 0;
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            outline: none;
         }
 
-        option { color: black; }
-
-        .submit-btn {
-            margin-top: 30px;
+        .btn-submit {
             background: white;
             color: var(--bg-color);
             border: none;
-            cursor: pointer;
-            font-weight: bold;
+            padding: 15px 40px;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: 0.3s;
         }
 
-        .programma-item { margin: 20px 0; }
-        .car-icon { font-size: 1.5rem; margin: 20px 0; }
+        .btn-submit:hover { background: #f4f4f4; letter-spacing: 3px; }
+
+        .wedshoots-btns { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
+        .btn-app {
+            border: 1px solid white;
+            padding: 10px 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
 
     </style>
 </head>
@@ -121,113 +201,64 @@
     <nav>
         <a href="#home">Home</a>
         <a href="#location">Location</a>
-        <a href="#programma">Programma</a>
-        <a href="#foto">Foto</a>
-        <a href="#regalo">Regalo</a>
+        <a href="#programma">Evento</a>
         <a href="#rsvp">RSVP</a>
     </nav>
 
-    <section id="home">
-        <img src="logo1.png" alt="Logo" class="logo-main">
+    <section id="home" class="home-section">
+        <img src="logo1.png" alt="" class="logo-main">
         <h1>Beatrice & Federico</h1>
-        <p style="font-size: 1.5rem;">29/08/2026</p>
+        <div class="date">29 . 08 . 2026</div>
     </section>
 
-    <hr>
+    <div class="divider"></div>
 
     <section id="location">
-        <h2>Location</h2>
-        
-        <div class="loc">
-            <img src="Rocca.png" alt="Rocca" class="logo-location">
-            <h3>Rocca dei Bentivoglio, Bazzano</h3>
-            <p>Il luogo dove ci scambieremo le promesse.</p>
-            <a href="https://maps.google.com/?q=Rocca+dei+Bentivoglio+Bazzano" target="_blank" class="maps-link">Apri su Google Maps</a>
-        </div>
-
-        <div style="margin-top: 50px;">
-            <img src="Spiga.png" alt="Spiga" class="logo-location">
-            <h3>Il Castellazzo, Monteveglio</h3>
-            <p>Festeggeremo insieme circondati dalla natura.</p>
-            <a href="https://maps.google.com/?q=Il+Castellazzo+Monteveglio" target="_blank" class="maps-link">Apri su Google Maps</a>
+        <div class="location-grid">
+            <div class="loc-card">
+                <img src="Rocca.png" alt="">
+                <h3>Rocca dei Bentivoglio</h3>
+                <p>Bazzano. Il luogo dove ci scambieremo le promesse.</p>
+                <a href="https://maps.google.com" class="maps-link">INDICAZIONI MAPS</a>
+            </div>
+            <div class="loc-card">
+                <img src="Spiga.png" alt="">
+                <h3>Il Castellazzo</h3>
+                <p>Monteveglio. Festeggeremo insieme circondati dalla natura.</p>
+                <a href="https://maps.google.com" class="maps-link">INDICAZIONI MAPS</a>
+            </div>
         </div>
     </section>
 
-    <hr>
+    <div class="divider"></div>
 
     <section id="programma">
-        <h2>Programma</h2>
-        <div class="programma-item">
-            <strong>Rocca dei Bentivoglio, Bazzano</strong><br>
-            17:00 - Cerimonia
-        </div>
-        
-        <div class="car-icon">
-            🚗 <br> <span style="font-size: 0.9rem;">8'</span>
-        </div>
+        <h2 style="font-family: var(--serif); font-weight: 300;">Programma</h2>
+        <div class="timeline">
+            <div class="time-slot">
+                17:00
+                <span>Cerimonia presso Rocca dei Bentivoglio</span>
+            </div>
+            
+            <div class="travel-time">
+                <span style="font-size: 1.2rem;">🚗</span>
+                <span>8 MINUTI</span>
+            </div>
 
-        <div class="programma-item">
-            <strong>Il Castellazzo, Monteveglio</strong><br>
-            18:00 - Stuzzichini<br>
-            20:00 - Cena<br>
-            22:00 - Party
+            <div class="time-slot">
+                18:00 — Stuzzichini<br>
+                20:00 — Cena<br>
+                22:00 — Party
+                <span>Presso Il Castellazzo, Monteveglio</span>
+            </div>
         </div>
     </section>
 
-    <hr>
+    <div class="divider"></div>
 
     <section id="foto">
-        <h2>Wedshoots</h2>
-        <p>C'è un fotografo in giro ma se volete condividere sfumature personali con tutti potete scaricare l'app</p>
-        <a href="https://apps.apple.com/it/app/wedshoots/id660530745" class="btn">iOS</a>
-        <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" class="btn">Android</a>
-        <p style="margin-top: 20px;">Codice album: <strong>ITa424c233</strong></p>
-        <p>oppure inquadra questo codice:</p>
-        <img src="qrcode.png" alt="QR Code" style="width: 150px; margin-top: 10px;">
-    </section>
-
-    <hr>
-
-    <section id="regalo">
-        <p>La vostra presenza è il regalo più bello,<br>ma se desiderate contribuire al nostro futuro insieme:</p>
-        <p><strong>IBAN di Beatrice e Federico</strong><br>
-        IT57Y0707236670000000767183</p>
-    </section>
-
-    <hr>
-
-    <section id="rsvp">
-        <h2>RSVP</h2>
-        <form action="https://formspree.io/f/mwvwrrdd" method="POST">
-            <label>Nome e Cognome</label>
-            <input type="text" name="name" required>
-
-            <label>Confermi la tua presenza?</label>
-            <select name="attendance" required>
-                <option value="si">Sì, ci sarò!</option>
-                <option value="no">Purtroppo non potrò esserci</option>
-            </select>
-
-            <label>Numero di bambini</label>
-            <select name="bambini">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-            </select>
-
-            <label>Intolleranze, allergie o preferenze alimentari</label>
-            <textarea name="food_needs" rows="3"></textarea>
-
-            <label>Altre domande per noi?</label>
-            <textarea name="questions" rows="3"></textarea>
-
-            <button type="submit" class="submit-btn btn">Invia Conferma</button>
-        </form>
-    </section>
-
-    <footer style="padding: 40px 0; font-size: 0.8rem; opacity: 0.7;">
-        Beatrice & Federico 2026
-    </footer>
-
-</body>
-</html>
+        <h2 style="font-family: var(--serif); font-weight: 300;">Wedshoots</h2>
+        <p style="font-weight: 200; font-size: 0.9rem; max-width: 500px; margin: 0 auto;">C'è un fotografo in giro ma se volete condividere sfumature personali con tutti potete scaricare l'app.</p>
+        
+        <div class="wedshoots-btns">
+            <a href="#" class="btn-app">IOS</a>
