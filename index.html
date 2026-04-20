@@ -77,3 +77,144 @@
             border: 1px solid #e9e5db;
         }
         .gift-section h3 { margin-bottom: 20px; font-size: 1.8rem; }
+        .iban { 
+            font-size: 1.05rem; letter-spacing: 1px; margin-top: 20px; 
+            padding: 15px; display: inline-block; color: var(--forest-deep);
+            border-bottom: 1px solid var(--gold-muted);
+            font-family: monospace;
+        }
+
+        .btn {
+            background: var(--forest-deep); color: white; padding: 18px 45px;
+            text-decoration: none; border-radius: 2px; font-size: 0.9rem;
+            letter-spacing: 2px; transition: 0.4s; border: 1px solid var(--forest-deep);
+            cursor: pointer; text-transform: uppercase;
+        }
+        .btn:hover { background: transparent; color: var(--forest-deep); }
+
+        .rsvp-container { max-width: 550px; margin: 80px auto 0; }
+        .form-group { margin-bottom: 25px; text-align: left; }
+        label { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 8px; display: block; }
+        input, select, textarea { 
+            width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #d1d1d1; 
+            background: transparent; font-family: inherit; font-size: 1rem; outline: none;
+            transition: border-color 0.3s;
+        }
+        input:focus { border-bottom-color: var(--forest-deep); }
+
+        footer { text-align: center; padding: 100px 24px; font-size: 0.8rem; letter-spacing: 3px; color: var(--gold-muted); }
+
+        @media (max-width: 600px) {
+            .event-item { flex-direction: column; gap: 10px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .iban { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <p>29 Agosto 2026</p>
+            <h1>Beatrice & Federico</h1>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="section-header">
+            <h2>Il Programma</h2>
+        </div>
+        
+        <div class="schedule-grid">
+            <div class="event-item">
+                <div class="time">17:00</div>
+                <div class="event-details">
+                    <h3>La Cerimonia</h3>
+                    <p>Rocca dei Bentivoglio, Bazzano</p>
+                    <a href="https://maps.app.goo.gl/9ZpL9p6v8J4Y3S6X9" target="_blank" class="location-link">Visualizza Mappa</a>
+                </div>
+            </div>
+
+            <div class="event-item">
+                <div class="time">18:00</div>
+                <div class="event-details">
+                    <h3>Ricevimento</h3>
+                    <p>Castellazzo di Monteveglio</p>
+                    <a href="https://maps.app.goo.gl/uX8H4p2Y9Z7S1L5X6" target="_blank" class="location-link">Visualizza Mappa</a>
+                </div>
+            </div>
+
+            <div class="event-item">
+                <div class="time">20:00</div>
+                <div class="event-details">
+                    <h3>Cena</h3>
+                    <p>Un percorso conviviale tra i sapori della collina.</p>
+                </div>
+            </div>
+
+            <div class="event-item">
+                <div class="time">22:00</div>
+                <div class="event-details">
+                    <h3>Party</h3>
+                    <p>Musica, brindisi e balli nel fienile.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="gift-section">
+            <h3>Il nostro futuro</h3>
+            <p>La vostra partecipazione è il nostro dono più caro. Qualora desideriate contribuire al nostro inizio, potete farlo qui:</p>
+            <div class="iban">IT57Y0707236670000000767183</div>
+        </div>
+
+        <div id="rsvp" class="rsvp-container">
+            <div class="section-header">
+                <h2>Ci sarete?</h2>
+                <p style="font-size: 0.9rem; color: var(--gold-muted); margin-top: 10px;">Vi preghiamo di confermare entro il 15 Luglio 2026</p>
+            </div>
+
+            <form action="https://formspree.io/f/mwvwrrdd" method="POST">
+                <div class="form-group">
+                    <label>Nomi degli invitati</label>
+                    <input type="text" name="Nomi" placeholder="Inserite i vostri nomi" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="form-group">
+                        <label>Presenza</label>
+                        <select name="Conferma">
+                            <option value="Sì">Sì, con gioia</option>
+                            <option value="No">No, con dispiacere</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Bambini</label>
+                        <select name="Bambini">
+                            <option value="0">Nessuno</option>
+                            <option value="1">Sì, uno</option>
+                            <option value="2+">Sì, due o più</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Note, allergie o preferenze alimentari</label>
+                    <textarea name="Messaggio" placeholder="Scrivici qui le tue esigenze..." rows="2"></textarea>
+                </div>
+
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="btn">Invia conferma</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>B & F — 29 . 08 . 2026</p>
+        <p style="margin-top: 5px; opacity: 0.5;">#BeaEFeWedding</p>
+    </footer>
+
+</body>
+</html>
