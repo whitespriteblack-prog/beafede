@@ -235,37 +235,37 @@
 
     <hr>
 
-    <section id="rsvp">
-        <div class="section-content">
-            <p class="info-text" style="margin-bottom: 20px;">Compila il form per confermare la tua presenza.</p>
+    <section id="rsvp" style="scroll-margin-top: 80px;">
+    <div class="section-content">
+        <p class="info-text" style="margin-bottom: 20px;">Compila il form per confermare la tua presenza.</p>
+        
+        <form action="https://formspree.io/f/mwvwrrdd" method="POST" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 450px; margin: 0 auto;">
             
-            <form action="https://formspree.io/f/mwvwrrdd" method="POST" style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 450px; margin: 0 auto;">
-                
-                <input type="text" name="nome" placeholder="Nome e Cognome" required style="width: 100%; font-weight: 300;">
-                
-                <select name="partecipazione" required style="width: 100%; font-weight: 300;">
-                    <option value="" disabled selected>Parteciperai?</option>
-                    <option value="si">Sì, con piacere</option>
-                    <option value="no">Purtroppo non potrò</option>
-                </select>
+            <input type="text" name="nome" placeholder="Nome e Cognome" required style="width: 100%; font-weight: 300;">
+            
+            <select name="partecipazione" required style="width: 100%; font-weight: 300;">
+                <option value="" disabled selected>Parteciperai?</option>
+                <option value="si">Sì, con piacere</option>
+                <option value="no">Purtroppo non potrò</option>
+            </select>
 
-                <select name="bambini" style="width: 100%; font-weight: 300;">
-                    <option value="" disabled selected>Saranno presenti bambini?</option>
-                    <option value="0">No</option>
-                    <option value="1">Sì, 1 bambino</option>
-                    <option value="2">Sì, 2 bambini</option>
-                </select>
+            <select name="bambini" style="width: 100%; font-weight: 300;">
+                <option value="" disabled selected>Saranno presenti bambini?</option>
+                <option value="0">No</option>
+                <option value="1">Sì, 1 bambino</option>
+                <option value="2">Sì, 2 bambini</option>
+            </select>
 
-                <input type="text" name="note_bambini" placeholder="Note bimbi (es. seggioloni, menu dedicato)" style="width: 100%; font-weight: 300;">
+            <input type="text" name="note_bambini" placeholder="Note bimbi (es. seggioloni, menu dedicato)" style="width: 100%; font-weight: 300;">
 
-                <input type="text" name="intolleranze" placeholder="Intolleranze, allergie o preferenze" style="width: 100%; font-weight: 300;">
+            <input type="text" name="intolleranze" placeholder="Intolleranze, allergie o preferenze" style="width: 100%; font-weight: 300;">
 
-                <textarea name="domande" rows="3" placeholder="Altre domande o messaggi per noi" style="width: 100%; font-weight: 300; border-bottom: 1px solid var(--line-color);"></textarea>
-                
-                <button type="submit" style="margin-top: 10px; font-weight: 300;">Invia Conferma</button>
-            </form>
-        </div>
-    </section>
+            <textarea name="domande" rows="3" placeholder="Altre domande o messaggi per noi" style="width: 100%; font-weight: 300; border-bottom: 1px solid var(--line-color);"></textarea>
+            
+            <button type="submit" style="margin-top: 10px; font-weight: 300;">Invia Conferma</button>
+        </form>
+    </div>
+</section>
     <script>
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll("nav a");
