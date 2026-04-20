@@ -262,3 +262,61 @@
         
         <div class="wedshoots-btns">
             <a href="#" class="btn-app">IOS</a>
+            <a href="#" class="btn-app">ANDROID</a>
+        </div>
+
+        <p style="margin-top: 40px; font-size: 0.8rem; letter-spacing: 2px;">CODICE: <strong>ITA424C233</strong></p>
+        <p style="font-size: 0.7rem; opacity: 0.7; margin-top: 20px;">OPPURE INQUADRA IL CODICE</p>
+        <img src="qrcode.png" alt="QR" style="width: 100px; margin-top: 15px; filter: grayscale(1) contrast(1.2);">
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="regalo">
+        <p style="font-family: var(--serif); font-size: 1.5rem;">La vostra presenza è il regalo più bello.</p>
+        <p style="font-size: 0.8rem; font-weight: 200; margin-top: 20px;">MA SE DESIDERATE CONTRIBUIRE AL NOSTRO FUTURO:</p>
+        <p style="letter-spacing: 1px; margin-top: 10px;">IBAN BEATRICE E FEDERICO<br><strong>IT57Y0707236670000000767183</strong></p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="rsvp">
+        <h2 style="font-family: var(--serif); font-weight: 300;">Rsvp</h2>
+        <form action="https://formspree.io/f/mwvwrrdd" method="POST">
+            <div class="input-group">
+                <label>Nome e Cognome</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Partecipazione</label>
+                <select name="attendance">
+                    <option value="si">Sì, ci sarò!</option>
+                    <option value="no">Purtroppo non potrò esserci</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Bambini al seguito</label>
+                <select name="kids">
+                    <option value="0">Nessuno</option>
+                    <option value="1">1 bambino</option>
+                    <option value="2">2 bambini</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Intolleranze o preferenze</label>
+                <textarea name="notes" rows="2"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Conferma Presenza</button>
+        </form>
+    </section>
+
+    <footer style="padding-bottom: 50px; font-size: 0.6rem; letter-spacing: 3px; opacity: 0.5;">
+        B & F — 2026
+    </footer>
+
+</body>
+</html>
