@@ -73,10 +73,13 @@
             width: 100%;
             max-width: 600px;
         }
-        #foto h2 { 
+       #foto h2 { 
             display: flex !important; 
-            margin-bottom: 20px !important; /* Spazio extra per non farlo toccare col testo */
+            font-size: 3rem !important; /* Aumentato da 2.2rem a 3rem */
+            margin-bottom: 30px !important; 
+            letter-spacing: 6px !important; /* Un po' più di respiro tra le lettere */
         }
+        
         h1 { font-size: 3.5rem; font-weight: 400; margin-bottom: 10px; }
         hr { width: 60%; border: 0; border-top: 1px solid var(--line-color); margin: 0 auto; }
         .info-text { font-size: 1.2rem; line-height: 1.4; }
@@ -203,55 +206,21 @@
     <hr>
 
     <section id="foto">
+        <h2>WedShoots</h2> 
+        <div class="section-content">
+            <p class="info-text">Condividete con noi gli scatti della giornata</p>
+            
+            <div>
+                <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 20px;">
+                    <a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="btn-link">iPhone</a>
+                    <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="btn-link">Android</a>
+                </div>
+                <p style="font-size: 0.9rem; text-transform: uppercase; opacity: 0.7; margin-bottom: 5px;">Codice Album:</p>
+                <p style="font-size: 2.2rem; letter-spacing: 5px; color: var(--text-color);"><strong>ITa424c233</strong></p>
+            </div>
 
-        <h2>WEDSHOOTS</h2>
-
-        <p class="info-text" style="margin-bottom: 10px;">C'è un fotografo in giro, ma se volete cogliere sfumature personali e condividerle con noi ecco come fare</p>
-
-        
-
-        <p class="info-text" style="margin-bottom: 5px;">Scarica l'app:</p>
-
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 30px;">
-
-            <a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="btn-link" style="margin-top: 0; padding: 8px 15px;">
-
-                iPhone
-
-            </a>
-
-            <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="btn-link" style="margin-top: 0; padding: 8px 15px;">
-
-                Android
-
-            </a>
-
+            <img src="qrcode.png" alt="QR Code" style="width: 110px; opacity: 0.9; margin: 0 auto; background: white; padding: 8px; border: 1px solid var(--line-color);">
         </div>
-
-
-
-        <p class="info-text" style="margin-bottom: 5px;">Inserisci il codice:</p>
-
-        <p style="font-size: 1.8rem; letter-spacing: 3px; margin: 0 0 30px 0;">
-
-            <strong>ITa424c233</strong>
-
-        </p>
-
-
-
-        <p class="info-text" style="margin-bottom: 10px;">In alternativa, inquadra il QR code:</p>
-
-        <div style="margin: 0;">
-
-            <img src="qrcode.png" 
-
-                 alt="QR Code Matrimonio" 
-
-                 style="width: 80px; height: 80px; opacity: 0.8; border: 1px solid var(--line-color); padding: 5px; object-fit: contain;">
-
-        </div>
-
     </section>
 
     <hr>
