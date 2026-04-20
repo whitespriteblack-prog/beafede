@@ -3,113 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B&F 🔥 29.08.2026</title>
+    <title>Beatrice & Federico | 2026</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --orange-vibe: #ff6b35; /* Arancione energetico */
-            --dark-green: #1a433e; /* Verde foresta scuro */
-            --warm-cream: #fff8f0; /* Crema caldo di sfondo */
-            --text-dark: #2b2b2b;
+            --forest: #2d3e33;
+            --soft-green: #8fa89b;
+            --sand: #f4f1ee;
             --white: #ffffff;
+            --text: #4a4a4a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            font-family: 'Space Grotesk', sans-serif; 
-            line-height: 1.6; 
-            color: var(--text-dark); 
-            background-color: var(--warm-cream);
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            line-height: 1.7; 
+            color: var(--text); 
+            background-color: var(--sand);
             scroll-behavior: smooth;
-            font-weight: 300;
         }
 
-        /* TITOLI BOLD & FUN */
-        h1, h2, h3 { font-family: 'Shrikhand', cursive; font-weight: normal; text-transform: none; letter-spacing: 0; }
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: -0.02em; }
         
-        .container { padding: 100px 20px; max-width: 1000px; margin: auto; }
+        .container { padding: 80px 24px; max-width: 850px; margin: auto; }
 
-        /* HERO SECTION - YOUNG VIBES */
+        /* HERO SECTION - MINIMAL */
         .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(255,107,53,0.8), rgba(26,67,62,0.8)), 
-                        url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070') no-repeat center center/cover;
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?q=80&w=2000') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%); /* Taglio obliquo moderno */
         }
-        .hero-content h1 { font-size: 5rem; line-height: 1; margin-bottom: 15px; transform: rotate(-2deg); }
-        .hero-content p { font-size: 1.8rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 8px; }
+        .hero-content p { font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; }
 
-        /* SEZIONI DINAMICHE */
-        .section-title { font-size: 3.5rem; color: var(--dark-green); margin-bottom: 10px; position: relative; display: inline-block; }
-        .section-title::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 15px; background: var(--orange-vibe); z-index: -1; opacity: 0.5; }
+        /* SEZIONI */
+        .section-title { font-size: 2.2rem; color: var(--forest); margin-bottom: 12px; text-align: center; }
+        .section-intro { text-align: center; color: var(--soft-green); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 40px; display: block; }
+
+        /* PROGRAMMA PULITO */
+        .grid-schedule { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+        .event-box { background: var(--white); padding: 32px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); }
+        .event-box strong { color: var(--soft-green); font-size: 0.9rem; display: block; margin-bottom: 8px; }
+        .event-box h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--forest); }
+        .event-box p { font-size: 0.95rem; opacity: 0.8; }
         
-        .subtitle-vibe { font-size: 1.2rem; color: var(--orange-vibe); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 50px; display: block; }
-
-        /* TIMELINE MODERNA */
-        .schedule { margin: 60px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .event-card { background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 10px 10px 0 var(--dark-green); border: 2px solid var(--dark-green); transition: 0.3s; text-align: left;}
-        .event-card:hover { transform: translate(-5px, -5px); box-shadow: 15px 15px 0 var(--orange-vibe); }
-        .event-card strong { color: var(--orange-vibe); font-size: 1.5rem; display: block; margin-bottom: 10px; font-weight: 700;}
-        .event-card h3 { font-size: 1.8rem; color: var(--dark-green); margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; text-transform: uppercase;}
-        .location-tag { font-size: 0.9rem; font-weight: 500; color: var(--text-dark); background: #eee; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 10px;}
-
-        .map-link {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 0.8rem;
-            color: var(--dark-green);
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 2px solid var(--orange-vibe);
+        .map-btn { 
+            display: inline-block; margin-top: 15px; font-size: 0.8rem; font-weight: 700;
+            color: var(--forest); text-decoration: none; border-bottom: 2px solid var(--soft-green);
         }
 
-        /* INFO & REGALO BOX */
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; text-align: left; }
-        .gift-box { background: var(--dark-green); color: var(--warm-cream); padding: 40px; border-radius: 20px; }
-        .gift-box h3 { color: var(--orange-vibe); margin-bottom: 20px; }
-        .iban { margin-top: 25px; font-weight: 700; font-size: 1.1rem; color: var(--white); word-break: break-all; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;}
+        /* INFO & REGALO */
+        .info-section { background: var(--forest); color: var(--sand); border-radius: 24px; padding: 60px 40px; margin: 40px 0; }
+        .info-section h2 { color: var(--white); margin-bottom: 20px; }
+        .iban-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; margin-top: 20px; font-family: monospace; font-size: 1.1rem; border: 1px dashed rgba(255,255,255,0.2); }
 
-        /* BOTTONE GIGANTE */
+        /* BOTTONE */
         .btn {
-            display: inline-block;
-            background: var(--orange-vibe);
-            color: var(--white);
-            padding: 20px 60px;
-            text-decoration: none;
-            transition: 0.3s;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+            background: var(--forest); color: var(--white); padding: 16px 40px;
+            text-decoration: none; border-radius: 8px; font-weight: 600; transition: 0.3s;
+            border: none; cursor: pointer; font-size: 1rem;
         }
-        .btn:hover { background: var(--dark-green); transform: scale(1.05); }
+        .btn:hover { background: var(--soft-green); }
 
-        /* FORM RSVP CLEAN */
-        .rsvp-form { display: flex; flex-direction: column; gap: 25px; max-width: 600px; margin: 50px auto 0; text-align: left; background: var(--white); padding: 40px; border-radius: 20px; border: 2px solid #eee;}
-        .form-group { display: flex; flex-direction: column; }
-        label { font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; color: var(--dark-green); text-transform: uppercase; letter-spacing: 1px;}
-        input, select, textarea { padding: 15px; border: 2px solid #eee; background: var(--warm-cream); font-family: inherit; width: 100%; border-radius: 10px; font-size: 1rem;}
-        input:focus, select:focus, textarea:focus { border-color: var(--orange-vibe); outline: none; }
+        /* FORM RSVP */
+        .rsvp-card { background: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-top: 40px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .form-group { display: flex; flex-direction: column; margin-bottom: 20px; text-align: left; }
+        label { font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; color: var(--forest); }
+        input, select, textarea { 
+            padding: 12px; border: 1px solid #e1e1e1; background: #fafafa; 
+            border-radius: 6px; font-family: inherit; font-size: 1rem;
+        }
 
-        footer { padding: 100px 20px; background: var(--dark-green); color: rgba(255,248,240,0.6); text-align: center; }
-        footer h2 { color: var(--orange-vibe); font-size: 3rem; transform: rotate(1deg); margin-bottom: 10px;}
+        footer { text-align: center; padding: 80px 20px; opacity: 0.6; font-size: 0.9rem; }
 
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3.5rem; }
-            .section-title { font-size: 2.5rem; }
-            .info-grid { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
+            .grid-schedule, .form-row { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -117,109 +95,94 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Bea & Fede</h1>
-            <p>29 • 08 • 2026</p>
+            <h1>B&F</h1>
+            <p>29 Agosto 2026</p>
         </div>
     </header>
 
-    <section class="container" style="text-align: center;">
-        <h2 class="section-title">Get Ready</h2>
-        <span class="subtitle-vibe">Ecco il piano d'attacco</span>
+    <section class="container">
+        <span class="section-intro">Il Programma</span>
+        <h2 class="section-title">Dove e Quando</h2>
         
-        <div class="schedule">
-            <div class="event-card">
+        <div class="grid-schedule">
+            <div class="event-box">
                 <strong>17:00</strong>
-                <h3>SIAMO SERI</h3>
-                <p>La Cerimonia formale (ma non troppo).</p>
-                <p class="location-tag">Rocca dei Bentivoglio, Bazzano</p>
-                <a href="https://maps.app.goo.gl/P6U1E7XmR8E9L7U97" target="_blank" class="map-link">📍 Mappa</a>
+                <h3>La Cerimonia</h3>
+                <p>Rocca dei Bentivoglio, Bazzano (BO)</p>
+                <a href="https://maps.app.goo.gl/P6U1E7XmR8E9L7U97" target="_blank" class="map-btn">MAPPA</a>
             </div>
-
-            <div class="event-card">
+            <div class="event-box">
                 <strong>18:00</strong>
-                <h3>SPRITZ O'CLOCK</h3>
-                <p>Aperitivo, abbracci e primi brindisi.</p>
-                <p class="location-tag">Castellazzo di Monteveglio</p>
-                <a href="https://maps.app.goo.gl/3mU7L6Yx9N5Z2S7B8" target="_blank" class="map-link">📍 Mappa</a>
+                <h3>Ricevimento</h3>
+                <p>Castellazzo di Monteveglio (BO)</p>
+                <a href="https://maps.app.goo.gl/3mU7L6Yx9N5Z2S7B8" target="_blank" class="map-btn">MAPPA</a>
             </div>
-
-            <div class="event-card">
+            <div class="event-box">
                 <strong>20:00</strong>
-                <h3>FOOD & WINE</h3>
-                <p>Cena seria sotto le stelle. Portate fame.</p>
+                <h3>Cena</h3>
+                <p>In giardino, tra i vigneti</p>
             </div>
-
-            <div class="event-card">
+            <div class="event-box">
                 <strong>22:00</strong>
-                <h3>WILD PARTY</h3>
-                <p>DJ Set, Open Bar e zero dignità.</p>
+                <h3>Party</h3>
+                <p>Musica e open bar nel fienile</p>
             </div>
         </div>
-    </section>
 
-    <section style="background-color: var(--dark-green); color: var(--warm-cream);">
-        <div class="container">
-            <div class="info-grid">
-                <div class="gift-box">
-                    <h3>⚡️ REGALO?</h3>
-                    <p>La vostra presenza è già un regalo enorme. Se però volete darci una mano a costruire il nostro futuro insieme, ogni contributo è benaccetto!</p>
-                    <p class="iban">IBAN: IT 00 A 12345 67890 123456789012</p>
-                </div>
-                <div style="padding: 40px;">
-                    <h3 style="font-family: 'Shrikhand'; color: var(--orange-vibe); font-size: 2rem; margin-bottom: 20px;">DRESS CODE</h3>
-                    <p style="font-size: 1.3rem; font-weight: 500;">COUNTRY CHIC</p>
-                    <p style="margin-top: 15px; opacity: 0.8;">Belli ma comodi. Saremo in collina e sul prato, quindi le scarpe giuste sono fondamentali per ballare tutto il tempo!</p>
-                </div>
+        <div class="info-section">
+            <h2>Pensieri per noi</h2>
+            <p>La vostra presenza è il nostro regalo preferito. Se volete contribuire al nostro futuro insieme, potete farlo qui:</p>
+            <div class="iban-card">IT 00 A 12345 67890 123456789012</div>
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+                <strong>Dress Code:</strong> Country Chic. <br>Saremo su prato e ghiaia, scegliete scarpe comode!
+            </p>
+        </div>
+
+        <div id="rsvp" style="text-align: center; margin-top: 60px;">
+            <span class="section-intro">RSVP</span>
+            <h2 class="section-title">Ci sarete?</h2>
+            <p>Confermate la vostra presenza entro il 15 Luglio 2026.</p>
+
+            <div class="rsvp-card">
+                <form action="https://formspree.io/f/mwvwrrdd" method="POST" class="rsvp-form">
+                    <div class="form-group">
+                        <label>Nome e Cognome</label>
+                        <input type="text" name="Nomi" placeholder="I vostri nomi" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Parteciperete?</label>
+                            <select name="Conferma">
+                                <option value="Si">Sì, ci saremo!</option>
+                                <option value="No">No, purtroppo no</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Bambini?</label>
+                            <select name="Bambini">
+                                <option value="0">No</option>
+                                <option value="1">Sì, 1 bambino</option>
+                                <option value="2+">Sì, 2 o più</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Intolleranze o preferenze alimentari</label>
+                        <textarea name="Note" placeholder="Celiachia, Vegano, Allergie..." rows="3"></textarea>
+                    </div>
+
+                    <input type="text" name="_gotcha" style="display:none">
+                    <button type="submit" class="btn">INVIA CONFERMA</button>
+                </form>
             </div>
         </div>
-    </section>
-
-    <section id="rsvp" class="container" style="text-align: center;">
-        <h2 class="section-title">Ci sei?</h2>
-        <span class="subtitle-vibe">Conferma la tua wave</span>
-        <p>Facci sapere se vieni a fare festa con noi entro il 15 Luglio 2026.</p>
-        
-        <form action="https://formspree.io/f/mwvwrrdd" method="POST" class="rsvp-form">
-            <div class="form-group">
-                <label>Chi sei / Chi siete?</label>
-                <input type="text" name="nomi" placeholder="I vostri nomi" required>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label>La tua risposta</label>
-                    <select name="conferma">
-                        <option value="si">Sì, non vedo l'ora! 🔥</option>
-                        <option value="no">No, brinderò da lontano 😢</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Bambini a bordo?</label>
-                    <select name="bambini">
-                        <option value="0">No bambini</option>
-                        <option value="1">Sì, 1</option>
-                        <option value="2+">Sì, 2 o più</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Dieta, Allergie o Voglie Speciali</label>
-                <textarea name="dieta" placeholder="Es: Vegano, no glutine, o la tua canzone preferita..." rows="3"></textarea>
-            </div>
-
-            <input type="text" name="_gotcha" style="display:none">
-
-            <div class="form-group" style="text-align: center; margin-top: 20px;">
-                <button type="submit" class="btn">CONFERMA ORA</button>
-            </div>
-        </form>
     </section>
 
     <footer>
-        <h2>B & F</h2>
-        <p style="font-size: 1.1rem; font-weight: 500; letter-spacing: 2px;">29 AGOSTO 2026</p>
-        <p style="font-size: 0.9rem; margin-top: 20px; opacity: 0.5;">#BeaEFeWedding • Preparatevi.</p>
+        <p>Beatrice & Federico — 29.08.2026</p>
+        <p style="margin-top: 10px;">#BeaEFeWedding</p>
     </footer>
 
 </body>
