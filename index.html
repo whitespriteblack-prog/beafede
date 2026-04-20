@@ -199,15 +199,31 @@
     <section id="rsvp">
         <h2>RSVP</h2>
         <div class="section-content">
-            <p class="info-text">Confermate la vostra presenza entro il 30 Giugno</p>
+            <p class="info-text" style="margin-bottom: 5px;">Confermate la vostra presenza entro il 30 Giugno</p>
+            
             <form action="https://formspree.io/f/mwvwrrdd" method="POST">
                 <input type="text" name="nome" placeholder="Nome e Cognome" required>
+                
                 <select name="partecipazione" required>
                     <option value="" disabled selected>Parteciperai?</option>
                     <option value="si">Sì, con piacere</option>
                     <option value="no">Purtroppo non potrò</option>
                 </select>
-                <input type="text" name="allergie" placeholder="Allergie o intolleranze">
+
+                <select name="bambini">
+                    <option value="" disabled selected>Saranno presenti bambini?</option>
+                    <option value="0">No</option>
+                    <option value="1">Sì, 1 bambino</option>
+                    <option value="2">Sì, 2 bambini</option>
+                    <option value="3+">Sì, 3 o più</option>
+                </select>
+
+                <input type="text" name="note_bambini" placeholder="Note bimbi (es. seggioloni, menu dedicato)">
+
+                <input type="text" name="intolleranze" placeholder="Intolleranze, allergie o preferenze">
+
+                <textarea name="domande" rows="2" placeholder="Altre domande o messaggi per noi"></textarea>
+                
                 <button type="submit">Invia Conferma</button>
             </form>
         </div>
