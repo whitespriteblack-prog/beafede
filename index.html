@@ -236,16 +236,32 @@
     <hr>
 
     <section id="rsvp">
-        <h2 style="display: block;">RSVP</h2>
+        <h2 style="display: block; font-weight: 300;">RSVP</h2>
         <div class="section-content">
-            <p class="info-text">Compila il form per confermare la tua presenza.</p>
+            <p class="info-text" style="margin-bottom: 5px;">Compila il form per confermare la tua presenza.</p>
+            
             <form action="https://formspree.io/f/mwvwrrdd" method="POST">
                 <input type="text" name="nome" placeholder="Nome e Cognome" required>
+                
                 <select name="partecipazione" required>
                     <option value="" disabled selected>Parteciperai?</option>
                     <option value="si">Sì, con piacere</option>
                     <option value="no">Purtroppo non potrò</option>
                 </select>
+
+                <select name="bambini">
+                    <option value="" disabled selected>Saranno presenti bambini?</option>
+                    <option value="0">No</option>
+                    <option value="1">Sì, 1 bambino</option>
+                    <option value="2">Sì, 2 bambini</option>
+                </select>
+
+                <input type="text" name="note_bambini" placeholder="Note bimbi (es. seggioloni, menu dedicato)">
+
+                <input type="text" name="intolleranze" placeholder="Intolleranze, allergie o preferenze">
+
+                <textarea name="domande" rows="2" placeholder="Altre domande o messaggi per noi"></textarea>
+                
                 <button type="submit">Invia Conferma</button>
             </form>
         </div>
