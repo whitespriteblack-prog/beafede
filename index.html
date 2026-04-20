@@ -3,75 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sposi 2026 | Save the Date</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Il Nostro Matrimonio | 2026</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS INTEGRATO (Così non serve il file esterno) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background-color: #fff;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, .couple-names { font-family: 'Playfair Display', serif; }
+
+        .container { padding: 60px 20px; max-width: 800px; margin: auto; text-align: center; }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero-content p { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* SECTIONS */
+        .section-title { font-size: 2.5rem; color: #d4af37; margin-bottom: 20px; }
+        .bg-cream { background-color: #faf7f2; }
+
+        /* TIMELINE */
+        .event { margin: 30px 0; padding: 20px; border-bottom: 1px dashed #d4af37; }
+        .time { font-weight: bold; color: #d4af37; font-size: 1.2rem; display: block; }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .btn:hover { background: #b8962d; transform: scale(1.05); }
+
+        /* FORM */
+        .rsvp-form { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        footer { padding: 40px; font-size: 0.9rem; color: #999; background: #eee; text-align: center; }
+
+        @media (max-width: 600px) {
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
 
     <header class="hero">
         <div class="hero-content">
-            <p class="subtitle">FINALMENTE CI SPOSIAMO</p>
+            <p>Salva la Data</p>
             <h1>Giulia & Marco</h1>
-            <p class="date">20 Giugno 2026 • Bologna</p>
-            <a href="#rsvp" class="btn">Conferma Presenza</a>
+            <p>20.06.2026</p>
+            <a href="#rsvp" class="btn">Io ci sarò!</a>
         </div>
     </header>
 
-    <section id="program" class="container">
-        <h2 class="section-title">Il Programma</h2>
-        <div class="timeline">
-            <div class="event">
-                <span class="time">16:30</span>
-                <h3>La Cerimonia</h3>
-                <p>Presso la Chiesa di San Domenico, Bologna. Puntuali, vi controlliamo!</p>
-            </div>
-            <div class="event">
-                <span class="time">18:30</span>
-                <h3>Aperitivo e Cena</h3>
-                <p>Villa delle Rose. Spritz, musica e buon cibo.</p>
-            </div>
-            <div class="event">
-                <span class="time">23:00</span>
-                <h3>Party Time</h3>
-                <p>Open bar e DJ set fino a quando reggono i piedi.</p>
-            </div>
+    <section class="container">
+        <h2 class="section-title">Il Nostro Giorno</h2>
+        <p>Non vediamo l'ora di festeggiare con voi. Ecco i dettagli della giornata:</p>
+        
+        <div class="event">
+            <span class="time">16:30</span>
+            <h3>Cerimonia</h3>
+            <p>Basilica di Santo Stefano, Bologna</p>
+        </div>
+
+        <div class="event">
+            <span class="time">19:00</span>
+            <h3>Ricevimento</h3>
+            <p>Villa Altea - Aperitivo, Cena e Brindisi</p>
+        </div>
+
+        <div class="event">
+            <span class="time">23:30</span>
+            <h3>Party</h3>
+            <p>Musica, Drink e balli scatenati</p>
         </div>
     </section>
 
-    <section id="info" class="bg-light">
+    <section class="bg-cream">
         <div class="container">
-            <h2 class="section-title">Info Utili</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Dress Code</h3>
-                    <p>Elegant ma comodi per ballare. Le sneakers sono le benvenute dopo cena!</p>
-                </div>
-                <div class="card">
-                    <h3>Regalo</h3>
-                    <p>Il regalo più grande è la vostra presenza. Se volete contribuire al nostro viaggio in Giappone:</p>
-                    <strong>IT 12 X 01234 12345 000000123456</strong>
-                </div>
-            </div>
+            <h2 class="section-title">Viaggio di Nozze</h2>
+            <p>Il vostro affetto è il regalo più bello. Se volete aiutarci a volare in Polinesia, potete farlo qui:</p>
+            <p style="margin-top:20px; font-weight:bold;">IBAN: IT 00 X 00000 00000 000000000000</p>
         </div>
     </section>
 
     <section id="rsvp" class="container">
-        <h2 class="section-title">Ci sarai?</h2>
-        <p class="center">Ti preghiamo di confermare entro il 20 Maggio 2026.</p>
+        <h2 class="section-title">Conferma la presenza</h2>
+        <p>Facci sapere se sarai dei nostri entro il 15 Maggio.</p>
+        
         <form class="rsvp-form">
             <input type="text" placeholder="Nome e Cognome" required>
             <select>
-                <option value="si">Sì, ci sarò!</option>
-                <option value="no">No, purtroppo non riesco</option>
+                <option>Sì, verrò a fare festa!</option>
+                <option>Purtroppo non posso venire</option>
             </select>
-            <textarea placeholder="Allergie, intolleranze o canzoni che vuoi sentire?"></textarea>
-            <button type="submit" class="btn">Invia Conferma</button>
+            <textarea placeholder="Allergie o canzoni preferite?"></textarea>
+            <button type="submit" class="btn" style="border:none; cursor:pointer;">Invia Messaggio</button>
         </form>
     </section>
 
     <footer>
-        <p>#GiuliaEMarco2026 — Creato con ❤️ per i nostri amici.</p>
+        <p>#GiuliaEMarco2026<br>Fatto con amore.</p>
     </footer>
 
 </body>
