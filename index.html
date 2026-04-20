@@ -275,7 +275,7 @@
 
     <section id="rsvp">
         <h2>RSVP</h2>
-        <p class="info-text"> Conferma la tua partecipazione entro il 30 Giugno 2026.</p>
+        <p class="info-text">Compila il form qui sotto per confermare</p>
         
         <form action="https://formspree.io/f/mwvwrrdd" method="POST">
             <input type="text" name="nome" placeholder="Nome e Cognome" required>
@@ -285,7 +285,25 @@
                 <option value="no">Purtroppo non potrò</option>
             </select>
             <input type="text" name="intolleranze" placeholder="Intolleranze o allergie">
-            <textarea name="preferenze" rows="3" placeholder="Preferenze sul cibo o domande"></textarea>
+            <textarea name="preferenze" rows="3" placeholder="Preferenze sul cibo"></textarea>
+            <div style="margin-bottom: 20px;">
+    <label style="display: block; margin-bottom: 10px; font-family: 'Garamond', serif; color: #333d36;">
+        Saranno presenti bambini?
+    </label>
+    <select name="Presenza Bambini" style="width: 100%; padding: 12px; border: 1px solid #333d36; background: transparent; font-family: 'Garamond', serif; color: #333d36; border-radius: 0; -webkit-appearance: none;">
+        <option value="No">No</option>
+        <option value="1 Bambino">Sì, 1 bambino</option>
+        <option value="2 Bambini">Sì, 2 bambini</option>
+        <option value="3+ Bambini">Sì, 3 o più bambini</option>
+    </select>
+</div>
+
+<div style="margin-bottom: 20px;">
+    <label style="display: block; margin-bottom: 10px; font-family: 'Garamond', serif; color: #333d36;">
+        Note per i più piccoli (es. seggioloni, menu bimbi)
+    </label>
+    <input type="text" name="Note Bambini" placeholder="es: 1 seggiolone, 2 menu bimbi" style="width: 100%; padding: 12px; border: 1px solid #333d36; background: transparent; font-family: 'Garamond', serif; color: #333d36; border-radius: 0; box-sizing: border-box;">
+</div>
             <button type="submit">Invia Conferma</button>
         </form>
     </section>
