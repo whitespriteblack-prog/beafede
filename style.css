@@ -1,88 +1,81 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2868
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+/* RESET E BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Montserrat', sans-serif; 
+    line-height: 1.6; 
+    color: #333; 
+    scroll-behavior: smooth;
+}
 
-\f0\fs24 \cf0 /* RESET E BASE */\
-* \{ margin: 0; padding: 0; box-sizing: border-box; \}\
-body \{ \
-    font-family: 'Montserrat', sans-serif; \
-    line-height: 1.6; \
-    color: #333; \
-    scroll-behavior: smooth;\
-\}\
-\
-h1, h2, .subtitle \{ font-family: 'Playfair Display', serif; \}\
-\
-.container \{ padding: 80px 20px; max-width: 900px; margin: auto; \}\
-.section-title \{ text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #bca37d; \}\
-.bg-light \{ background: #f9f9f9; \}\
-.center \{ text-align: center; margin-bottom: 20px; \}\
-\
-/* HERO SECTION */\
-.hero \{\
-    height: 100vh;\
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), \
-                url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1500') no-repeat center center/cover;\
-    display: flex;\
-    align-items: center;\
-    justify-content: center;\
-    text-align: center;\
-    color: white;\
-\}\
-.hero h1 \{ font-size: 4rem; margin: 10px 0; \}\
-.hero .subtitle \{ letter-spacing: 4px; font-size: 0.9rem; \}\
-.hero .date \{ font-size: 1.5rem; margin-bottom: 30px; \}\
-\
-/* BOTTONE */\
-.btn \{\
-    background: #bca37d;\
-    color: white;\
-    padding: 15px 35px;\
-    text-decoration: none;\
-    border-radius: 50px;\
-    font-weight: 600;\
-    transition: 0.3s;\
-    border: none;\
-    cursor: pointer;\
-\}\
-.btn:hover \{ background: #a38b65; transform: translateY(-3px); \}\
-\
-/* TIMELINE */\
-.timeline \{ border-left: 2px solid #bca37d; padding-left: 20px; margin: 0 auto; max-width: 500px; \}\
-.event \{ margin-bottom: 30px; position: relative; \}\
-.event::before \{\
-    content: '';\
-    position: absolute;\
-    left: -31px;\
-    top: 5px;\
-    width: 20px;\
-    height: 20px;\
-    background: #bca37d;\
-    border-radius: 50%;\
-\}\
-.time \{ font-weight: bold; color: #bca37d; display: block; \}\
-\
-/* GRID E CARDS */\
-.grid \{ display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; \}\
-.card \{ background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); \}\
-\
-/* FORM */\
-.rsvp-form \{ display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: auto; \}\
-input, select, textarea \{\
-    padding: 15px;\
-    border: 1px solid #ddd;\
-    border-radius: 10px;\
-    font-family: inherit;\
-\}\
-textarea \{ height: 100px; \}\
-\
-footer \{ text-align: center; padding: 40px; font-size: 0.8rem; color: #888; \}\
-\
-/* MOBILE RESPONSIVE */\
-@media (max-width: 600px) \{\
-    .hero h1 \{ font-size: 2.5rem; \}\
-    .section-title \{ font-size: 2rem; \}\
-\}}
+h1, h2, .subtitle { font-family: 'Playfair Display', serif; }
+
+.container { padding: 80px 20px; max-width: 900px; margin: auto; }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #bca37d; }
+.bg-light { background: #f9f9f9; }
+.center { text-align: center; margin-bottom: 20px; }
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1500') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.hero h1 { font-size: 4rem; margin: 10px 0; }
+.hero .subtitle { letter-spacing: 4px; font-size: 0.9rem; }
+.hero .date { font-size: 1.5rem; margin-bottom: 30px; }
+
+/* BOTTONE */
+.btn {
+    background: #bca37d;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover { background: #a38b65; transform: translateY(-3px); }
+
+/* TIMELINE */
+.timeline { border-left: 2px solid #bca37d; padding-left: 20px; margin: 0 auto; max-width: 500px; }
+.event { margin-bottom: 30px; position: relative; }
+.event::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: #bca37d;
+    border-radius: 50%;
+}
+.time { font-weight: bold; color: #bca37d; display: block; }
+
+/* GRID E CARDS */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.card { background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+/* FORM */
+.rsvp-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: auto; }
+input, select, textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: inherit;
+}
+textarea { height: 100px; }
+
+footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #888; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+}
