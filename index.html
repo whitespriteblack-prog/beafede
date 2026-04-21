@@ -61,18 +61,18 @@
             overflow: hidden; 
         }
 
-        /* MOSAICO MODIFICATO - Stile Giovanile & Bento Grid con Spazi */
+        /* MOSAICO MODIFICATO - Forme Organiche e Minor Ritaglio */
         .header-mosaic-fullwidth {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 60%; /* Altezza su Desktop */
+            height: 65%; /* Leggermente più alto per mostrare di più */
             z-index: 1;
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Griglia a 4 colonne */
-            grid-template-rows: repeat(2, 1fr);   /* Griglia a 2 righe */
-            gap: 15px; /* Piccolo spazietto tra le foto */
+            grid-template-columns: repeat(6, 1fr); /* Griglia più fitta per forme asimmetriche */
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px; /* Spazio ridotto per un look più organico */
             padding: 20px;
         }
 
@@ -80,14 +80,14 @@
             position: relative;
             overflow: hidden;
             background: #e0e0e0;
-            border-radius: 12px; /* Bordi leggermente arrotondati per stile moderno */
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Effetto hover discreto */
+        /* Effetto hover più evidente e moderno */
         .mosaic-frame:hover {
-            transform: scale(1.02);
-            z-index: 2;
+            transform: scale(1.03) translateY(-3px);
+            z-index: 3;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         .mosaic-frame img {
@@ -97,12 +97,33 @@
             display: block;
         }
 
-        /* Posizionamento asimmetrico e giovanile (stile Bento Box) */
-        .frame-1 { grid-column: 1 / 3; grid-row: 1; } /* Larga alta sx */
-        .frame-2 { grid-column: 3; grid-row: 1; }     /* Quadrata alta dx */
-        .frame-3 { grid-column: 4; grid-row: 1 / 3; } /* Alta dx tutta altezza */
-        .frame-4 { grid-column: 1; grid-row: 2; }     /* Quadrata bassa sx */
-        .frame-5 { grid-column: 2 / 4; grid-row: 2; } /* Larga bassa centro */
+        /* Nuove forme Organiche (Archi e Curve) e Posizionamento Bento Asimmetrico */
+        /* Minor ritaglio: usiamo grid-area per dare spazio alle foto importanti */
+        
+        .frame-1 { 
+            grid-area: 1 / 1 / 4 / 3; /* Grande Archi Sx */
+            border-radius: 150px 150px 30px 30px; 
+        } 
+        
+        .frame-2 { 
+            grid-area: 1 / 3 / 3 / 5; /* Orizzontale Alta Centro-Dx */
+            border-radius: 30px 150px 30px 150px; 
+        }     
+        
+        .frame-3 { 
+            grid-area: 1 / 5 / 5 / 7; /* Alta Verticale Dx Tutta Altezza */
+            border-radius: 150px 30px 150px 30px; 
+        } 
+        
+        .frame-4 { 
+            grid-area: 4 / 1 / 5 / 3; /* Bassa Orizzontale Sx */
+            border-radius: 30px; 
+        }     
+        
+        .frame-5 { 
+            grid-area: 3 / 3 / 5 / 5; /* Grande Bassa Centro-Dx */
+            border-radius: 30px 30px 150px 150px; 
+        } 
 
         .header-content-integrated {
             position: relative;
@@ -329,32 +350,27 @@
 
         footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
 
-        /* ADATTAMENTO MOBILE - Mosaico non ritagliato e testo visibile */
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
-            
-            /* Sposta il testo più in alto per far spazio al mosaico visibile */
             .site-header { justify-content: flex-end; padding-bottom: 40px; } 
 
-            /* Mosaico Mobile: Mantiene layout ma aumenta l'altezza per non ritagliare */
             .header-mosaic-fullwidth { 
-                height: 55%; /* Più basso su mobile per lasciar spazio al testo */
-                top: 50px;   /* Leggermente staccato dall'alto */
+                height: 55%; 
+                top: 50px;   
                 padding: 10px;
-                gap: 8px;   /* Spazio ridotto su mobile */
-                grid-template-columns: repeat(3, 1fr); /* Griglia a 3 colonne per foto più grandi */
-                grid-template-rows: repeat(3, 1fr);   /* 3 righe */
+                gap: 8px;   
+                /* Riorganizzazione Bento Semplificata per Mobile a 3 colonne */
+                grid-template-columns: repeat(3, 1fr); 
+                grid-template-rows: repeat(3, 1fr);   
             }
 
-            .mosaic-frame { border-radius: 8px; }
-
-            /* Riorganizzazione asimmetrica per Mobile a 3 colonne */
-            .frame-1 { grid-column: 1 / 3; grid-row: 1; } /* Larga alta */
-            .frame-2 { grid-column: 3; grid-row: 1; }     /* Quadrata alta dx */
-            .frame-3 { grid-column: 2 / 4; grid-row: 2; } /* Larga centrale */
-            .frame-4 { grid-column: 1; grid-row: 2 / 4; } /* Alta sx */
-            .frame-5 { grid-column: 2 / 4; grid-row: 3; } /* Larga bassa dx */
+            /* Nuove Forme e Posizioni Mobile per mostrare bene le foto */
+            .frame-1 { grid-area: 1 / 1 / 3 / 2; border-radius: 100px 30px 30px 100px; } /* Alta Sx */
+            .frame-2 { grid-area: 1 / 2 / 2 / 4; border-radius: 30px 100px 30px 100px; } /* Larga Alta Centro-Dx */
+            .frame-3 { grid-area: 2 / 2 / 4 / 3; border-radius: 30px 30px 100px 100px; } /* Alta Centro tutta altezza */
+            .frame-4 { grid-area: 3 / 1 / 4 / 2; border-radius: 30px 30px 30px 100px; } /* Quadrata Bassa Sx */
+            .frame-5 { grid-area: 2 / 3 / 4 / 4; border-radius: 30px 100px 100px 30px; } /* Alta Dx */
 
             .countdown-timer { font-size: 1.1rem; gap: 8px; }
             .container { padding: 60px 20px; }
