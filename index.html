@@ -102,7 +102,6 @@
         
         .map-link { display: inline-block; margin-top: 8px; font-size: 0.75rem; color: var(--sage-main); text-decoration: none; border-bottom: 1px solid var(--sage-main); font-weight: 500; }
 
-        /* AREA REGALO */
         .gift-area { 
             background-color: var(--sage-light); 
             padding: 60px 40px; border-radius: 20px; text-align: center; margin: 80px 0;
@@ -117,7 +116,6 @@
             word-break: break-all;
         }
 
-        /* FORM RSVP */
         .btn-submit {
             background: var(--sage-main); color: white; padding: 18px 50px;
             text-decoration: none; border-radius: 50px; font-size: 0.9rem;
@@ -136,15 +134,22 @@
         label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
 
-        /* SEZIONE FOTO FINALE - SFONDO BIANCO */
+        /* SEZIONE FOTO FINALE - VERDE SALVIA SCURO */
         .photo-footer-section {
+            background-color: var(--sage-dark);
+            color: white;
+            padding: 80px 40px;
+            margin: 100px -100vw 0; 
+            position: relative;
+            left: 50%;
+            right: 50%;
+            width: 100vw;
+            margin-left: -50vw;
+            margin-right: -50vw;
             text-align: center;
-            padding: 80px 0 20px;
-            margin-top: 60px;
-            border-top: 1px solid #eee;
         }
-        .photo-footer-section h3 { font-size: 1.8rem; margin-bottom: 15px; }
-        .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: #666; font-size: 0.95rem; }
+        .photo-footer-section h3 { color: white; font-size: 1.8rem; margin-bottom: 15px; }
+        .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: rgba(255,255,255,0.9); font-size: 0.95rem; }
 
         .app-links-modern {
             display: flex;
@@ -154,8 +159,9 @@
             flex-wrap: nowrap;
         }
         .modern-btn {
-            background: var(--text-dark);
+            background: transparent;
             color: white;
+            border: 1px solid white;
             padding: 12px 20px;
             border-radius: 8px;
             text-decoration: none;
@@ -167,14 +173,14 @@
             flex: 1;
             max-width: 160px;
         }
-        .modern-btn:hover { background: var(--sage-dark); }
+        .modern-btn:hover { background: white; color: var(--sage-dark); }
 
         .code-box-modern {
             display: inline-block;
-            border: 2px dashed var(--sage-main);
+            border: 2px dashed rgba(255,255,255,0.4);
             padding: 20px 40px;
             border-radius: 15px;
-            background-color: var(--white-pure);
+            background-color: white;
         }
         .code-box-modern span { 
             display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px;
@@ -194,6 +200,7 @@
             .wedding-code-display { font-size: 1.5rem; }
             .iban-code { font-size: 0.9rem; width: 100%; overflow-wrap: break-word; }
             .container { padding: 40px 20px; }
+            .photo-footer-section { padding: 60px 20px; }
             .form-card { padding: 30px 20px; }
             .form-grid { grid-template-columns: 1fr; gap: 0; }
             input, select, textarea { font-size: 16px; } 
