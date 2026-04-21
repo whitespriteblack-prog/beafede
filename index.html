@@ -84,20 +84,32 @@
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
 
-        .schedule-list { margin-top: 40px; }
+        /* PROGRAMMA ALLINEATO AL CENTRO */
+        .schedule-list { margin-top: 40px; text-align: center; }
         .event-row { 
-            display: flex; align-items: baseline; gap: 40px; 
-            padding: 35px 0; border-top: 1px solid #eee;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 10px; 
+            padding: 35px 0; 
+            border-top: 1px solid #eee;
         }
         .event-row:last-child { border-bottom: 1px solid #eee; }
-        .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); min-width: 70px; }
         
+        .time { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.4rem; 
+            color: var(--sage-main); 
+        }
+        
+        .event-info { width: 100%; }
         .event-info h3 { 
             font-size: 1.3rem; 
             margin-bottom: 5px; 
             color: var(--text-dark); 
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
         }
         .event-icon { font-size: 1.2rem; opacity: 0.8; }
@@ -122,9 +134,9 @@
         .app-links {
             display: flex;
             justify-content: center;
-            gap: 10px; /* Ridotto gap per mobile */
+            gap: 10px;
             margin-bottom: 25px;
-            flex-wrap: nowrap; /* Forza l'orizzontale */
+            flex-wrap: nowrap;
         }
         .app-btn {
             display: inline-block;
@@ -198,12 +210,11 @@
             .site-header { padding: 40px 20px; }
             .wedding-bouquet { max-width: 180px; margin-top: 0; }
             .site-header h1 { font-size: 2.6rem; margin-top: 5px; }
-            .event-row { flex-direction: column; gap: 5px; padding: 25px 0; }
             .iban-code { font-size: 0.9rem; width: 100%; overflow-wrap: break-word; }
             .container { padding: 40px 20px; }
             .form-card { padding: 30px 20px; }
             .form-grid { grid-template-columns: 1fr; gap: 0; }
-            .app-btn { font-size: 0.7rem; padding: 10px 8px; } /* Ottimizzazione bottoni mobile */
+            .app-btn { font-size: 0.7rem; padding: 10px 8px; }
             input, select, textarea { font-size: 16px; } 
         }
     </style>
