@@ -57,12 +57,11 @@
             position: relative;
         }
 
-        /* LOGO AVVICINATO ALLA SCRITTA */
         .wedding-bouquet {
             max-width: 250px; 
             height: auto;
-            margin-bottom: 0px; /* Spazio sotto rimosso */
-            margin-top: -10px;    /* Spostato verso il basso */
+            margin-bottom: 0px; 
+            margin-top: -10px;    
             display: inline-block;
             filter: sepia(1) saturate(1.2) hue-rotate(85deg) brightness(0.8);
         }
@@ -70,7 +69,7 @@
         .site-header h1 { 
             font-size: 3.5rem; 
             font-style: italic; 
-            margin-top: -10px; /* Ulteriore avvicinamento dal lato del testo */
+            margin-top: -10px;
             margin-bottom: 10px;
         }
 
@@ -93,7 +92,18 @@
         }
         .event-row:last-child { border-bottom: 1px solid #eee; }
         .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); min-width: 70px; }
-        .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); }
+        
+        /* Stile icone accanto ai titoli degli eventi */
+        .event-info h3 { 
+            font-size: 1.3rem; 
+            margin-bottom: 5px; 
+            color: var(--text-dark); 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .event-icon { font-size: 1.2rem; opacity: 0.8; }
+
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
         
         .map-link { 
@@ -165,25 +175,25 @@
             <div class="event-row reveal">
                 <div class="time">17:00</div>
                 <div class="event-info">
-                    <h3>La Cerimonia</h3>
+                    <h3><span class="event-icon">🏛️</span> La Cerimonia</h3>
                     <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="https://maps.app.goo.gl/9Z3F3yGvW6fS9S8u80" target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://maps.google.com/?q=Rocca+dei+Bentivoglio" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
             <div class="event-row reveal">
                 <div class="time">18:00</div>
                 <div class="event-info">
-                    <h3>Ricevimento</h3>
+                    <h3><span class="event-icon">🌳</span> Ricevimento</h3>
                     <p>Castellazzo di Monteveglio</p>
-                    <a href="https://maps.app.goo.gl/" target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://maps.google.com/?q=Castellazzo+di+Monteveglio" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
             <div class="event-row reveal">
                 <div class="time">20:00</div>
                 <div class="event-info">
-                    <h3>Cena</h3>
+                    <h3><span class="event-icon">🥂</span> Cena</h3>
                     <p>Cucina locale e convivialità tra i colli.</p>
                 </div>
             </div>
@@ -191,7 +201,7 @@
             <div class="event-row reveal">
                 <div class="time">22:00</div>
                 <div class="event-info">
-                    <h3>Party</h3>
+                    <h3><span class="event-icon">🕺</span> Party</h3>
                     <p>Open bar e dj set fino a notte fonda.</p>
                 </div>
             </div>
