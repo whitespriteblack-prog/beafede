@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -49,7 +48,7 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER MODIFICATO */
+        /* HEADER MODIFICATO - Solo questa sezione e le relative classi CSS sono state alterate */
         .site-header {
             height: 100vh; 
             display: flex;
@@ -62,21 +61,30 @@
             position: relative;
         }
 
-        /* Polaroid ridimensionate per l'header */
+        /* Contenitore unico per galleria e titolo per unificare l'animazione e la composizione */
+        .header-content-integrated {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Composizione Polaroid Migliorata: dimensioni, sovrapposizione e z-index differenti */
         .header-gallery {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            height: 180px; /* Altezza fissa per il contenitore delle foto */
+            margin-bottom: -15px; /* Sovrapposizione negativa con il titolo sottostante */
+            width: 100%;
+            max-width: 500px;
         }
 
         .polaroid-small {
+            position: absolute;
             background: white;
             padding: 8px 8px 20px 8px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            width: 140px; /* Dimensione ridotta per stare sopra il titolo */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            width: 140px;
             transition: 0.3s;
         }
 
@@ -87,15 +95,27 @@
             display: block;
         }
 
-        .polaroid-small:nth-child(1) { transform: rotate(-5deg); }
-        .polaroid-small:nth-child(2) { transform: rotate(3deg); margin-top: -10px; }
-        .polaroid-small:nth-child(3) { transform: rotate(-2deg); }
+        /* Posizionamento, rotazione e sovrapposizione differenziata per integrare meglio */
+        .polaroid-small:nth-child(1) { 
+            transform: rotate(-10deg) translateX(-70px); 
+            z-index: 1;
+        }
+        .polaroid-small:nth-child(2) { 
+            transform: rotate(5deg) translateY(-10px); 
+            z-index: 3; /* Questa sta sopra */
+        }
+        .polaroid-small:nth-child(3) { 
+            transform: rotate(12deg) translateX(70px); 
+            z-index: 2;
+        }
 
         .site-header h1 { 
             font-size: 3.5rem; 
             font-style: italic; 
             margin-bottom: 10px;
             line-height: 1.2;
+            position: relative;
+            z-index: 10; /* Sopra le foto dove necessario */
         }
 
         .site-header p { 
@@ -104,8 +124,11 @@
             text-transform: uppercase; 
             font-weight: 300;
             color: var(--sage-main);
+            position: relative;
+            z-index: 10;
         }
 
+        /* RESTO DELLO STILE INVARIATO - NON MODIFICARE NIENT'ALTRO */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -290,6 +313,11 @@
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
             .polaroid-small { width: 100px; } /* Ancora più piccole su mobile */
+            /* Regolazione posizioni mobile */
+            .polaroid-small:nth-child(1) { transform: rotate(-10deg) translateX(-50px); }
+            .polaroid-small:nth-child(2) { transform: rotate(5deg) translateY(-5px); }
+            .polaroid-small:nth-child(3) { transform: rotate(12deg) translateX(50px); }
+            .header-gallery { height: 140px; }
             .container { padding: 60px 20px; }
             .photo-footer-section { padding: 60px 20px; }
             .gift-area { padding: 40px 20px; }
@@ -303,13 +331,15 @@
 <body>
 
     <header class="site-header">
-        <div class="header-gallery">
-            <div class="polaroid-small"><img src="foto3.jpeg" alt="foto"></div>
-            <div class="polaroid-small"><img src="foto2.jpeg" alt="foto"></div>
-            <div class="polaroid-small"><img src="foto4.jpeg" alt="foto"></div>
+        <div class="header-content-integrated">
+            <div class="header-gallery">
+                <div class="polaroid-small"><img src="foto3.jpeg" alt="foto"></div>
+                <div class="polaroid-small"><img src="foto2.jpeg" alt="foto"></div>
+                <div class="polaroid-small"><img src="foto4.jpeg" alt="foto"></div>
+            </div>
+            <h1>Beatrice & Federico</h1>
+            <p>29 Agosto 2026</p>
         </div>
-        <h1>Beatrice & Federico</h1>
-        <p>29 Agosto 2026</p>
         <div class="scroll-indicator">scorri ↓</div>
     </header>
 
