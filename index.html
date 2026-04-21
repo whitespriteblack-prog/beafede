@@ -48,7 +48,7 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER MODIFICATO - Solo questa sezione e le relative classi CSS sono state alterate */
+        /* HEADER MODIFICATO - STILE GIOVANILE & ASIMMETRICO */
         .site-header {
             height: 100vh; 
             display: flex;
@@ -65,53 +65,51 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 600px;
+            max-width: 550px;
         }
 
-        /* Nuova integrazione: Foto minimali senza bordi, disposte in un trittico armonico */
+        /* Gallery in stile editoriale/social */
         .header-gallery {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding: 0 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 80px);
+            gap: 12px;
+            margin-bottom: 40px;
+            padding: 0 20px;
         }
 
-        .photo-frame {
+        .photo-box {
             position: relative;
             overflow: hidden;
-            border-radius: 120px 120px 0 0; /* Forma ad arco moderna */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            transition: transform 0.5s ease;
+            border-radius: 20px; /* Bordi molto arrotondati e moderni */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #e0e0e0;
         }
 
-        .photo-frame img {
+        .photo-box:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .photo-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        /* Dimensioni differenziate per creare ritmo */
-        .photo-frame:nth-child(1), .photo-frame:nth-child(3) {
-            width: 100px;
-            height: 150px;
-            opacity: 0.8;
-        }
-
-        .photo-frame:nth-child(2) {
-            width: 140px;
-            height: 200px;
-            z-index: 2;
-            border-radius: 150px 150px 0 0;
-        }
+        /* Layout asimmetrico delle griglie */
+        .photo-box:nth-child(1) { grid-row: 1 / 3; } /* Foto alta a sinistra */
+        .photo-box:nth-child(2) { grid-column: 2 / 4; } /* Foto larga sopra */
+        .photo-box:nth-child(3) { grid-column: 2; } /* Foto quadrata centro */
+        .photo-box:nth-child(4) { grid-column: 3; } /* Foto quadrata destra */
 
         .site-header h1 { 
             font-size: 3.5rem; 
             font-style: italic; 
             margin-bottom: 10px;
             line-height: 1.2;
+            letter-spacing: -1px;
         }
 
         .site-header p { 
@@ -122,7 +120,7 @@
             color: var(--sage-main);
         }
 
-        /* RESTO DELLO STILE INVARIATO - NON MODIFICARE NIENT'ALTRO */
+        /* RESTO DELLO STILE INVARIATO */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -306,9 +304,7 @@
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
-            .header-gallery { gap: 10px; }
-            .photo-frame:nth-child(1), .photo-frame:nth-child(3) { width: 70px; height: 110px; }
-            .photo-frame:nth-child(2) { width: 100px; height: 140px; }
+            .header-gallery { grid-template-rows: repeat(2, 60px); }
             .container { padding: 60px 20px; }
             .photo-footer-section { padding: 60px 20px; }
             .gift-area { padding: 40px 20px; }
@@ -324,10 +320,10 @@
     <header class="site-header">
         <div class="header-content-integrated">
             <div class="header-gallery">
-                <div class="photo-frame"><img src="foto3.jpeg" alt="foto"></div>
-                <div class="photo-frame"><img src="foto2.jpeg" alt="foto"></div>
-                <div class="photo-frame"><img src="foto4.jpeg" alt="foto"></div>
-            </div>
+                <div class="photo-box"><img src="foto3.jpeg" alt="foto"></div>
+                <div class="photo-box"><img src="foto2.jpeg" alt="foto"></div>
+                <div class="photo-box"><img src="foto4.jpeg" alt="foto"></div>
+                <div class="photo-box"><img src="foto.jpeg" alt="foto"></div> </div>
             <h1>Beatrice & Federico</h1>
             <p>29 Agosto 2026</p>
         </div>
