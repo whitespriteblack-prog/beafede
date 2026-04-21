@@ -48,9 +48,9 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER A TUTTO SCHERMO SU PC */
+        /* HEADER A TUTTO SCHERMO (COPERTINA) */
         .site-header {
-            min-height: 100vh; /* Copre tutta la pagina iniziale */
+            height: 100vh; /* Forza l'altezza a tutto schermo */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -62,36 +62,36 @@
         }
 
         .wedding-bouquet {
-            max-width: 350px; /* Più grande su desktop */
+            max-width: 300px; 
             height: auto;
             margin-bottom: 20px;
             filter: sepia(1) saturate(1.2) hue-rotate(85deg) brightness(0.8);
         }
 
         .site-header h1 { 
-            font-size: 4.5rem; 
+            font-size: 3.5rem; 
             font-style: italic; 
-            margin-bottom: 15px;
-            white-space: nowrap;
+            margin-bottom: 10px;
+            line-height: 1.2;
         }
 
         .site-header p { 
-            font-size: 1.1rem; 
-            letter-spacing: 5px; 
+            font-size: 1rem; 
+            letter-spacing: 4px; 
             text-transform: uppercase; 
             font-weight: 300;
             color: var(--sage-main);
         }
 
-        /* Freccia per indicare di scorrere */
+        /* Indicatore di scorrimento */
         .scroll-indicator {
             position: absolute;
-            bottom: 30px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            bottom: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--sage-main);
-            opacity: 0.6;
+            opacity: 0.7;
             animation: bounce 2s infinite;
         }
 
@@ -154,7 +154,6 @@
         label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
 
-        /* SEZIONE FOTO FINALE */
         .photo-footer-section {
             background-color: var(--sage-dark);
             color: white;
@@ -212,15 +211,12 @@
         footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
 
         @media (max-width: 600px) {
-            .site-header { min-height: auto; padding: 60px 15px; }
-            .wedding-bouquet { max-width: 170px; margin-bottom: 10px; }
-            .site-header h1 { font-size: 2.1rem; white-space: nowrap; }
-            .site-header p { font-size: 0.75rem; letter-spacing: 3px; }
-            .scroll-indicator { display: none; }
-            .modern-btn { font-size: 0.65rem; padding: 10px 10px; }
-            .wedding-code-display { font-size: 1.5rem; }
+            .site-header h1 { font-size: 2.8rem; }
+            .wedding-bouquet { max-width: 220px; }
+            .container { padding: 60px 20px; }
+            .photo-footer-section { padding: 60px 20px; }
+            .modern-btn { font-size: 0.6rem; padding: 10px 5px; }
             .iban-code { font-size: 0.9rem; width: 100%; overflow-wrap: break-word; }
-            .container { padding: 40px 20px; }
             .form-card { padding: 30px 20px; }
             .form-grid { grid-template-columns: 1fr; gap: 0; }
             input, select, textarea { font-size: 16px; } 
@@ -233,7 +229,7 @@
         <img src="bouquet.png" alt="Wedding Bouquet" class="wedding-bouquet">
         <h1>Beatrice & Federico</h1>
         <p>29 Agosto 2026</p>
-        <div class="scroll-indicator">Scopri di più ↓</div>
+        <div class="scroll-indicator">scorri ↓</div>
     </header>
 
     <section class="container">
