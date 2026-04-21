@@ -29,6 +29,18 @@
             overflow-x: hidden;
         }
 
+        /* Forza la & a non essere attorcigliata ovunque */
+        h1, h2, h3, p, span, div {
+            text-decoration: none;
+        }
+        
+        /* Selettore specifico per rendere la & più semplice (senza grazie eccessive) */
+        h1, h2, h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 400; 
+            color: var(--sage-dark);
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -40,15 +52,9 @@
             transform: translateY(0);
         }
 
-        h1, h2, h3 { 
-            font-family: 'Playfair Display', serif; 
-            font-weight: 400; 
-            color: var(--sage-dark);
-        }
-
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER MODIFICATO */
+        /* HEADER */
         .site-header {
             height: 100vh; 
             display: flex;
@@ -61,22 +67,22 @@
             position: relative;
         }
 
-        /* Polaroid ridimensionate per l'header */
         .header-gallery {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
             margin-bottom: 40px;
-            flex-wrap: wrap;
+            max-width: 500px;
         }
 
         .polaroid-small {
             background: white;
             padding: 8px 8px 20px 8px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            width: 140px; /* Dimensione ridotta per stare sopra il titolo */
+            width: 140px;
             transition: 0.3s;
+            flex-shrink: 0;
         }
 
         .polaroid-small img {
@@ -250,7 +256,6 @@
             justify-content: center;
             gap: 12px;
             margin-bottom: 35px;
-            flex-wrap: nowrap;
         }
         .modern-btn {
             background: transparent;
@@ -285,10 +290,25 @@
 
         footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
 
+        /* MOBILE OPTIMIZATIONS */
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
-            .polaroid-small { width: 100px; } /* Ancora più piccole su mobile */
+            
+            /* Polaroid: 2 sopra, 1 sotto */
+            .header-gallery {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                max-width: 250px; /* Stringe il contenitore per forzare il ritorno a capo */
+            }
+            .polaroid-small { width: 100px; }
+            /* La terza polaroid va a capo al centro */
+            .polaroid-small:nth-child(3) {
+                margin-top: 5px;
+            }
+
             .container { padding: 60px 20px; }
             .photo-footer-section { padding: 60px 20px; }
             .gift-area { padding: 40px 20px; }
@@ -296,6 +316,21 @@
             .form-card { padding: 30px 20px; }
             .form-grid { grid-template-columns: 1fr; gap: 0; }
             input, select, textarea { font-size: 16px; } 
+        }
+
+        /* Rende le & meno "attorcigliate" in tutto il sito */
+        h1, h2, h3, p, span, footer, .wedding-code-display {
+            font-feature-settings: "ss01" on; /* Disattiva varianti contestuali se presenti */
+        }
+        /* Metodo infallibile: sostituzione font solo per la & */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Applichiamo un font pulito alla e commerciale ovunque nel testo */
+        .amp {
+            font-family: 'Afacad Flux', sans-serif !important;
+            font-style: normal !important;
+            font-weight: 300;
         }
     </style>
 </head>
@@ -307,7 +342,7 @@
             <div class="polaroid-small"><img src="foto2.jpeg" alt="foto"></div>
             <div class="polaroid-small"><img src="foto4.jpeg" alt="foto"></div>
         </div>
-        <h1>Beatrice & Federico</h1>
+        <h1>Beatrice <span class="amp">&</span> Federico</h1>
         <p>29 Agosto 2026</p>
         <div class="scroll-indicator">scorri ↓</div>
     </header>
@@ -323,7 +358,7 @@
                 <div class="event-info">
                     <h3>Cerimonia</h3>
                     <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/..." target="_blank" class="map-link">Google Maps</a>
+                    <a href="#" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
@@ -332,7 +367,7 @@
                 <div class="event-info">
                     <h3>Stuzzichini</h3>
                     <p>Il Castellazzo, Monteveglio</p>
-                    <a href="https://www.google.it/maps/place/Il+Castellazzo/..." target="_blank" class="map-link">Google Maps</a>
+                    <a href="#" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
@@ -343,7 +378,7 @@
 
             <div class="event-row reveal">
                 <div class="time">22:00</div>
-                <div class="event-info"><h3>Party & Open Bar</h3></div>
+                <div class="event-info"><h3>Party <span class="amp">&</span> Open Bar</h3></div>
             </div>
         </div>
 
@@ -351,7 +386,7 @@
             <div class="section-header">
                 <span>R.S.V.P.</span>
                 <h2>Ci sarai?</h2>
-                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Ti chiediamo gentilmente di confermare compilando il form qui sotto.</p>
+                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Conferma compilando il form qui sotto.</p>
             </div>
 
             <div class="form-card">
@@ -380,11 +415,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Intolleranze, Preferenze Alimentari o Allergie</label>
-                        <textarea name="Messaggio" placeholder="Segnalaci eventuali preferenze..." rows="3"></textarea>
+                        <label>Intolleranze o Allergie</label>
+                        <textarea name="Messaggio" placeholder="Segnalaci eventuali esigenze particolari..." rows="3"></textarea>
                     </div>
 
-                    <input type="text" name="_gotcha" style="display:none">
                     <button type="submit" class="btn-submit">Invia conferma</button>
                 </form>
             </div>
@@ -395,7 +429,7 @@
                 <h2>Il nostro futuro</h2>
             </div>
             <p style="max-width: 600px; margin: 0 auto; color: #666;">
-                La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, <br> questo è il nostro riferimento:
+                La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme:
             </p>
             <div class="iban-row">
                 <span class="iban-label">Codice IBAN</span>
@@ -405,11 +439,11 @@
 
         <div class="photo-footer-section reveal">
             <h3>I vostri scatti</h3>
-            <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong> e caricando le foto nel nostro album condiviso.</p>
+            <p>Scaricate l'app <strong>Wedshoots</strong> per caricare le foto nel nostro album condiviso.</p>
             
             <div class="app-links-modern">
-                <a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="modern-btn">App Store</a>
-                <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a>
+                <a href="#" class="modern-btn">App Store</a>
+                <a href="#" class="modern-btn">Play Store</a>
             </div>
             
             <div class="code-box-modern">
@@ -420,7 +454,7 @@
     </section>
 
     <footer>
-        <p>B & F — 29 . 08 . 2026</p>
+        <p>B <span class="amp">&</span> F — 29 . 08 . 2026</p>
     </footer>
 
     <script>
