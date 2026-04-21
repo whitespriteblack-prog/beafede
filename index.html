@@ -29,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* ANIMAZIONE DI COMPARSA */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -57,7 +56,6 @@
             position: relative;
         }
 
-        /* LOGO AVVICINATO */
         .wedding-bouquet {
             max-width: 250px; 
             height: auto;
@@ -103,7 +101,6 @@
             gap: 10px;
         }
         .event-icon { font-size: 1.2rem; opacity: 0.8; }
-
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
         
         .map-link { 
@@ -139,6 +136,14 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
         }
         .form-group { margin-bottom: 30px; text-align: left; }
+
+        /* GRIGLIA RSVP OTTIMIZZATA */
+        .form-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+        }
+
         label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
         input, select, textarea { 
             width: 100%; padding: 12px; border: 1px solid #e8ede8; 
@@ -147,7 +152,7 @@
 
         footer { text-align: center; padding: 80px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: #fafafa; border-top: 1px solid #eee; }
 
-        /* FIX PROPORZIONI SAMSUNG / MOBILE */
+        /* MEDIA QUERIES PER MOBILE */
         @media (max-width: 600px) {
             .site-header { padding: 40px 20px; }
             .wedding-bouquet { max-width: 180px; margin-top: 0; }
@@ -155,7 +160,12 @@
             .event-row { flex-direction: column; gap: 5px; padding: 25px 0; }
             .iban-code { font-size: 0.9rem; width: 100%; overflow-wrap: break-word; }
             .container { padding: 40px 20px; }
-            input, select, textarea { font-size: 16px; } /* Impedisce zoom Samsung */
+            .form-card { padding: 30px 20px; }
+            
+            /* Forza le colonne dell'RSVP a diventare una riga singola su mobile */
+            .form-grid { grid-template-columns: 1fr; gap: 0; }
+            
+            input, select, textarea { font-size: 16px; } 
         }
     </style>
 </head>
@@ -231,7 +241,7 @@
                         <input type="text" name="Nomi" placeholder="Inserite i vostri nomi" required>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-grid">
                         <div class="form-group">
                             <label>Partecipazione</label>
                             <select name="Conferma">
