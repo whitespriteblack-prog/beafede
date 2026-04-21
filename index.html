@@ -55,22 +55,11 @@
             align-items: center;
             text-align: center;
             background-color: var(--sage-light);
-            padding: 24px;
             position: relative;
             overflow: hidden; 
         }
 
-        /* STRUTTURA A CORNICE MODIFICATA */
-        .header-frame-container {
-            position: relative;
-            padding: 20px; /* Spazio per la cornice */
-            background: var(--white-pure);
-            border-radius: 8px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.07);
-            z-index: 2;
-        }
-
-        /* Contenitore delle foto che formano la cornice */
+        /* CORNICE A TUTTO SCHERMO */
         .header-mosaic-frame {
             position: absolute;
             top: 0;
@@ -78,19 +67,20 @@
             width: 100%;
             height: 100%;
             display: grid;
-            /* Griglia per contornare: foto ai lati, contenuto al centro */
-            grid-template-columns: 80px 1fr 80px; 
-            grid-template-rows: 80px 1fr 80px;
-            gap: 10px; /* Spazietto tra le foto "cornice" */
+            /* Griglia dinamica: le foto occupano i bordi esterni dello schermo */
+            grid-template-columns: 20% 1fr 20%; 
+            grid-template-rows: 25% 1fr 25%;
+            gap: 15px; 
+            padding: 15px;
             z-index: 1;
-            padding: 10px;
         }
 
         .mosaic-frame {
             position: relative;
             overflow: hidden;
             background: #e0e0e0;
-            border-radius: 6px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .mosaic-frame img {
@@ -98,22 +88,33 @@
             height: 100%;
             object-fit: cover; 
             display: block;
+            transition: transform 0.5s ease;
         }
 
-        /* Posizionamento delle 5 foto come una cornice irregolare */
-        .frame-1 { grid-area: 1 / 1 / 2 / 3; } /* Orizzontale alta sx */
-        .frame-2 { grid-area: 1 / 3 / 3 / 4; } /* Verticale alta dx */
-        .frame-3 { grid-area: 3 / 2 / 4 / 4; } /* Orizzontale bassa dx */
-        .frame-4 { grid-area: 2 / 1 / 4 / 2; } /* Verticale bassa sx */
-        .frame-5 { grid-area: 2 / 2 / 3 / 3; opacity: 0.2; filter: blur(2px); } /* Foto centrale molto sfocata e trasparente per texture di sfondo */
+        .mosaic-frame:hover img {
+            transform: scale(1.05);
+        }
 
-        /* Contenitore interno con la scritta, staccato dalla cornice di foto */
+        /* Posizionamento delle 5 foto per creare una cornice che avvolge il centro */
+        .frame-1 { grid-area: 1 / 1 / 2 / 3; } /* Orizzontale superiore sx */
+        .frame-2 { grid-area: 1 / 3 / 3 / 4; } /* Verticale destra alta */
+        .frame-3 { grid-area: 3 / 2 / 4 / 4; } /* Orizzontale inferiore dx */
+        .frame-4 { grid-area: 2 / 1 / 4 / 2; } /* Verticale sinistra bassa */
+        .frame-5 { grid-area: 1 / 2 / 2 / 3; display: none; } /* Backup - non usata per lasciare aria */
+        
+        /* Aggiunta di una quinta foto in un angolo o posizione strategica per chiudere il look */
+        .frame-5-alt { grid-area: 2 / 3 / 3 / 4; display: block; } 
+
+        /* Contenitore centrale della scritta */
         .header-content-integrated {
             position: relative;
-            background: rgba(255, 255, 255, 0.95); /* Sfondo chiaro per leggibilità */
-            padding: 40px;
-            border-radius: 4px;
-            z-index: 10; /* Sopra la griglia di foto */
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 90%;
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
         .site-header h1 { 
@@ -121,7 +122,6 @@
             font-style: italic; 
             margin-bottom: 10px;
             line-height: 1.2;
-            color: var(--sage-dark);
         }
 
         .site-header p { 
@@ -158,7 +158,7 @@
 
         .scroll-indicator {
             position: absolute;
-            bottom: 40px;
+            bottom: 30px;
             font-size: 0.7rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -340,9 +340,8 @@
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
-            .header-frame-container { padding: 10px; width: 95%; }
-            .header-mosaic-frame { grid-template-columns: 50px 1fr 50px; grid-template-rows: 50px 1fr 50px; gap: 5px; padding: 5px; }
-            .header-content-integrated { padding: 20px 10px; }
+            .header-mosaic-frame { grid-template-columns: 30% 1fr 30%; grid-template-rows: 20% 1fr 20%; gap: 8px; padding: 8px; }
+            .header-content-integrated { padding: 30px 15px; width: 85%; }
             .countdown-timer { font-size: 1.1rem; gap: 8px; }
             .container { padding: 60px 20px; }
             .photo-footer-section { padding: 60px 20px; }
@@ -357,32 +356,30 @@
 <body>
 
     <header class="site-header">
-        <div class="header-frame-container">
-            <div class="header-mosaic-frame">
-                <div class="mosaic-frame frame-1"><img src="foto3.jpeg" alt="foto"></div>
-                <div class="mosaic-frame frame-2"><img src="foto2.jpeg" alt="foto"></div>
-                <div class="mosaic-frame frame-3"><img src="foto4.jpeg" alt="foto"></div>
-                <div class="mosaic-frame frame-4"><img src="foto5.jpeg" alt="foto"></div>
-                <div class="mosaic-frame frame-5"><img src="foto6.jpeg" alt="foto"></div>
-            </div>
+        <div class="header-mosaic-frame">
+            <div class="mosaic-frame frame-1"><img src="foto3.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-2"><img src="foto2.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-3"><img src="foto4.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-4"><img src="foto5.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-6" style="grid-area: 3 / 1 / 4 / 2;"><img src="foto6.jpeg" alt="foto"></div>
+        </div>
+        
+        <div class="header-content-integrated">
+            <h1>Beatrice & Federico</h1>
+            <p>29 Agosto 2026</p>
             
-            <div class="header-content-integrated">
-                <h1>Beatrice & Federico</h1>
-                <p>29 Agosto 2026</p>
-                
-                <div id="countdown-timer">
-                    <div class="countdown-segment">
-                        <div class="countdown-value" id="days">00</div>
-                        <span>Giorni</span>
-                    </div>
-                    <div class="countdown-segment">
-                        <div class="countdown-value" id="hours">00</div>
-                        <span>Ore</span>
-                    </div>
-                    <div class="countdown-segment">
-                        <div class="countdown-value" id="minutes">00</div>
-                        <span>Minuti</span>
-                    </div>
+            <div id="countdown-timer">
+                <div class="countdown-segment">
+                    <div class="countdown-value" id="days">00</div>
+                    <span>Giorni</span>
+                </div>
+                <div class="countdown-segment">
+                    <div class="countdown-value" id="hours">00</div>
+                    <span>Ore</span>
+                </div>
+                <div class="countdown-segment">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <span>Minuti</span>
                 </div>
             </div>
         </div>
