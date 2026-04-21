@@ -9,9 +9,15 @@
 
     <style>
         :root {
-            --sage-main: #8ba88e;   
-            --sage-light: #f1f4f1;  
-            --sage-dark: #5a6d5c;   
+            /* Tonalità Slavia e Toni Organici */
+            --sage-main: #8ba88e;   /* Verde Salvia elegante */
+            --sage-light: #f1f4f1;  /* Sfondo salvia chiarissimo */
+            --sage-dark: #5a6d5c;   /* Salvia scuro per testi */
+            
+            /* Colore Foresta Profondo per il Bouquet (per CSS mask) */
+            --forest-deep: #283618; /* Il verde ricolorato */
+            
+            --gold-subtle: #c2b280; /* Oro sabbia */
             --white-pure: #ffffff;
             --text-dark: #333d34;
         }
@@ -33,29 +39,27 @@
             color: var(--sage-dark);
         }
 
-        .container { padding: 60px 24px 100px; max-width: 800px; margin: auto; }
+        .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER - DESIGN CORRETTO CON FOTO BOUQUET.JPG */
+        /* HEADER CON LOGO (Al posto della Hero) */
         .site-header {
-            padding: 80px 24px 50px; /* Spaziatura equilibrata */
+            padding: 80px 24px 60px;
             text-align: center;
-            background-color: var(--sage-light);
+            background-color: var(--sage-light); /* Fondo leggero */
             border-bottom: 1px solid #e8ede8;
+            position: relative;
         }
 
-        /* Il bouquet (bouquet.jpg) ricolorato in CSS */
+        /* Il bouquet sistemato con il file bouquet.jpg e ricolorato */
         .wedding-bouquet {
-            max-width: 220px; /* Grandezza elegante */
+            max-width: 250px; 
             height: auto;
-            margin-bottom: 25px; /* Distanza pulita dai nomi */
+            margin-bottom: 30px;
             display: inline-block;
             
-            /* Applichiamo i filtri per trasformare il nero in Salvia Organico */
-            /* sepia + hue-rotate ci permette di arrivare alla tonalità verde desiderata */
+            /* Filtri per ricolorare il JPG in salvia e togliere lo sfondo bianco */
             filter: sepia(1) saturate(1.2) hue-rotate(85deg) brightness(0.8);
-            
-            /* Questa proprietà è magica: fa scomparire lo sfondo bianco dell'immagine jpg */
-            mix-blend-mode: multiply; 
+            mix-blend-mode: multiply;
         }
 
         .site-header h1 { 
@@ -72,11 +76,11 @@
             color: var(--sage-main);
         }
 
-        /* RESTO DELLO STILE */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
 
+        /* SCHEDULE SALVIA */
         .schedule-list { margin-top: 40px; }
         .event-row { 
             display: flex; align-items: baseline; gap: 40px; 
@@ -93,18 +97,22 @@
             font-weight: 500;
         }
 
+        /* GIFT BOX SALVIA */
         .gift-area { 
             background-color: var(--sage-light); 
             padding: 60px 40px; border-radius: 20px; text-align: center; margin: 80px 0;
             border: 1px solid #e8ede8;
         }
+        .gift-area h3 { margin-bottom: 20px; }
         .iban-code { 
             font-size: 1.1rem; letter-spacing: 1px; margin-top: 20px; 
             padding: 15px; display: inline-block; color: var(--sage-dark);
             background: white; border-radius: 10px; border: 1px solid #e2e8e2;
             font-family: monospace;
+            word-break: break-all; /* Impedisce lo sforamento su mobile */
         }
 
+        /* BOTTONE SALVIA */
         .btn-submit {
             background: var(--sage-main); color: white; padding: 18px 50px;
             text-decoration: none; border-radius: 50px; font-size: 0.9rem;
@@ -114,25 +122,31 @@
         }
         .btn-submit:hover { background: var(--sage-dark); transform: translateY(-2px); }
 
+        /* RSVP SALVIA */
         .form-card { 
             background: white; padding: 50px; border-radius: 20px; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
         }
-        .form-group { margin-bottom: 30px; text-align: left; }
+        .form-group { margin-bottom: 30px; }
         label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
         input, select, textarea { 
             width: 100%; padding: 12px; border: 1px solid #e8ede8; 
             background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem;
+            transition: all 0.3s;
         }
+        input:focus { border-color: var(--sage-main); outline: none; background: white; }
 
         footer { text-align: center; padding: 80px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: #fafafa; border-top: 1px solid #eee; }
 
+        @media (max-width: 768px) {
+            .site-header h1 { font-size: 2.8rem; }
+            .wedding-bouquet { max-width: 200px; }
+        }
+
         @media (max-width: 600px) {
             .event-row { flex-direction: column; gap: 5px; padding: 25px 0; }
-            .site-header h1 { font-size: 2.8rem; }
-            .wedding-bouquet { max-width: 180px; }
             .form-card { padding: 30px 20px; }
-            .iban-code { font-size: 0.8rem; width: 100%; overflow-wrap: break-word; }
+            .iban-code { font-size: 0.9rem; width: 100%; overflow-wrap: break-word; }
             .site-header { padding: 60px 20px 40px; }
         }
     </style>
@@ -141,7 +155,7 @@
 
     <header class="site-header">
         <div class="container-header">
-            <img src="bouquet.png" alt="Logo Bouquet" class="wedding-bouquet">
+            <img src="bouquet.jpg" alt="Wedding Bouquet" class="wedding-bouquet">
             
             <h1>Beatrice & Federico</h1>
             <p>29 Agosto 2026</p>
@@ -149,7 +163,7 @@
     </header>
 
     <section class="container">
-        <div class="section-header" style="text-align: center;">
+        <div class="section-header">
             <span>The Plan</span>
             <h2>Il Programma</h2>
         </div>
@@ -160,7 +174,7 @@
                 <div class="event-info">
                     <h3>La Cerimonia</h3>
                     <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="http://googleusercontent.com/maps.google.com/maps?q=Rocca+dei+Bentivoglio" target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://maps.app.goo.gl/9Z3F3yGvW6fS9S8u80" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
@@ -169,7 +183,7 @@
                 <div class="event-info">
                     <h3>Ricevimento</h3>
                     <p>Castellazzo di Monteveglio</p>
-                    <a href="http://googleusercontent.com/maps.google.com/maps?q=Castellazzo+di+Monteveglio" target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://maps.app.goo.gl/" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
@@ -219,18 +233,17 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Bambini</label>
+                            <label>Bambini al seguito?</label>
                             <select name="Bambini">
-                                <option value="0">Nessuno</option>
-                                <option value="1">1 bambino</option>
-                                <option value="2+">2 o più</option>
+                                <option value="No">No</option>
+                                <option value="Sì">Sì</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Note e intolleranze</label>
-                        <textarea name="Messaggio" placeholder="Eventuali allergie, preferenze alimentari o canzoni..." rows="3"></textarea>
+                        <label>Intolleranze, Preferenze Alimentari o Allergie</label>
+                        <textarea name="Messaggio" placeholder="Segnalateci eventuali esigenze particolari..." rows="3"></textarea>
                     </div>
 
                     <input type="text" name="_gotcha" style="display:none">
