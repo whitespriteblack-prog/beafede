@@ -122,18 +122,22 @@
         .app-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px; /* Ridotto gap per mobile */
             margin-bottom: 25px;
+            flex-wrap: nowrap; /* Forza l'orizzontale */
         }
         .app-btn {
             display: inline-block;
             background: #333;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: 0.3s;
+            white-space: nowrap;
+            flex: 1;
+            max-width: 160px;
         }
         .app-btn:hover { background: #555; }
 
@@ -199,7 +203,7 @@
             .container { padding: 40px 20px; }
             .form-card { padding: 30px 20px; }
             .form-grid { grid-template-columns: 1fr; gap: 0; }
-            .app-links { flex-direction: column; align-items: center; }
+            .app-btn { font-size: 0.7rem; padding: 10px 8px; } /* Ottimizzazione bottoni mobile */
             input, select, textarea { font-size: 16px; } 
         }
     </style>
@@ -258,11 +262,11 @@
 
         <div class="photo-section reveal">
             <h3>I vostri scatti</h3>
-            <p>Aiutateci a raccogliere i momenti più belli della giornata! Scaricate l'app <strong>Wedshoots</strong> e caricate le vostre foto nel nostro album condiviso.</p>
+            <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong> e caricando le foto nel nostro album condiviso.</p>
             
             <div class="app-links">
-                <a href="https://apps.apple.com/it/app/wedshoots/id660530745" target="_blank" class="app-btn">Scarica per iOS</a>
-                <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="app-btn">Scarica per Android</a>
+                <a href="https://apps.apple.com/it/app/wedshoots/id660530745" target="_blank" class="app-btn">iOS (App Store)</a>
+                <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="app-btn">Android (Play Store)</a>
             </div>
             
             <p>Codice Album:</p>
