@@ -48,68 +48,63 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER MODIFICATO - STILE GIOVANILE & ASIMMETRICO */
         .site-header {
             height: 100vh; 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end; 
             align-items: center;
             text-align: center;
             background-color: var(--sage-light);
             padding: 24px;
             position: relative;
+            overflow: hidden; 
         }
+
+        .header-mosaic-fullwidth {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%; 
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 0.8fr; 
+            grid-template-rows: 1fr; 
+            gap: 15px; 
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .mosaic-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: #e0e0e0;
+        }
+
+        .mosaic-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+
+        .frame-1 { grid-column: 1; }
+        .frame-2 { grid-column: 2; transform: translateY(-10px); } 
+        .frame-3 { grid-column: 3; }
 
         .header-content-integrated {
             position: relative;
             z-index: 2;
-            width: 100%;
-            max-width: 550px;
+            margin-bottom: 50px; 
         }
-
-        /* Gallery in stile editoriale/social */
-        .header-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 80px);
-            gap: 12px;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-
-        .photo-box {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px; /* Bordi molto arrotondati e moderni */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: #e0e0e0;
-        }
-
-        .photo-box:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-
-        .photo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Layout asimmetrico delle griglie */
-        .photo-box:nth-child(1) { grid-row: 1 / 3; } /* Foto alta a sinistra */
-        .photo-box:nth-child(2) { grid-column: 2 / 4; } /* Foto larga sopra */
-        .photo-box:nth-child(3) { grid-column: 2; } /* Foto quadrata centro */
-        .photo-box:nth-child(4) { grid-column: 3; } /* Foto quadrata destra */
 
         .site-header h1 { 
             font-size: 3.5rem; 
             font-style: italic; 
             margin-bottom: 10px;
             line-height: 1.2;
-            letter-spacing: -1px;
         }
 
         .site-header p { 
@@ -118,9 +113,32 @@
             text-transform: uppercase; 
             font-weight: 300;
             color: var(--sage-main);
+            margin-bottom: 20px; 
         }
 
-        /* RESTO DELLO STILE INVARIATO */
+        #countdown-timer {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--sage-dark);
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .countdown-segment {
+            text-align: center;
+        }
+
+        .countdown-segment span {
+            font-family: 'Afacad Flux', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--sage-main);
+            display: block;
+        }
+
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -304,7 +322,9 @@
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
-            .header-gallery { grid-template-rows: repeat(2, 60px); }
+            .site-header { justify-content: flex-end; padding-bottom: 80px; }
+            .header-mosaic-fullwidth { height: 50%; } 
+            .countdown-timer { font-size: 1.1rem; gap: 8px; }
             .container { padding: 60px 20px; }
             .photo-footer-section { padding: 60px 20px; }
             .gift-area { padding: 40px 20px; }
@@ -318,15 +338,32 @@
 <body>
 
     <header class="site-header">
+        <div class="header-mosaic-fullwidth">
+            <div class="mosaic-frame frame-1"><img src="foto3.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-2"><img src="foto2.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-3"><img src="foto4.jpeg" alt="foto"></div>
+        </div>
+
         <div class="header-content-integrated">
-            <div class="header-gallery">
-                <div class="photo-box"><img src="foto3.jpeg" alt="foto"></div>
-                <div class="photo-box"><img src="foto2.jpeg" alt="foto"></div>
-                <div class="photo-box"><img src="foto4.jpeg" alt="foto"></div>
-                <div class="photo-box"><img src="foto.jpeg" alt="foto"></div> </div>
             <h1>Beatrice & Federico</h1>
             <p>29 Agosto 2026</p>
+            
+            <div id="countdown-timer">
+                <div class="countdown-segment">
+                    <div class="countdown-value" id="days">00</div>
+                    <span>Giorni</span>
+                </div>
+                <div class="countdown-segment">
+                    <div class="countdown-value" id="hours">00</div>
+                    <span>Ore</span>
+                </div>
+                <div class="countdown-segment">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <span>Minuti</span>
+                </div>
+            </div>
         </div>
+
         <div class="scroll-indicator">scorri ↓</div>
     </header>
 
@@ -442,6 +479,27 @@
     </footer>
 
     <script>
+        function updateCountdown() {
+            const targetDate = new Date("2026-08-29T17:00:00").getTime(); 
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                return;
+            }
+
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerText = String(d).padStart(2, '0');
+            document.getElementById("hours").innerText = String(h).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(m).padStart(2, '0');
+        }
+
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -452,7 +510,10 @@
                 }
             }
         }
+
         window.addEventListener("scroll", reveal);
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); 
         reveal();
     </script>
 </body>
