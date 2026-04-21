@@ -35,12 +35,47 @@
 
         .container { padding: 60px 24px 100px; max-width: 800px; margin: auto; }
 
-        /* HEADER */
+        /* HEADER - PROPOSTA 1 */
         .site-header {
-            padding: 60px 24px 40px;
+            padding: 100px 24px 80px; /* Più spazio verticale */
             text-align: center;
             background-color: var(--sage-light);
             border-bottom: 1px solid #e8ede8;
+            position: relative;
+            overflow: hidden; /* Per contenere il bouquet */
+        }
+
+        .wedding-bouquet {
+            max-width: 300px; /* Leggermente più grande */
+            height: auto;
+            display: inline-block;
+            filter: sepia(1) saturate(1.5) hue-rotate(85deg) brightness(0.7);
+            mix-blend-mode: multiply; 
+            
+            /* Posizionamento Intervallo */
+            position: absolute;
+            top: 50px; /* Più in alto */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1; /* Sotto i nomi */
+            opacity: 0.8; /* Leggermente più etereo */
+        }
+
+        .site-header h1 { 
+            font-size: 3.5rem; 
+            font-style: italic; 
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2; /* Sopra il bouquet */
+            background-color: var(--sage-light); /* Nasconde il bouquet dietro il testo */
+            display: inline-block; /* Per applicare il background solo al testo */
+            padding: 0 15px; /* Spazio intorno al testo */
+        }
+
+        .site-header p { 
+            /* ... (rimane invariato) ... */
+            position: relative;
+            z-index: 2;
         }
 
         /* FILTRO PER RICOLORARE L'IMMAGINE IN VERDE SALVIA */
