@@ -61,31 +61,33 @@
             overflow: hidden; 
         }
 
-        /* MOSAICO MODIFICATO - Separatori Diagonali e Moderni */
+        /* MOSAICO MODIFICATO - Stile Giovanile & Bento Grid con Spazi */
         .header-mosaic-fullwidth {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 60%; 
-            display: flex; /* Cambiato da grid a flex per gestione diagonali */
+            height: 60%; /* Altezza su Desktop */
             z-index: 1;
-            padding: 0; /* Rimosso padding per mosaico a filo */
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Griglia a 4 colonne */
+            grid-template-rows: repeat(2, 1fr);   /* Griglia a 2 righe */
+            gap: 15px; /* Piccolo spazietto tra le foto */
+            padding: 20px;
         }
 
         .mosaic-frame {
             position: relative;
-            flex: 1; /* Distribuzione equa dello spazio iniziale */
-            height: 100%;
             overflow: hidden;
             background: #e0e0e0;
-            /* Rimosso border-radius e box-shadow per estetica a filo */
-            transition: flex 0.5s ease; /* Transizione morbida */
+            border-radius: 12px; /* Bordi leggermente arrotondati per stile moderno */
+            transition: transform 0.3s ease;
         }
 
-        /* Effetto Hover Moderno: espande la foto */
+        /* Effetto hover discreto */
         .mosaic-frame:hover {
-            flex: 1.3;
+            transform: scale(1.02);
+            z-index: 2;
         }
 
         .mosaic-frame img {
@@ -93,45 +95,14 @@
             height: 100%;
             object-fit: cover; 
             display: block;
-            filter: grayscale(20%); /* Leggero filtro */
-            transition: transform 0.5s ease, filter 0.5s ease;
         }
 
-        .mosaic-frame:hover img {
-            transform: scale(1.05); /* Zoom leggero */
-            filter: grayscale(0%);
-        }
-
-        /* Separatori Diagonali Moderni tramite Pseudo-elementi */
-        .mosaic-frame::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 2px; /* Larghezza linea separatrice */
-            background-color: var(--white-pure); /* Colore linea (bianco) */
-            z-index: 2;
-            opacity: 0.7; /* Semi-trasparente */
-        }
-
-        /* Posizionamento e Inclinazione Diagonale Alternata */
-        .frame-1 { clip-path: polygon(0 0, 105% 0, 95% 100%, 0% 100%); } /* Inclinata dx */
-        .frame-1::after { right: -1px; transform: skewX(-3deg); } /* Linea inclinata */
-
-        .frame-2 { clip-path: polygon(5% 0, 105% 0, 95% 100%, -5% 100%); margin-left: -5%; } /* Inclinata dx */
-        .frame-2::after { right: -1px; transform: skewX(-3deg); }
-
-        .frame-3 { clip-path: polygon(5% 0, 95% 0, 105% 100%, -5% 100%); margin-left: -5%; } /* Inclinata sx */
-        .frame-3::after { right: -1px; transform: skewX(3deg); }
-
-        .frame-4 { clip-path: polygon(-5% 0, 95% 0, 105% 100%, 5% 100%); margin-left: -5%; } /* Inclinata sx */
-        .frame-4::after { right: -1px; transform: skewX(3deg); }
-
-        .frame-5 { clip-path: polygon(-5% 0, 100% 0, 100% 100%, 5% 100%); margin-left: -5%; } /* Inclinata sx a chiudere */
-        .frame-5::after { display: none; } /* Nessuna linea finale */
-
-        /* Rimosso posizionamento irregolare grid precedente */
-        .frame-1, .frame-2, .frame-3, .frame-4, .frame-5 { transform: none; }
+        /* Posizionamento asimmetrico e giovanile (stile Bento Box) */
+        .frame-1 { grid-column: 1 / 3; grid-row: 1; } /* Larga alta sx */
+        .frame-2 { grid-column: 3; grid-row: 1; }     /* Quadrata alta dx */
+        .frame-3 { grid-column: 4; grid-row: 1 / 3; } /* Alta dx tutta altezza */
+        .frame-4 { grid-column: 1; grid-row: 2; }     /* Quadrata bassa sx */
+        .frame-5 { grid-column: 2 / 4; grid-row: 2; } /* Larga bassa centro */
 
         .header-content-integrated {
             position: relative;
@@ -358,16 +329,33 @@
 
         footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
 
+        /* ADATTAMENTO MOBILE - Mosaico non ritagliato e testo visibile */
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
-            .site-header { justify-content: flex-end; padding-bottom: 80px; }
-            .header-mosaic-fullwidth { height: 50%; } 
             
-            /* Semplifica diagonali su mobile per performance */
-            .header-mosaic-fullwidth { gap: 4px; }
-            .mosaic-frame::after { width: 1px; }
-            
+            /* Sposta il testo più in alto per far spazio al mosaico visibile */
+            .site-header { justify-content: flex-end; padding-bottom: 40px; } 
+
+            /* Mosaico Mobile: Mantiene layout ma aumenta l'altezza per non ritagliare */
+            .header-mosaic-fullwidth { 
+                height: 55%; /* Più basso su mobile per lasciar spazio al testo */
+                top: 50px;   /* Leggermente staccato dall'alto */
+                padding: 10px;
+                gap: 8px;   /* Spazio ridotto su mobile */
+                grid-template-columns: repeat(3, 1fr); /* Griglia a 3 colonne per foto più grandi */
+                grid-template-rows: repeat(3, 1fr);   /* 3 righe */
+            }
+
+            .mosaic-frame { border-radius: 8px; }
+
+            /* Riorganizzazione asimmetrica per Mobile a 3 colonne */
+            .frame-1 { grid-column: 1 / 3; grid-row: 1; } /* Larga alta */
+            .frame-2 { grid-column: 3; grid-row: 1; }     /* Quadrata alta dx */
+            .frame-3 { grid-column: 2 / 4; grid-row: 2; } /* Larga centrale */
+            .frame-4 { grid-column: 1; grid-row: 2 / 4; } /* Alta sx */
+            .frame-5 { grid-column: 2 / 4; grid-row: 3; } /* Larga bassa dx */
+
             .countdown-timer { font-size: 1.1rem; gap: 8px; }
             .container { padding: 60px 20px; }
             .photo-footer-section { padding: 60px 20px; }
