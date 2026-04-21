@@ -12,6 +12,7 @@
             --sage-main: #8ba88e;
             --sage-light: #f1f4f1;
             --sage-dark: #5a6d5c;
+            --gold-subtle: #c2b280;
             --white-pure: #ffffff;
             --text-dark: #333d34;
         }
@@ -47,7 +48,6 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER COPERTINA */
         .site-header {
             height: 100vh; 
             display: flex;
@@ -129,7 +129,7 @@
             font-weight: 400;
         }
 
-        /* RIQUADRO REGALO */
+        /* RIQUADRO REGALO AGGIORNATO */
         .gift-area { 
             background-color: var(--sage-light); 
             padding: 60px 40px; 
@@ -138,9 +138,10 @@
             margin: 80px 0;
             border: 1px solid #e8ede8;
         }
+
         .iban-row {
             margin-top: 30px;
-            padding: 20px 0;
+            padding: 25px 0;
             border-top: 1px solid rgba(0,0,0,0.05);
             border-bottom: 1px solid rgba(0,0,0,0.05);
             display: flex;
@@ -148,6 +149,7 @@
             align-items: center;
             gap: 5px;
         }
+
         .iban-label {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -155,6 +157,7 @@
             color: var(--sage-main);
             font-weight: 500;
         }
+
         .iban-code { 
             font-family: 'Afacad Flux', sans-serif;
             font-size: 1.1rem; 
@@ -164,42 +167,90 @@
             white-space: nowrap;
         }
 
-        .form-card { 
-            background: white; padding: 50px; border-radius: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
-        }
         .btn-submit {
             background: var(--sage-main); color: white; padding: 18px 50px;
             text-decoration: none; border-radius: 50px; font-size: 0.9rem;
             letter-spacing: 2px; transition: 0.3s ease; border: none;
             cursor: pointer; text-transform: uppercase; font-weight: 500;
+            box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3);
         }
 
-        /* SEZIONE FOTO FINALE */
+        .form-card { 
+            background: white; padding: 50px; border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
+        }
+        .form-group { margin-bottom: 30px; text-align: left; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
+
         .photo-footer-section {
             background-color: var(--sage-dark);
             color: white;
             padding: 80px 40px;
             margin: 100px -100vw 0; 
             position: relative;
-            left: 50%; right: 50%; width: 100vw; margin-left: -50vw; margin-right: -50vw;
+            left: 50%;
+            right: 50%;
+            width: 100vw;
+            margin-left: -50vw;
+            margin-right: -50vw;
             text-align: center;
         }
-        .photo-footer-section h3 { color: white; }
+        .photo-footer-section h3 { color: white; font-size: 1.8rem; margin-bottom: 15px; }
+        .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+
+        .app-links-modern {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: nowrap;
+        }
         .modern-btn {
-            background: transparent; color: white; border: 1px solid white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; flex: 1; max-width: 160px;
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            transition: 0.3s;
+            flex: 1;
+            max-width: 160px;
         }
         .modern-btn:hover { background: white; color: var(--sage-dark); }
-        .code-box-modern { display: inline-block; border: 2px dashed rgba(255,255,255,0.4); padding: 20px 40px; border-radius: 15px; background-color: white; margin-top: 20px;}
-        .wedding-code-display { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold; }
 
-        footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); }
+        .code-box-modern {
+            display: inline-block;
+            border: 2px dashed rgba(255,255,255,0.4);
+            padding: 20px 40px;
+            border-radius: 15px;
+            background-color: white;
+        }
+        .code-box-modern span { 
+            display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px;
+        }
+        .wedding-code-display {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold;
+        }
+
+        footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
 
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.8rem; }
+            .wedding-bouquet { max-width: 220px; }
+            .container { padding: 60px 20px; }
+            .photo-footer-section { padding: 60px 20px; }
             .gift-area { padding: 40px 20px; }
             .iban-code { font-size: 0.85rem; letter-spacing: 0.5px; }
             .form-card { padding: 30px 20px; }
+            .form-grid { grid-template-columns: 1fr; gap: 0; }
+            input, select, textarea { font-size: 16px; } 
         }
     </style>
 </head>
@@ -224,7 +275,7 @@
                 <div class="event-info">
                     <h3>🏛️ La Cerimonia</h3>
                     <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="#" target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://maps.app.goo.gl/x8baEFeB" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
@@ -233,7 +284,7 @@
                 <div class="event-info">
                     <h3>🥂 Suzzichini</h3>
                     <p>Castellazzo di Monteveglio</p>
-                    <a href="#" target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://maps.app.goo.gl/x8baEFeB2" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
 
@@ -259,9 +310,11 @@
                 <span>Un pensiero per noi</span>
                 <h2>Il nostro futuro</h2>
             </div>
-            <p style="max-width: 500px; margin: 0 auto; color: #666;">
+            
+            <p style="max-width: 600px; margin: 0 auto; color: #666;">
                 La vostra presenza è il dono più prezioso. Se desiderate contribuire al nostro futuro insieme, questo è il nostro riferimento:
             </p>
+
             <div class="iban-row">
                 <span class="iban-label">Codice IBAN</span>
                 <div class="iban-code">IT57Y0707236670000000767183</div>
@@ -272,11 +325,39 @@
             <div class="section-header">
                 <span>R.S.V.P.</span>
                 <h2>Ci sarete?</h2>
-                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Confermate entro il 15 Luglio 2026</p>
+                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Vi chiediamo gentilmente di confermare entro il 15 Luglio 2026</p>
             </div>
+
             <div class="form-card">
-                <form action="#" method="POST">
-                    <input type="text" placeholder="Nome e Cognome" style="width:100%; padding:12px; margin-bottom:20px; border:1px solid #eee; border-radius:8px;">
+                <form action="https://formspree.io/f/mwvwrrdd" method="POST">
+                    <div class="form-group">
+                        <label>Nome e Cognome</label>
+                        <input type="text" name="Nomi" placeholder="Inserite i vostri nomi" required>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Partecipazione</label>
+                            <select name="Conferma">
+                                <option value="Sì">Sì, ci saremo!</option>
+                                <option value="No">No, purtroppo no</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Bambini al seguito?</label>
+                            <select name="Bambini">
+                                <option value="No">No</option>
+                                <option value="Sì">Sì</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Intolleranze, Preferenze Alimentari o Allergie</label>
+                        <textarea name="Messaggio" placeholder="Segnalateci eventuali esigenze particolari..." rows="3"></textarea>
+                    </div>
+
+                    <input type="text" name="_gotcha" style="display:none">
                     <button type="submit" class="btn-submit">Invia conferma</button>
                 </form>
             </div>
@@ -284,13 +365,15 @@
 
         <div class="photo-footer-section reveal">
             <h3>I vostri scatti</h3>
-            <p>Caricate le vostre foto sull'app <strong>Wedshoots</strong> nel nostro album condiviso.</p>
-            <div style="display:flex; justify-content:center; gap:10px; margin-bottom:30px;">
-                <a href="#" class="modern-btn">App Store</a>
-                <a href="#" class="modern-btn">Play Store</a>
+            <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong> e caricando le foto nel nostro album condiviso.</p>
+            
+            <div class="app-links-modern">
+                <a href="https://apps.apple.com/it/app/wedshoots/id660530745" target="_blank" class="modern-btn">App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a>
             </div>
+            
             <div class="code-box-modern">
-                <span style="color:var(--sage-main); font-size:0.7rem; text-transform:uppercase; letter-spacing:2px;">Codice Album</span><br>
+                <span>Codice Album</span>
                 <div class="wedding-code-display">ITa424c233</div>
             </div>
         </div>
