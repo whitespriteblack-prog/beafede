@@ -144,13 +144,37 @@
 
         /* RIQUADRO REGALO AGGIORNATO */
         .gift-area { 
-            background-color: var(--sage-light); 
-            padding: 60px 40px; 
-            border-radius: 20px; 
-            text-align: center; 
-            margin: 80px 0;
-            border: 1px solid #e8ede8;
-        }
+    position: relative;
+    /* Inserisci qui il link della tua foto */
+    background-image: url('latuafoto.jpg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 80px 40px; 
+    border-radius: 20px; 
+    text-align: center; 
+    margin: 80px 0;
+    overflow: hidden;
+    color: white; /* Cambia il testo in bianco se la foto è scura */
+    z-index: 1;
+}
+
+/* Questo crea un velo sopra la foto per far leggere il testo */
+.gift-area::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.85); /* Velo bianco (0.85 è l'opacità) */
+    z-index: -1;
+}
+
+.gift-area h2, .gift-area p, .gift-area .iban-label {
+    color: var(--text-dark) !important; /* Forza il testo a rimanere scuro sopra il velo bianco */
+}
+
+.gift-area .iban-row {
+    background: rgba(255, 255, 255, 0.6); /* Un tocco di trasparenza extra per l'IBAN */
+    border-radius: 10px;
+}
 
         .iban-row {
             margin-top: 30px;
@@ -327,9 +351,7 @@
         </div>
 
 
-<div class="wedding-photo-container reveal">
-            <img src="foto.jpeg" alt="Beatrice e Federico" class="wedding-photo">
-        </div>
+
 
 
 
