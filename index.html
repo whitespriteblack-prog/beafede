@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Beatrice & Federico | 29.08.2026</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@300;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
             --sage-main: #8ba88e;
             --sage-light: #f1f4f1;
             --sage-dark: #5a6d5c;
-            --gold-subtle: #c2b280;
             --white-pure: #ffffff;
             --text-dark: #333d34;
         }
@@ -21,7 +20,7 @@
         
         body { 
             font-family: 'Afacad Flux', sans-serif; 
-            line-height: 1.8; 
+            line-height: 1.6; 
             color: var(--text-dark); 
             background-color: var(--white-pure);
             scroll-behavior: smooth;
@@ -29,10 +28,9 @@
             overflow-x: hidden;
         }
 
-        /* ANIMAZIONE DI COMPARSA */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: all 0.8s ease-out;
         }
 
@@ -47,18 +45,18 @@
             color: var(--sage-dark);
         }
 
-        .container { padding: 100px 24px; max-width: 800px; margin: auto; }
+        .container { padding: 60px 24px; max-width: 800px; margin: auto; }
 
+        /* HEADER OTTIMIZZATO */
         .site-header {
-            padding: 60px 24px 60px;
+            padding: 80px 24px 50px;
             text-align: center;
             background-color: var(--sage-light);
             border-bottom: 1px solid #e8ede8;
-            position: relative;
         }
 
         .wedding-bouquet {
-            max-width: 250px; 
+            max-width: 220px; 
             height: auto;
             margin-bottom: 0px; 
             margin-top: -10px;    
@@ -69,100 +67,80 @@
         .site-header h1 { 
             font-size: 3.5rem; 
             font-style: italic; 
-            margin-top: -10px;
-            margin-bottom: 10px;
+            margin-top: -5px;
+            margin-bottom: 5px;
+            line-height: 1.1;
         }
 
         .site-header p { 
             font-size: 0.9rem; 
             letter-spacing: 4px; 
             text-transform: uppercase; 
-            font-weight: 300;
             color: var(--sage-main);
         }
 
-        .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
-        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
-        .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { font-size: 2rem; margin-bottom: 10px; }
+        .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px; }
 
-        .schedule-list { margin-top: 40px; }
         .event-row { 
-            display: flex; align-items: baseline; gap: 40px; 
-            padding: 35px 0; border-top: 1px solid #eee;
+            display: flex; align-items: baseline; gap: 30px; 
+            padding: 25px 0; border-top: 1px solid #eee;
         }
-        .event-row:last-child { border-bottom: 1px solid #eee; }
-        .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); min-width: 70px; }
+        .time { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--sage-main); min-width: 60px; }
         
-        /* Stile icone accanto ai titoli degli eventi */
         .event-info h3 { 
-            font-size: 1.3rem; 
-            margin-bottom: 5px; 
+            font-size: 1.2rem; 
             color: var(--text-dark); 
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .event-icon { font-size: 1.2rem; opacity: 0.8; }
-
-        .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
-        
-        .map-link { 
-            display: inline-block; margin-top: 8px; font-size: 0.75rem; 
-            color: var(--sage-main); text-decoration: none; border-bottom: 1px solid var(--sage-main);
-            font-weight: 500;
-        }
+        .event-icon { font-size: 1.1rem; }
 
         .gift-area { 
             background-color: var(--sage-light); 
-            padding: 60px 40px; border-radius: 20px; text-align: center; margin: 80px 0;
-            border: 1px solid #e8ede8;
+            padding: 40px 25px; border-radius: 20px; text-align: center; margin: 60px 0;
         }
-        .gift-area h3 { margin-bottom: 20px; }
         .iban-code { 
-            font-size: 1.1rem; letter-spacing: 1px; margin-top: 20px; 
-            padding: 15px; display: inline-block; color: var(--sage-dark);
+            font-size: 1rem; margin-top: 15px; 
+            padding: 12px; display: block; color: var(--sage-dark);
             background: white; border-radius: 10px; border: 1px solid #e2e8e2;
             font-family: monospace;
             word-break: break-all;
         }
 
+        .form-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid #f0f0f0; }
         .btn-submit {
-            background: var(--sage-main); color: white; padding: 18px 50px;
-            text-decoration: none; border-radius: 50px; font-size: 0.9rem;
-            letter-spacing: 2px; transition: 0.3s ease; border: none;
-            cursor: pointer; text-transform: uppercase; font-weight: 500;
-            box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3);
+            background: var(--sage-main); color: white; padding: 16px 40px;
+            border-radius: 50px; font-size: 0.9rem; letter-spacing: 1px; border: none; text-transform: uppercase;
         }
 
-        .form-card { 
-            background: white; padding: 50px; border-radius: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
-        }
-        .form-group { margin-bottom: 30px; text-align: left; }
-        label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
-        input, select, textarea { 
-            width: 100%; padding: 12px; border: 1px solid #e8ede8; 
-            background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem;
-        }
+        footer { text-align: center; padding: 60px 24px; font-size: 0.75rem; color: var(--sage-main); }
 
-        footer { text-align: center; padding: 80px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: #fafafa; border-top: 1px solid #eee; }
-
+        /* FIX SPECIFICO PER MOBILE (Samsung S23 e simili) */
         @media (max-width: 600px) {
-            .event-row { flex-direction: column; gap: 5px; padding: 25px 0; }
-            .site-header h1 { font-size: 2.8rem; margin-top: -5px; }
-            .wedding-bouquet { max-width: 180px; }
-            .site-header { padding: 40px 20px 40px; }
+            .site-header { padding: 50px 15px 40px; }
+            .wedding-bouquet { max-width: 160px; margin-top: 0; }
+            .site-header h1 { font-size: 2.2rem; margin-top: 5px; }
+            .site-header p { font-size: 0.75rem; letter-spacing: 2px; }
+            
+            .container { padding: 40px 20px; }
+            .event-row { gap: 15px; }
+            .time { font-size: 1.1rem; min-width: 50px; }
+            .event-info h3 { font-size: 1.1rem; }
+            
+            .form-card { padding: 25px 15px; }
+            input, select, textarea { font-size: 16px; } /* Evita lo zoom automatico su Android/iOS */
         }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <div class="container-header">
-            <img src="bouquet.png" alt="Wedding Bouquet" class="wedding-bouquet">
-            <h1>Beatrice & Federico</h1>
-            <p>29 Agosto 2026</p>
-        </div>
+        <img src="bouquet.png" alt="Wedding Bouquet" class="wedding-bouquet">
+        <h1>Beatrice & Federico</h1>
+        <p>29 Agosto 2026</p>
     </header>
 
     <section class="container">
@@ -177,89 +155,54 @@
                 <div class="event-info">
                     <h3><span class="event-icon">🏛️</span> La Cerimonia</h3>
                     <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="https://maps.google.com/?q=Rocca+dei+Bentivoglio" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
-
             <div class="event-row reveal">
                 <div class="time">18:00</div>
                 <div class="event-info">
                     <h3><span class="event-icon">🌳</span> Ricevimento</h3>
                     <p>Castellazzo di Monteveglio</p>
-                    <a href="https://maps.google.com/?q=Castellazzo+di+Monteveglio" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
-
             <div class="event-row reveal">
                 <div class="time">20:00</div>
                 <div class="event-info">
                     <h3><span class="event-icon">🥂</span> Cena</h3>
-                    <p>Cucina locale e convivialità tra i colli.</p>
+                    <p>Cucina locale tra i colli.</p>
                 </div>
             </div>
-
             <div class="event-row reveal">
                 <div class="time">22:00</div>
                 <div class="event-info">
                     <h3><span class="event-icon">🕺</span> Party</h3>
-                    <p>Open bar e dj set fino a notte fonda.</p>
+                    <p>Dj set fino a notte fonda.</p>
                 </div>
             </div>
         </div>
 
         <div class="gift-area reveal">
             <h3>Il nostro futuro</h3>
-            <p>La vostra presenza è il dono più prezioso. Se desiderate contribuire al nostro futuro insieme, questo è il nostro riferimento:</p>
+            <p>Se desiderate contribuire al nostro viaggio:</p>
             <div class="iban-code">IT57Y0707236670000000767183</div>
         </div>
 
         <div id="rsvp" style="text-align: center;" class="reveal">
             <div class="section-header">
-                <span>R.S.V.P.</span>
                 <h2>Ci sarete?</h2>
-                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Vi chiediamo gentilmente di confermare entro il 15 Luglio 2026</p>
             </div>
-
             <div class="form-card">
                 <form action="https://formspree.io/f/mwvwrrdd" method="POST">
-                    <div class="form-group">
-                        <label>Nome e Cognome</label>
-                        <input type="text" name="Nomi" placeholder="Inserite i vostri nomi" required>
+                    <div style="margin-bottom: 20px; text-align: left;">
+                        <label style="font-size: 0.8rem; color: var(--sage-main); text-transform: uppercase;">Nomi</label>
+                        <input type="text" name="Nomi" style="width:100%; padding: 10px; border: 1px solid #eee; border-radius: 8px;" required>
                     </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <label>Partecipazione</label>
-                            <select name="Conferma">
-                                <option value="Sì">Sì, ci saremo!</option>
-                                <option value="No">No, purtroppo no</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Bambini al seguito?</label>
-                            <select name="Bambini">
-                                <option value="No">No</option>
-                                <option value="Sì">Sì</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Intolleranze, Preferenze Alimentari o Allergie</label>
-                        <textarea name="Messaggio" placeholder="Segnalateci eventuali esigenze particolari..." rows="3"></textarea>
-                    </div>
-
-                    <input type="text" name="_gotcha" style="display:none">
-                    <button type="submit" class="btn-submit">Invia conferma</button>
+                    <button type="submit" class="btn-submit">Invia</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>B & F — 29 . 08 . 2026</p>
-        <p style="margin-top: 5px; opacity: 0.6; font-size: 0.7rem;">#BeaEFeWedding</p>
-    </footer>
+    <footer>B & F — 2026</footer>
 
     <script>
         function reveal() {
@@ -267,8 +210,7 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 100) {
                     reveals[i].classList.add("active");
                 }
             }
@@ -276,6 +218,5 @@
         window.addEventListener("scroll", reveal);
         reveal();
     </script>
-
 </body>
 </html>
