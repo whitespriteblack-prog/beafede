@@ -70,6 +70,7 @@
             font-style: italic; 
             margin-top: -10px;
             margin-bottom: 10px;
+            white-space: nowrap; /* Impedisce a Beatrice & Federico di dividersi su desktop */
         }
 
         .site-header p { 
@@ -84,7 +85,6 @@
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
 
-        /* PROGRAMMA ALLINEATO AL CENTRO */
         .schedule-list { margin-top: 40px; text-align: center; }
         .event-row { 
             display: flex; 
@@ -121,7 +121,6 @@
             font-weight: 500;
         }
 
-        /* SEZIONE FOTO / WEDSHOOTS */
         .photo-section {
             text-align: center;
             margin: 80px 0;
@@ -163,7 +162,6 @@
             letter-spacing: 2px;
         }
 
-        /* GIFT AREA */
         .gift-area { 
             background-color: var(--sage-light); 
             padding: 60px 40px; border-radius: 20px; text-align: center; margin: 80px 0;
@@ -207,9 +205,13 @@
         footer { text-align: center; padding: 80px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: #fafafa; border-top: 1px solid #eee; }
 
         @media (max-width: 600px) {
-            .site-header { padding: 40px 20px; }
-            .wedding-bouquet { max-width: 180px; margin-top: 0; }
-            .site-header h1 { font-size: 2.6rem; margin-top: 5px; }
+            .site-header { padding: 30px 15px; }
+            /* LOGO PIÙ VICINO SOLO SU MOBILE */
+            .wedding-bouquet { max-width: 170px; margin-bottom: -20px; margin-top: 0; }
+            /* TITOLO SU UNA RIGA SOLO SU MOBILE */
+            .site-header h1 { font-size: 2.1rem; margin-top: 0; white-space: nowrap; }
+            .site-header p { font-size: 0.75rem; letter-spacing: 3px; }
+            
             .iban-code { font-size: 0.9rem; width: 100%; overflow-wrap: break-word; }
             .container { padding: 40px 20px; }
             .form-card { padding: 30px 20px; }
