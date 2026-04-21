@@ -1,299 +1,443 @@
+tutto perfetto ma le 3 polaroid, solo sullo smartphone devono essere su due file, due sopra e una sotto. Poi in tutto il sito voglio che le & siano con un carattere meno attorcigliato. Il resto deve rimanere uguale.
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatrice & Federico | 29.08.2026</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@300;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatrice & Federico | 29.08.2026</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@300;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --sage-main: #8ba88e;
-            --sage-light: #f1f4f1;
-            --sage-dark: #5a6d5c;
-            --white-pure: #ffffff;
-            --text-dark: #333d34;
-        }
+    <style>
+        :root {
+            --sage-main: #8ba88e;
+            --sage-light: #f1f4f1;
+            --sage-dark: #5a6d5c;
+            --gold-subtle: #c2b280;
+            --white-pure: #ffffff;
+            --text-dark: #333d34;
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Afacad Flux', sans-serif; 
-            line-height: 1.8; 
-            color: var(--text-dark); 
-            background-color: var(--white-pure);
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Afacad Flux', sans-serif; 
+            line-height: 1.8; 
+            color: var(--text-dark); 
+            background-color: var(--white-pure);
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
 
-        /* CLASSE PER LA & - CORSIVO ELEGANTE E LARGO */
-        .amp {
-            font-family: Georgia, serif !important;
-            font-style: italic !important;
-            font-weight: 400;
-            margin: 0 4px;
-        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        h1, h2, h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 400; 
+            color: var(--sage-dark);
+        }
 
-        h1, h2, h3 { 
-            font-family: 'Playfair Display', serif; 
-            font-weight: 400; 
-            color: var(--sage-dark);
-        }
+        .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        .container { padding: 100px 24px; max-width: 800px; margin: auto; }
+        /* HEADER MODIFICATO */
+        .site-header {
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: var(--sage-light);
+            padding: 24px;
+            position: relative;
+        }
 
-        /* HEADER INTEGRATO */
-        .site-header {
-            height: 100vh; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: var(--sage-light);
-            padding: 24px;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Polaroid ridimensionate per l'header */
+        .header-gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
 
-        /* Composizione Polaroid Migliorata */
-        .header-gallery {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 220px;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+        .polaroid-small {
+            background: white;
+            padding: 8px 8px 20px 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 140px; /* Dimensione ridotta per stare sopra il titolo */
+            transition: 0.3s;
+        }
 
-        .polaroid-small {
-            position: absolute;
-            background: white;
-            padding: 10px 10px 25px 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            width: 150px;
-            transition: transform 0.5s ease;
-            animation: float 6s ease-in-out infinite;
-        }
+        .polaroid-small img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            display: block;
+        }
 
-        .polaroid-small img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            display: block;
-            filter: sepia(10%);
-        }
+        .polaroid-small:nth-child(1) { transform: rotate(-5deg); }
+        .polaroid-small:nth-child(2) { transform: rotate(3deg); margin-top: -10px; }
+        .polaroid-small:nth-child(3) { transform: rotate(-2deg); }
 
-        /* Posizionamento e rotazione differenziata */
-        .p1 { transform: rotate(-8deg) translateX(-80px); animation-delay: 0s; z-index: 1; }
-        .p2 { transform: rotate(4deg) translateY(-15px); animation-delay: -2s; z-index: 3; }
-        .p3 { transform: rotate(10deg) translateX(80px); animation-delay: -4s; z-index: 2; }
+        .site-header h1 { 
+            font-size: 3.5rem; 
+            font-style: italic; 
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(var(--rot)); }
-            50% { transform: translateY(-10px) rotate(var(--rot-alt)); }
-        }
+        .site-header p { 
+            font-size: 1rem; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            font-weight: 300;
+            color: var(--sage-main);
+        }
 
-        /* Variabili per rotazioni uniche nell'animazione */
-        .p1 { --rot: -8deg; --rot-alt: -5deg; }
-        .p2 { --rot: 4deg; --rot-alt: 1deg; }
-        .p3 { --rot: 10deg; --rot-alt: 13deg; }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sage-main);
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+        }
 
-        .site-header h1 { 
-            font-size: 3.8rem; 
-            font-style: italic; 
-            margin-top: 10px;
-            line-height: 1.1;
-            z-index: 10;
-        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
 
-        .site-header p { 
-            font-size: 1rem; 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            font-weight: 300;
-            color: var(--sage-main);
-            margin-top: 15px;
-        }
+        .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
 
-        /* Resto dello stile invariato */
-        .scroll-indicator { position: absolute; bottom: 40px; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--sage-main); opacity: 0.7; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
-        
-        .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
-        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
-        .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
+        .schedule-list { margin-top: 40px; text-align: center; }
+        .event-row { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 10px; 
+            padding: 35px 0; 
+            border-top: 1px solid #eee;
+        }
+        .event-row:last-child { border-bottom: 1px solid #eee; }
+        
+        .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
+        .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
+        
+        .map-link { 
+            display: inline-block; 
+            margin-top: 8px; 
+            font-size: 0.9rem; 
+            color: var(--sage-main); 
+            text-decoration: underline; 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            font-weight: 400;
+        }
 
-        .schedule-list { margin-top: 40px; text-align: center; }
-        .event-row { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 35px 0; border-top: 1px solid #eee; }
-        .event-row:last-child { border-bottom: 1px solid #eee; }
-        .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
-        .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
-        .map-link { display: inline-block; margin-top: 8px; font-size: 0.9rem; color: var(--sage-main); text-decoration: underline; font-family: 'Playfair Display', serif; font-style: italic; }
+        .gift-area { 
+            position: relative;
+            background-image: url('foto.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            padding: 80px 40px; 
+            border-radius: 20px; 
+            text-align: center; 
+            margin: 80px 0;
+            overflow: hidden;
+            color: white;
+            z-index: 1;
+        }
 
-        .gift-area { position: relative; background-image: url('foto.jpeg'); background-size: cover; background-position: center; padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; overflow: hidden; z-index: 1; }
-        .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
-        .iban-row { margin-top: 30px; padding: 25px 0; background: rgba(255, 255, 255, 0.6); border-radius: 10px; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-        .iban-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); font-weight: 500; }
-        .iban-code { font-family: 'Afacad Flux', sans-serif; font-size: 1.1rem; color: var(--sage-dark); font-weight: 500; }
+        .gift-area::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.45); 
+            z-index: -1;
+        }
 
-        .form-card { background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0; }
-        .form-group { margin-bottom: 30px; text-align: left; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; }
-        .btn-submit { background: var(--sage-main); color: white; padding: 18px 50px; border-radius: 50px; font-size: 0.9rem; letter-spacing: 2px; border: none; cursor: pointer; text-transform: uppercase; }
+        .gift-area h2, .gift-area p, .gift-area .iban-label {
+            color: var(--text-dark) !important;
+        }
 
-        .photo-footer-section { background-color: var(--sage-dark); color: white; padding: 80px 40px; margin: 100px -100vw 0; position: relative; left: 50%; right: 50%; width: 100vw; margin-left: -50vw; margin-right: -50vw; text-align: center; }
-        .photo-footer-section h3 { color: white; margin-bottom: 15px; }
-        .app-links-modern { display: flex; justify-content: center; gap: 12px; margin-bottom: 35px; }
-        .modern-btn { background: transparent; color: white; border: 1px solid white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; transition: 0.3s; }
-        .modern-btn:hover { background: white; color: var(--sage-dark); }
-        .code-box-modern { display: inline-block; padding: 20px 40px; border-radius: 15px; background-color: white; color: var(--text-dark); }
+        .gift-area .iban-row {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+        }
 
-        footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); }
+        .iban-row {
+            margin-top: 30px;
+            padding: 25px 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
 
-        @media (max-width: 600px) {
-            .site-header h1 { font-size: 2.5rem; }
-            .polaroid-small { width: 110px; }
-            .p1 { transform: rotate(-8deg) translateX(-50px); }
-            .p3 { transform: rotate(10deg) translateX(50px); }
-            .form-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+        .iban-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--sage-main);
+            font-weight: 500;
+        }
+
+        .iban-code { 
+            font-family: 'Afacad Flux', sans-serif;
+            font-size: 1.1rem; 
+            letter-spacing: 1px; 
+            color: var(--sage-dark);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .btn-submit {
+            background: var(--sage-main); color: white; padding: 18px 50px;
+            text-decoration: none; border-radius: 50px; font-size: 0.9rem;
+            letter-spacing: 2px; transition: 0.3s ease; border: none;
+            cursor: pointer; text-transform: uppercase; font-weight: 500;
+            box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3);
+        }
+
+        .form-card { 
+            background: white; padding: 50px; border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
+        }
+        .form-group { margin-bottom: 30px; text-align: left; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
+
+        .photo-footer-section {
+            background-color: var(--sage-dark);
+            color: white;
+            padding: 80px 40px;
+            margin: 100px -100vw 0; 
+            position: relative;
+            left: 50%;
+            right: 50%;
+            width: 100vw;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            text-align: center;
+        }
+        .photo-footer-section h3 { color: white; font-size: 1.8rem; margin-bottom: 15px; }
+        .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+
+        .app-links-modern {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: nowrap;
+        }
+        .modern-btn {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            transition: 0.3s;
+            flex: 1;
+            max-width: 160px;
+        }
+        .modern-btn:hover { background: white; color: var(--sage-dark); }
+
+        .code-box-modern {
+            display: inline-block;
+            border: 2px dashed rgba(255,255,255,0.4);
+            padding: 20px 40px;
+            border-radius: 15px;
+            background-color: white;
+        }
+        .code-box-modern span { 
+            display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px;
+        }
+        .wedding-code-display {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold;
+        }
+
+        footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
+
+        @media (max-width: 600px) {
+            .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
+            .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
+            .polaroid-small { width: 100px; } /* Ancora più piccole su mobile */
+            .container { padding: 60px 20px; }
+            .photo-footer-section { padding: 60px 20px; }
+            .gift-area { padding: 40px 20px; }
+            .iban-code { font-size: 0.85rem; letter-spacing: 0.5px; }
+            .form-card { padding: 30px 20px; }
+            .form-grid { grid-template-columns: 1fr; gap: 0; }
+            input, select, textarea { font-size: 16px; } 
+        }
+    </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="header-gallery">
-            <div class="polaroid-small p1"><img src="foto3.jpeg" alt="foto"></div>
-            <div class="polaroid-small p2"><img src="foto2.jpeg" alt="foto"></div>
-            <div class="polaroid-small p3"><img src="foto4.jpeg" alt="foto"></div>
-        </div>
-        <h1>Beatrice <span class="amp">&</span> Federico</h1>
-        <p>29 Agosto 2026</p>
-        <div class="scroll-indicator">scorri ↓</div>
-    </header>
+    <header class="site-header">
+        <div class="header-gallery">
+            <div class="polaroid-small"><img src="foto3.jpeg" alt="foto"></div>
+            <div class="polaroid-small"><img src="foto2.jpeg" alt="foto"></div>
+            <div class="polaroid-small"><img src="foto4.jpeg" alt="foto"></div>
+        </div>
+        <h1>Beatrice & Federico</h1>
+        <p>29 Agosto 2026</p>
+        <div class="scroll-indicator">scorri ↓</div>
+    </header>
 
-    <section class="container">
-        <div class="section-header reveal">
-            <h2>Programma</h2>
-        </div>
-        
-        <div class="schedule-list">
-            <div class="event-row reveal">
-                <div class="time">17:00</div>
-                <div class="event-info">
-                    <h3>Cerimonia</h3>
-                    <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="#" target="_blank" class="map-link">Google Maps</a>
-                </div>
-            </div>
+    <section class="container">
+        <div class="section-header reveal">
+            <h2>Programma</h2>
+        </div>
+        
+        <div class="schedule-list">
+            <div class="event-row reveal">
+                <div class="time">17:00</div>
+                <div class="event-info">
+                    <h3>Cerimonia</h3>
+                    <p>Rocca dei Bentivoglio, Bazzano</p>
+                    <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/..." target="_blank" class="map-link">Google Maps</a>
+                </div>
+            </div>
 
-            <div class="event-row reveal">
-                <div class="time">18:00</div>
-                <div class="event-info">
-                    <h3>Stuzzichini</h3>
-                    <p>Il Castellazzo, Monteveglio</p>
-                    <a href="#" target="_blank" class="map-link">Google Maps</a>
-                </div>
-            </div>
+            <div class="event-row reveal">
+                <div class="time">18:00</div>
+                <div class="event-info">
+                    <h3>Stuzzichini</h3>
+                    <p>Il Castellazzo, Monteveglio</p>
+                    <a href="https://www.google.it/maps/place/Il+Castellazzo/..." target="_blank" class="map-link">Google Maps</a>
+                </div>
+            </div>
 
-            <div class="event-row reveal">
-                <div class="time">22:00</div>
-                <div class="event-info"><h3>Party <span class="amp">&</span> Open Bar</h3></div>
-            </div>
-        </div>
+            <div class="event-row reveal">
+                <div class="time">20:00</div>
+                <div class="event-info"><h3>Cena</h3></div>
+            </div>
 
-        <div id="rsvp" style="text-align: center; margin-top: 80px;" class="reveal">
-            <div class="section-header">
-                <span>R.S.V.P.</span>
-                <h2>Ci sarai?</h2>
-            </div>
-            <div class="form-card">
-                <form action="https://formspree.io/f/mwvwrrdd" method="POST">
-                    <div class="form-group">
-                        <label>Nome e Cognome</label>
-                        <input type="text" name="Nomi" placeholder="Inserisci il tuo nome" required>
-                    </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Partecipazione</label>
-                            <select name="Conferma">
-                                <option value="Sì">Sì, ci sarò!</option>
-                                <option value="No">No, purtroppo no</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Bambini al seguito?</label>
-                            <select name="Bambini">
-                                <option value="No">No</option>
-                                <option value="1 Baby">Sì</option>
-                                <option value="2 Babies">Sì</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-submit">Invia conferma</button>
-                </form>
-            </div>
-        </div>
+            <div class="event-row reveal">
+                <div class="time">22:00</div>
+                <div class="event-info"><h3>Party & Open Bar</h3></div>
+            </div>
+        </div>
 
-        <div class="gift-area reveal">
-            <div class="section-header" style="margin-top: 0; margin-bottom: 30px;">
-                <h2>Il nostro futuro</h2>
-            </div>
-            <p>La vostra presenza è il dono più prezioso, ma se desiderate contribuire:</p>
-            <div class="iban-row">
-                <span class="iban-label">Codice IBAN</span>
-                <div class="iban-code">IT57Y0707236670000000767183</div>
-            </div>
-        </div>
+        <div id="rsvp" style="text-align: center; margin-top: 80px;" class="reveal">
+            <div class="section-header">
+                <span>R.S.V.P.</span>
+                <h2>Ci sarai?</h2>
+                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Ti chiediamo gentilmente di confermare compilando il form qui sotto.</p>
+            </div>
 
-        <div class="photo-footer-section reveal">
-            <h3>I vostri scatti</h3>
-            <p>Scaricate l'app <strong>Wedshoots</strong> per caricare le foto nel nostro album condiviso.</p>
-            <div class="app-links-modern">
-                <a href="#" class="modern-btn">App Store</a>
-                <a href="#" class="modern-btn">Play Store</a>
-            </div>
-            <div class="code-box-modern">
-                <div class="wedding-code-display">ITa424c233</div>
-            </div>
-        </div>
-    </section>
+            <div class="form-card">
+                <form action="https://formspree.io/f/mwvwrrdd" method="POST">
+                    <div class="form-group">
+                        <label>Nome e Cognome</label>
+                        <input type="text" name="Nomi" placeholder="Inserisci il tuo nome" required>
+                    </div>
 
-    <footer>
-        <p>B <span class="amp">&</span> F — 29 . 08 . 2026</p>
-    </footer>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Partecipazione</label>
+                            <select name="Conferma">
+                                <option value="Sì">Sì, ci sarò!</option>
+                                <option value="No">No, purtroppo no</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Bambini al seguito?</label>
+                            <select name="Bambini">
+                                <option value="No">No</option>
+                                <option value="Sì">1 baby</option>
+                                <option value="Sì">2 babies</option>
+                            </select>
+                        </div>
+                    </div>
 
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
+                    <div class="form-group">
+                        <label>Intolleranze, Preferenze Alimentari o Allergie</label>
+                        <textarea name="Messaggio" placeholder="Segnalaci eventuali preferenze..." rows="3"></textarea>
+                    </div>
+
+                    <input type="text" name="_gotcha" style="display:none">
+                    <button type="submit" class="btn-submit">Invia conferma</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="gift-area reveal">
+            <div class="section-header" style="margin-top: 0; margin-bottom: 30px;">
+                <h2>Il nostro futuro</h2>
+            </div>
+            <p style="max-width: 600px; margin: 0 auto; color: #666;">
+                La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, <br> questo è il nostro riferimento:
+            </p>
+            <div class="iban-row">
+                <span class="iban-label">Codice IBAN</span>
+                <div class="iban-code">IT57Y0707236670000000767183</div>
+            </div>
+        </div>
+
+        <div class="photo-footer-section reveal">
+            <h3>I vostri scatti</h3>
+            <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong> e caricando le foto nel nostro album condiviso.</p>
+            
+            <div class="app-links-modern">
+                <a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="modern-btn">App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a>
+            </div>
+            
+            <div class="code-box-modern">
+                <span>Codice Album</span>
+                <div class="wedding-code-display">ITa424c233</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>B & F — 29 . 08 . 2026</p>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
 </body>
 </html>
