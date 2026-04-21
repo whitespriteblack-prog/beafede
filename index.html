@@ -1,499 +1,399 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatrice & Federico | 29.08.2026</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@300;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatrice & Federico | 29.08.2026</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@300;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --sage-main: #8ba88e;
-            --sage-light: #f1f4f1;
-            --sage-dark: #5a6d5c;
-            --gold-subtle: #c2b280;
-            --white-pure: #ffffff;
-            --text-dark: #333d34;
-        }
+    <style>
+        :root {
+            --sage-main: #8ba88e;
+            --sage-light: #f1f4f1;
+            --sage-dark: #5a6d5c;
+            --gold-subtle: #c2b280;
+            --white-pure: #ffffff;
+            --text-dark: #333d34;
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Afacad Flux', sans-serif; 
-            line-height: 1.8; 
-            color: var(--text-dark); 
-            background-color: var(--white-pure);
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Afacad Flux', sans-serif; 
+            line-height: 1.8; 
+            color: var(--text-dark); 
+            background-color: var(--white-pure);
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        h1, h2, h3 { 
-            font-family: 'Playfair Display', serif; 
-            font-weight: 400; 
-            color: var(--sage-dark);
-        }
+        h1, h2, h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 400; 
+            color: var(--sage-dark);
+        }
 
-        .container { padding: 100px 24px; max-width: 800px; margin: auto; }
+        .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        .site-header {
-            height: 100vh; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: var(--sage-light);
-            padding: 24px;
-            position: relative;
-        }
+        .site-header {
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: var(--sage-light);
+            padding: 24px;
+            position: relative;
+        }
 
-        .wedding-bouquet {
-            max-width: 300px; 
-            height: auto;
-            margin-bottom: 20px;
-            filter: sepia(1) saturate(1.2) hue-rotate(85deg) brightness(0.8);
-        }
-.wedding-photo-container {
-    text-align: center;
-    margin: 60px auto;
-    max-width: 100%;
-}
+        .wedding-bouquet {
+            max-width: 300px; 
+            height: auto;
+            margin-bottom: 20px;
+            filter: sepia(1) saturate(1.2) hue-rotate(85deg) brightness(0.8);
+        }
 
-.wedding-photo {
-    width: 100%;
-    max-width: 600px; /* Larghezza massima consigliata */
-    height: auto;
-    border-radius: 15px; /* Angoli arrotondati come i box */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Ombra leggerissima */
-    border: 8px solid white; /* Effetto polaroid/cornice */
-}
-        .site-header h1 { 
-            font-size: 3.5rem; 
-            font-style: italic; 
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
+        .site-header h1 { 
+            font-size: 3.5rem; 
+            font-style: italic; 
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
 
-        .site-header p { 
-            font-size: 1rem; 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            font-weight: 300;
-            color: var(--sage-main);
-        }
+        .site-header p { 
+            font-size: 1rem; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            font-weight: 300;
+            color: var(--sage-main);
+        }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--sage-main);
-            opacity: 0.7;
-            animation: bounce 2s infinite;
-        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sage-main);
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+        }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
 
-        .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
-        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
-        .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
+        .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
 
-        .schedule-list { margin-top: 40px; text-align: center; }
-        .event-row { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 10px; 
-            padding: 35px 0; 
-            border-top: 1px solid #eee;
-        }
-        .event-row:last-child { border-bottom: 1px solid #eee; }
-        
-        .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
-        .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
-        
-        .map-link { 
-            display: inline-block; 
-            margin-top: 8px; 
-            font-size: 0.9rem; 
-            color: var(--sage-main); 
-            text-decoration: underline; 
-            font-family: 'Playfair Display', serif; 
-            font-style: italic; 
-            font-weight: 400;
-        }
+        .schedule-list { margin-top: 40px; text-align: center; }
+        .event-row { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 10px; 
+            padding: 35px 0; 
+            border-top: 1px solid #eee;
+        }
+        .event-row:last-child { border-bottom: 1px solid #eee; }
+        
+        .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
+        .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
+        
+        .map-link { 
+            display: inline-block; 
+            margin-top: 8px; 
+            font-size: 0.9rem; 
+            color: var(--sage-main); 
+            text-decoration: underline; 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            font-weight: 400;
+        }
 
-        /* RIQUADRO REGALO AGGIORNATO */
-        .gift-area { 
-    position: relative;
-    /* Inserisci qui il link della tua foto */
-    background-image: url('foto.jpeg'); 
-    background-size: cover;
-    background-position: center;
-    padding: 80px 40px; 
-    border-radius: 20px; 
-    text-align: center; 
-    margin: 80px 0;
-    overflow: hidden;
-    color: white; /* Cambia il testo in bianco se la foto è scura */
-    z-index: 1;
-}
+        /* REGALO CON SFONDO */
+        .gift-area { 
+            position: relative;
+            background-image: url('foto.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            padding: 80px 40px; 
+            border-radius: 20px; 
+            text-align: center; 
+            margin: 80px 0;
+            overflow: hidden;
+            z-index: 1;
+        }
 
-/* Questo crea un velo sopra la foto per far leggere il testo */
-.gift-area::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.5); /* Velo bianco (0.85 è l'opacità) */
-    z-index: -1;
-}
+        .gift-area::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.5); /* Opacità ridotta come richiesto */
+            z-index: -1;
+        }
 
-.gift-area h2, .gift-area p, .gift-area .iban-label {
-    color: var(--text-dark) !important; /* Forza il testo a rimanere scuro sopra il velo bianco */
-}
+        .gift-area h2, .gift-area p { color: var(--text-dark) !important; }
 
-.gift-area .iban-row {
-    background: rgba(255, 255, 255, 0.6); /* Un tocco di trasparenza extra per l'IBAN */
-    border-radius: 10px;
-}
+        .iban-row {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
 
-        .iban-row {
-            margin-top: 30px;
-            padding: 25px 0;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
+        .iban-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--sage-main);
+            font-weight: 500;
+        }
 
-        .iban-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--sage-main);
-            font-weight: 500;
-        }
+        .iban-code { 
+            font-size: 1.1rem; 
+            color: var(--sage-dark);
+            font-weight: 500;
+            word-break: break-all;
+        }
 
-        .iban-code { 
-            font-family: 'Afacad Flux', sans-serif;
-            font-size: 1.1rem; 
-            letter-spacing: 1px; 
-            color: var(--sage-dark);
-            font-weight: 500;
-            white-space: nowrap;
-        }
+        /* RSVP */
+        .form-card { 
+            background: white; padding: 50px; border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
+        }
+        .form-group { margin-bottom: 30px; text-align: left; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        label { font-size: 0.8rem; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; }
 
-        .btn-submit {
-            background: var(--sage-main); color: white; padding: 18px 50px;
-            text-decoration: none; border-radius: 50px; font-size: 0.9rem;
-            letter-spacing: 2px; transition: 0.3s ease; border: none;
-            cursor: pointer; text-transform: uppercase; font-weight: 500;
-            box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3);
-        }
+        .btn-submit {
+            background: var(--sage-main); color: white; padding: 18px 50px;
+            border-radius: 50px; border: none; cursor: pointer; text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3);
+        }
 
-        .form-card { 
-            background: white; padding: 50px; border-radius: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
-        }
-        .form-group { margin-bottom: 30px; text-align: left; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        /* GALLERIA POLAROID */
+        .photo-footer-section {
+            background-color: var(--sage-dark);
+            color: white;
+            padding: 80px 24px;
+            margin: 100px -100vw 0; 
+            position: relative;
+            left: 50%; right: 50%;
+            width: 100vw; margin-left: -50vw; margin-right: -50vw;
+            text-align: center;
+        }
+        
+        .photo-footer-section h3 { color: white; margin-bottom: 40px; font-size: 2rem; }
 
-        label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
+        .polaroid-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 20px;
+        }
 
-        .photo-footer-section {
-            background-color: var(--sage-dark);
-            color: white;
-            padding: 80px 40px;
-            margin: 100px -100vw 0; 
-            position: relative;
-            left: 50%;
-            right: 50%;
-            width: 100vw;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            text-align: center;
-        }
-        .photo-footer-section h3 { color: white; font-size: 1.8rem; margin-bottom: 15px; }
-        .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+        .polaroid-item {
+            background: white;
+            padding: 12px 12px 35px 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 220px;
+            transition: transform 0.3s ease;
+        }
 
-/* NUOVO STILE POLAROID */
-.polaroid-gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 50px;
-}
+        .polaroid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
 
-.polaroid-item {
-    background: white;
-    padding: 15px 15px 40px 15px; /* Spazio sotto per effetto polaroid */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    width: 200px; /* Larghezza fissa per polaroid */
-}
+        .polaroid-item:nth-child(1) { transform: rotate(-4deg); }
+        .polaroid-item:nth-child(2) { transform: rotate(2deg); margin-top: 15px; }
+        .polaroid-item:nth-child(3) { transform: rotate(-2deg); }
 
-.polaroid-item img {
-    width: 100%;
-    height: 180px; /* Altezza fissa per l'immagine */
-    object-fit: cover; /* Ritaglia bene l'immagine */
-    display: block;
-}
+        .polaroid-item:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 5;
+        }
 
-/* Rotazioni per creare movimento */
-.polaroid-item:nth-child(1) { transform: rotate(-5deg); }
-.polaroid-item:nth-child(2) { transform: rotate(3deg); margin-top: 10px; }
-.polaroid-item:nth-child(3) { transform: rotate(-2deg); }
+        .app-links-modern { display: flex; justify-content: center; gap: 12px; margin-bottom: 35px; }
+        .modern-btn {
+            border: 1px solid white; color: white; padding: 12px 20px;
+            text-decoration: none; border-radius: 8px; font-size: 0.7rem; text-transform: uppercase;
+        }
 
-/* Effetto al passaggio del mouse */
-.polaroid-item:hover {
-    transform: rotate(0deg) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    z-index: 10;
-}
+        .code-box-modern {
+            background: white; padding: 20px 40px; border-radius: 15px; color: var(--text-dark);
+            display: inline-block;
+        }
 
-        .app-links-modern {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 35px;
-            flex-wrap: nowrap;
-        }
-        .modern-btn {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-            transition: 0.3s;
-            flex: 1;
-            max-width: 160px;
-        }
-        .modern-btn:hover { background: white; color: var(--sage-dark); }
+        footer { text-align: center; padding: 60px; color: var(--sage-main); letter-spacing: 2px; }
 
-        .code-box-modern {
-            display: inline-block;
-            border: 2px dashed rgba(255,255,255,0.4);
-            padding: 20px 40px;
-            border-radius: 15px;
-            background-color: white;
-        }
-        .code-box-modern span { 
-            display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px;
-        }
-        .wedding-code-display {
-            font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold;
-        }
-
-        footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
-
-        @media (max-width: 600px) {
-.site-header h1 { 
-        font-size: 2.2rem; /* Ridotto quanto basta per stare su una riga */
-        white-space: nowrap; 
-        margin-bottom: 5px;
-    }           
-            .site-header p {
-        font-size: 0.8rem;
-        letter-spacing: 3px;
-    }
-            .wedding-bouquet { max-width: 220px; }
-            .container { padding: 60px 20px; }
-            .photo-footer-section { padding: 60px 20px; }
-            .polaroid-gallery { gap: 15px; } /* Meno spazio su mobile */
-            .polaroid-item { width: 140px; padding: 10px 10px 30px 10px; } /* Polaroid più piccole */
-            .polaroid-item img { height: 120px; }
-            .gift-area { padding: 40px 20px; }
-            .iban-code { font-size: 0.85rem; letter-spacing: 0.5px; }
-            .form-card { padding: 30px 20px; }
-            .form-grid { grid-template-columns: 1fr; gap: 0; }
-            input, select, textarea { font-size: 16px; } 
-        }
-    </style>
+        @media (max-width: 600px) {
+            .site-header h1 { font-size: 2.2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .polaroid-item { width: 160px; }
+            .polaroid-item img { height: 150px; }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <img src="bouquet.png" alt="Wedding Bouquet" class="wedding-bouquet">
-        <h1>Beatrice & Federico</h1>
-        <p>29 Agosto 2026</p>
-        <div class="scroll-indicator">scorri ↓</div>
-    </header>
+    <header class="site-header">
+        <img src="bouquet.png" alt="Bouquet" class="wedding-bouquet">
+        <h1>Beatrice & Federico</h1>
+        <p>29 Agosto 2026</p>
+        <div class="scroll-indicator">scorri ↓</div>
+    </header>
 
-    <section class="container">
-        <div class="section-header reveal">
-            <span></span>
-            <h2>Programma</h2>
-        </div>
-        
-        <div class="schedule-list">
-            <div class="event-row reveal">
-                <div class="time">17:00</div>
-                <div class="event-info">
-                    <h3>Cerimonia</h3>
-                    <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/@44.5032817,11.0809058,17z/data=!3m1!4b1!4m6!3m5!1s0x477fded475a7a06d:0x5a77bcb3c7b04a3a!8m2!3d44.5032779!4d11.0834807!16s%2Fg%2F12385022?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Google Maps</a>
-                </div>
-            </div>
+    <div class="container">
+        <section class="section-header reveal">
+            <h2>Programma</h2>
+            <div class="schedule-list">
+                <div class="event-row">
+                    <div class="time">17:00</div>
+                    <div class="event-info">
+                        <h3>Cerimonia</h3>
+                        <p>Rocca dei Bentivoglio, Bazzano</p>
+                        <a href="https://maps.google.com" target="_blank" class="map-link">Google Maps</a>
+                    </div>
+                </div>
+                <div class="event-row">
+                    <div class="time">18:00</div>
+                    <div class="event-info">
+                        <h3>Stuzzichini</h3>
+                        <p>Il Castellazzo, Monteveglio</p>
+                        <a href="https://maps.google.com" target="_blank" class="map-link">Google Maps</a>
+                    </div>
+                </div>
+                <div class="event-row">
+                    <div class="time">20:00</div>
+                    <div class="event-info"><h3>Cena</h3></div>
+                </div>
+                <div class="event-row">
+                    <div class="time">22:00</div>
+                    <div class="event-info"><h3>Party & Open Bar</h3></div>
+                </div>
+            </div>
+        </section>
 
-            <div class="event-row reveal">
-                <div class="time">18:00</div>
-                <div class="event-info">
-                    <h3>Stuzzichini</h3>
-                    <p>Il Castellazzo, Monteveglio</p>
-                    <a href="https://www.google.it/maps/place/Il+Castellazzo/@44.4709487,11.0500158,17z/data=!3m1!4b1!4m9!3m8!1s0x477fdf5cfb57cfe5:0xf6e6162a94120226!5m2!4m1!1i2!8m2!3d44.470945!4d11.0548867!16s%2Fg%2F1tjjn6qp?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Google Maps</a>
-                </div>
-            </div>
+        <div class="gift-area reveal">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2>Il nostro futuro</h2>
+            </div>
+            <p>La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme:</p>
+            <div class="iban-row">
+                <span class="iban-label">Codice IBAN</span>
+                <div class="iban-code">IT57Y0707236670000000767183</div>
+            </div>
+        </div>
 
-            <div class="event-row reveal">
-                <div class="time">20:00</div>
-                <div class="event-info">
-                    <h3>Cena</h3>
-                    <p></p>
-                </div>
-            </div>
+        <section id="rsvp" class="reveal" style="text-align: center;">
+            <div class="section-header">
+                <span>R.S.V.P.</span>
+                <h2>Ci sarai?</h2>
+            </div>
+            <div class="form-card">
+                <form action="https://formspree.io/f/mwvwrrdd" method="POST">
+                    <div class="form-group">
+                        <label>Nome e Cognome</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Partecipazione</label>
+                            <select name="attendance">
+                                <option value="yes">Sì, ci sarò!</option>
+                                <option value="no">No, purtroppo no</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Bambini?</label>
+                            <select name="kids">
+                                <option value="0">No</option>
+                                <option value="1">Sì</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Note o Allergie</label>
+                        <textarea name="notes" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Invia conferma</button>
+                </form>
+            </div>
+        </section>
 
-            <div class="event-row reveal">
-                <div class="time">22:00</div>
-                <div class="event-info">
-                    <h3>Party & Open Bar</h3>
-                    <p></p>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="gift-area reveal">
-            <div class="section-header" style="margin-top: 0; margin-bottom: 30px;">
-                <span></span>
-                <h2>Il nostro futuro</h2>
-            </div>
-            
-            <p style="max-width: 600px; margin: 0 auto; color: #666;">
-                La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, <br> questo è il nostro riferimento:
-            </p>
-
-            <div class="iban-row">
-                <span class="iban-label">Codice IBAN</span>
-                <div class="iban-code">IT57Y0707236670000000767183</div>
-            </div>
-        </div>
-
-        <div id="rsvp" style="text-align: center;" class="reveal">
-            <div class="section-header">
-                <span>R.S.V.P.</span>
-                <h2>Ci sarai?</h2>
-                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Ti chiediamo gentilmente di confermare compilando il form qui sotto.</p>
-            </div>
-
-            <div class="form-card">
-                <form action="https://formspree.io/f/mwvwrrdd" method="POST">
-                    <div class="form-group">
-                        <label>Nome e Cognome</label>
-                        <input type="text" name="Nomi" placeholder="Inserisci il tuo nome" required>
-                    </div>
-
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Partecipazione</label>
-                            <select name="Conferma">
-                                <option value="Sì">Sì, ci sarò!</option>
-                                <option value="No">No, purtroppo no</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Bambini al seguito?</label>
-                            <select name="Bambini">
-                                <option value="No">No</option>
-                                <option value="Sì">Sì</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Intolleranze, Preferenze Alimentari o Allergie</label>
-                        <textarea name="Messaggio" placeholder="Segnalaci eventuali esigenze particolari..." rows="3"></textarea>
-                    </div>
-
-                    <input type="text" name="_gotcha" style="display:none">
-                    <button type="submit" class="btn-submit">Invia conferma</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="photo-footer-section reveal">
-            <h3>I vostri scatti</h3>
-
+        <div class="photo-footer-section reveal">
+            <h3>I vostri scatti</h3>
+            
             <div class="polaroid-gallery">
                 <div class="polaroid-item">
-                    <img src="foto2.jpeg" alt="Beatrice e Federico 2">
+                    <img src="foto2.jpeg" alt="Foto 2">
                 </div>
                 <div class="polaroid-item">
-                    <img src="foto3.jpeg" alt="Beatrice e Federico 3">
+                    <img src="foto3.jpeg" alt="Foto 3">
                 </div>
                 <div class="polaroid-item">
-                    <img src="foto4.jpeg" alt="Beatrice e Federico 4">
+                    <img src="foto4.jpeg" alt="Foto 4">
                 </div>
             </div>
 
-            <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong> e caricando le foto nel nostro album condiviso.</p>
-            
-            <div class="app-links-modern">
-                <a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="modern-btn">App Store</a>
-                <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a>
-            </div>
-            
-            <div class="code-box-modern">
-                <span>Codice Album</span>
-                <div class="wedding-code-display">ITa424c233</div>
-            </div>
-        </div>
-    </section>
+            <p>Caricate le vostre foto sull'album <strong>Wedshoots</strong></p>
+            <div class="app-links-modern">
+                <a href="#" class="modern-btn">App Store</a>
+                <a href="#" class="modern-btn">Play Store</a>
+            </div>
+            <div class="code-box-modern">
+                <span style="font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #8ba88e;">Codice Album</span>
+                <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: bold;">ITa424c233</div>
+            </div>
+        </div>
+    </div>
 
-    <footer>
-        <p>B & F — 29 . 08 . 2026</p>
-    </footer>
+    <footer>
+        <p>B & F — 29 . 08 . 2026</p>
+    </footer>
 
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
 </body>
 </html>
