@@ -15,7 +15,6 @@
             --gold-subtle: #c2b280;
             --white-pure: #ffffff;
             --text-dark: #333d34;
-            --dark-accent: #2a2a2a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -99,11 +98,11 @@
         
         .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
         .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .event-icon { font-size: 1.2rem; opacity: 0.8; }
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
         
         .map-link { display: inline-block; margin-top: 8px; font-size: 0.75rem; color: var(--sage-main); text-decoration: none; border-bottom: 1px solid var(--sage-main); font-weight: 500; }
 
+        /* AREA REGALO */
         .gift-area { 
             background-color: var(--sage-light); 
             padding: 60px 40px; border-radius: 20px; text-align: center; margin: 80px 0;
@@ -118,6 +117,7 @@
             word-break: break-all;
         }
 
+        /* FORM RSVP */
         .btn-submit {
             background: var(--sage-main); color: white; padding: 18px 50px;
             text-decoration: none; border-radius: 50px; font-size: 0.9rem;
@@ -136,67 +136,62 @@
         label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
 
-        /* SEZIONE FOTO DARK IN FONDO */
-        .photo-breakout {
-            background-color: var(--dark-accent);
-            color: white;
-            padding: 80px 40px;
-            margin: 100px -100vw 0; 
-            position: relative;
-            left: 50%;
-            right: 50%;
-            width: 100vw;
-            margin-left: -50vw;
-            margin-right: -50vw;
+        /* SEZIONE FOTO FINALE - SFONDO BIANCO */
+        .photo-footer-section {
             text-align: center;
+            padding: 80px 0 20px;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
         }
-        .photo-breakout h3 { color: var(--sage-light); font-size: 2rem; margin-bottom: 15px; }
-        .photo-breakout p { color: #ccc; max-width: 500px; margin: 0 auto 40px; font-weight: 300; }
+        .photo-footer-section h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: #666; font-size: 0.95rem; }
 
         .app-links-modern {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: nowrap;
         }
         .modern-btn {
-            border: 1px solid var(--sage-main);
+            background: var(--text-dark);
             color: white;
             padding: 12px 20px;
-            border-radius: 4px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.4s;
+            letter-spacing: 1px;
+            font-weight: 500;
+            transition: 0.3s;
+            flex: 1;
+            max-width: 160px;
         }
-        .modern-btn:hover { background: var(--sage-main); color: var(--dark-accent); }
+        .modern-btn:hover { background: var(--sage-dark); }
 
-        .code-display {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
+        .code-box-modern {
             display: inline-block;
+            border: 2px dashed var(--sage-main);
+            padding: 20px 40px;
             border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background-color: var(--white-pure);
         }
-        .code-display span { 
-            display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 10px;
+        .code-box-modern span { 
+            display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px;
         }
-        .wedding-code-bold {
-            font-family: 'Playfair Display', serif; font-size: 2rem; letter-spacing: 5px; color: white;
+        .wedding-code-display {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold;
         }
 
-        footer { text-align: center; padding: 80px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--dark-accent); border-top: 1px solid rgba(255,255,255,0.05); }
+        footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
 
         @media (max-width: 600px) {
             .site-header { padding: 30px 15px; }
             .wedding-bouquet { max-width: 170px; margin-bottom: -20px; margin-top: 0; }
             .site-header h1 { font-size: 2.1rem; margin-top: 0; white-space: nowrap; }
             .site-header p { font-size: 0.75rem; letter-spacing: 3px; }
-            .photo-breakout { padding: 60px 20px; }
-            .app-links-modern { flex-direction: row; gap: 8px; }
-            .modern-btn { font-size: 0.6rem; padding: 10px 12px; flex: 1; text-align: center; }
-            .wedding-code-bold { font-size: 1.5rem; }
+            .modern-btn { font-size: 0.65rem; padding: 10px 10px; }
+            .wedding-code-display { font-size: 1.5rem; }
             .iban-code { font-size: 0.9rem; width: 100%; overflow-wrap: break-word; }
             .container { padding: 40px 20px; }
             .form-card { padding: 30px 20px; }
@@ -305,25 +300,25 @@
             </div>
         </div>
 
-        <div class="photo-breakout reveal">
+        <div class="photo-footer-section reveal">
             <h3>I vostri scatti</h3>
             <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong> e caricando le foto nel nostro album condiviso.</p>
             
             <div class="app-links-modern">
-                <a href="https://apps.apple.com/it/app/wedshoots/id660530745" target="_blank" class="modern-btn">iOS Store</a>
+                <a href="https://apps.apple.com/it/app/wedshoots/id660530745" target="_blank" class="modern-btn">App Store</a>
                 <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a>
             </div>
             
-            <div class="code-display">
+            <div class="code-box-modern">
                 <span>Codice Album</span>
-                <div class="wedding-code-bold">ITa424c233</div>
+                <div class="wedding-code-display">ITa424c233</div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p style="color: white; opacity: 0.8;">B & F — 29 . 08 . 2026</p>
-        <p style="margin-top: 5px; opacity: 0.4; font-size: 0.7rem; color: white;">#BeaEFeWedding</p>
+        <p>B & F — 29 . 08 . 2026</p>
+        <p style="margin-top: 5px; opacity: 0.6; font-size: 0.7rem;">#BeaEFeWedding</p>
     </footer>
 
     <script>
