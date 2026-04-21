@@ -242,7 +242,15 @@
         footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
 
         @media (max-width: 600px) {
-            .site-header h1 { font-size: 2.8rem; }
+.site-header h1 { 
+        font-size: 2.2rem; /* Ridotto quanto basta per stare su una riga */
+        white-space: nowrap; 
+        margin-bottom: 5px;
+    }           
+            .site-header p {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+    }
             .wedding-bouquet { max-width: 220px; }
             .container { padding: 60px 20px; }
             .photo-footer-section { padding: 60px 20px; }
