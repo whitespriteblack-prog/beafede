@@ -48,7 +48,7 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER MODIFICATO - Effetto Polaroid Sparse */
+        /* HEADER MODIFICATO - Effetto Polaroid Sparse e Ravvicinate */
         .site-header {
             height: 100vh; 
             display: flex;
@@ -62,7 +62,7 @@
             overflow: hidden; 
         }
 
-        /* Contenitore per le foto sparse */
+        /* Contenitore per le foto sparse - MODIFICATO z-index per stare sotto al testo */
         .polaroid-scatter {
             position: absolute;
             top: 0;
@@ -70,47 +70,45 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            pointer-events: none; /* Permette di cliccare ciò che sta sotto se necessario */
+            pointer-events: none; 
         }
 
         .polaroid {
             position: absolute;
             background: white;
-            padding: 10px 10px 30px 10px; /* Spazio bianco tipico Polaroid */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            padding: 12px 12px 35px 12px; /* Spazio bianco tipico Polaroid aumentato leggermente */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             border-radius: 2px;
             pointer-events: auto;
-            transition: transform 0.3s ease;
-            width: 180px; /* Dimensione fissa per evitare ritagli eccessivi */
+            transition: transform 0.3s ease, z-index 0.3s ease;
+            width: 220px; /* Dimensione aumentata per renderle più grandi */
         }
 
         .polaroid:hover {
-            transform: scale(1.05) rotate(0deg) !important;
-            z-index: 10;
+            transform: scale(1.05) rotate(0deg) translateY(-10px) !important;
+            z-index: 10 !important;
         }
 
         .polaroid img {
             width: 100%;
-            height: 160px;
+            height: 200px; /* Altezza immagine aumentata */
             object-fit: cover;
             display: block;
         }
 
-        /* Posizioni "Random" per le Polaroid */
-        .p1 { top: 10%; left: 5%; transform: rotate(-10deg); }
-        .p2 { top: 5%; right: 8%; transform: rotate(8deg); }
-        .p3 { top: 35%; left: -2%; transform: rotate(15deg); }
-        .p4 { top: 40%; right: 2%; transform: rotate(-12deg); }
-        .p5 { top: 15%; left: 40%; transform: rotate(-5deg); }
-        .p6 { top: 30%; right: 35%; transform: rotate(6deg); width: 200px; } /* Foto 6 più centrale */
+        /* Posizioni Ravvicinate alla scritta - Solo 5 foto */
+        .p1 { bottom: 35vh; left: 10%; transform: rotate(-8deg); z-index: 2; }
+        .p2 { top: 15vh; right: 15%; transform: rotate(10deg); z-index: 2; }
+        .p3 { top: 30vh; left: 15%; transform: rotate(-5deg); z-index: 1; }
+        .p4 { bottom: 40vh; right: 10%; transform: rotate(12deg); z-index: 2; }
+        .p5 { top: 10vh; left: 35%; transform: rotate(-3deg); z-index: 1; }
 
+        /* Contenitore testo e countdown - MODIFICATO z-index per stare SOPRA le foto e rimosso sfondo */
         .header-content-integrated {
             position: relative;
             z-index: 5;
             margin-bottom: 60px;
-            background: rgba(241, 244, 241, 0.6); /* Leggero velo per leggibilità su foto sparse */
             padding: 20px;
-            border-radius: 50px;
         }
 
         .site-header h1 { 
@@ -118,6 +116,7 @@
             font-style: italic; 
             margin-bottom: 10px;
             line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.8); /* Migliora leggibilità su foto sottostanti */
         }
 
         .site-header p { 
@@ -126,6 +125,7 @@
             text-transform: uppercase; 
             font-weight: 300;
             color: var(--sage-main);
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         #countdown-timer {
@@ -136,6 +136,7 @@
             display: flex;
             gap: 15px;
             justify-content: center;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         .countdown-segment span {
@@ -145,6 +146,7 @@
             letter-spacing: 2px;
             color: var(--sage-main);
             display: block;
+            text-shadow: none;
         }
 
         /* IL RESTO NON È STATO TOCCATO */
@@ -202,9 +204,14 @@
 
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.2rem; }            
-            .polaroid { width: 120px; padding-bottom: 20px; }
-            .polaroid img { height: 110px; }
-            .p5, .p6 { display: none; } /* Meno foto su mobile per non coprire il testo */
+            .polaroid { width: 140px; padding-bottom: 25px; }
+            .polaroid img { height: 130px; }
+            /* Regolazione posizioni mobile per non coprire troppo */
+            .p1 { bottom: 25vh; left: 5%; }
+            .p2 { top: 10vh; right: 5%; }
+            .p3 { top: 25vh; left: 10%; }
+            .p4 { bottom: 30vh; right: 5%; }
+            .p5 { display: none; } /* Meno foto su mobile */
         }
     </style>
 </head>
@@ -217,7 +224,6 @@
             <div class="polaroid p3"><img src="foto4.jpeg" alt="foto"></div>
             <div class="polaroid p4"><img src="foto5.jpeg" alt="foto"></div>
             <div class="polaroid p5"><img src="foto1.jpeg" alt="foto"></div>
-            <div class="polaroid p6"><img src="foto6.jpeg" alt="foto"></div>
         </div>
 
         <div class="header-content-integrated">
