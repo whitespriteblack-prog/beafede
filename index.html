@@ -15,6 +15,7 @@
             --gold-subtle: #c2b280;
             --white-pure: #ffffff;
             --text-dark: #333d34;
+            --sage-whitish: #e2e8e3; /* Salvia tendente al bianco */
         }
 
         * { 
@@ -53,7 +54,6 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER */
         .site-header {
             height: 100vh; 
             display: flex;
@@ -100,7 +100,6 @@
             pointer-events: none;
         }
 
-        /* DESKTOP POSITIONS */
         .frame-1 { transform: translateX(-320px) translateY(-10px) rotate(-35deg); z-index: 21; }
         .frame-2 { transform: translateX(-160px) translateY(-45px) rotate(-18deg); z-index: 22; }
         .frame-3 { transform: translateX(0px) translateY(-65px) rotate(0deg); z-index: 23; }
@@ -116,7 +115,6 @@
             .frame-6:hover { transform: translateX(320px) translateY(-10px) rotate(35deg) scale(1.08); }
         }
 
-        /* SECTION PROGRAMMA CON BACKGROUND */
         .program-section {
             position: relative;
             background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('Castellazzo.jpeg');
@@ -187,7 +185,6 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* MOBILE */
         @media (max-width: 600px) {
             .site-header { padding: 40px 0; justify-content: space-between; }
             .header-mosaic-frame { height: 380px; margin-top: 10px; align-items: center; }
@@ -209,9 +206,15 @@
 
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .header-content-integrated { margin-bottom: 50px; padding: 20px 10px; width: 100%; }
+
+            /* Fix Form Cell */
+            .form-grid { grid-template-columns: 1fr !important; gap: 0; }
+            
+            /* Fix IBAN Cell */
+            .iban-code { font-size: 0.9rem !important; }
+            .iban-row { padding: 20px 10px !important; width: 100%; overflow-x: auto; }
         }
 
-        /* RESTO DELLO STILE */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
@@ -222,19 +225,24 @@
         .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
         .map-link { display: inline-block; margin-top: 8px; font-size: 0.9rem; color: var(--sage-main); text-decoration: underline; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+        
         .gift-area { position: relative; background-image: url('foto.jpeg'); background-size: cover; background-position: center; padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; overflow: hidden; color: white; z-index: 1; }
         .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
-        .gift-area h2, .gift-area p, .gift-area .iban-label { color: var(--text-dark) !important; }
+        .gift-area h2, .gift-area .iban-label { color: var(--text-dark) !important; }
+        .gift-area .presence-text { color: var(--sage-whitish) !important; text-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        
         .gift-area .iban-row { background: rgba(255, 255, 255, 0.6); border-radius: 10px; }
         .iban-row { margin-top: 30px; padding: 25px 0; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .iban-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); font-weight: 500; }
         .iban-code { font-family: 'Afacad Flux', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: var(--sage-dark); font-weight: 500; white-space: nowrap; }
+        
         .btn-submit { background: var(--sage-main); color: white; padding: 18px 50px; text-decoration: none; border-radius: 50px; font-size: 0.9rem; letter-spacing: 2px; transition: 0.3s ease; border: none; cursor: pointer; text-transform: uppercase; font-weight: 500; box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3); }
         .form-card { background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0; }
         .form-group { margin-bottom: 30px; text-align: left; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
+        
         .photo-footer-section { background-color: var(--sage-dark); color: white; padding: 80px 40px; margin: 100px -100vw 0; position: relative; left: 50%; right: 50%; width: 100vw; margin-left: -50vw; margin-right: -50vw; text-align: center; }
         .photo-footer-section h3 { color: white; font-size: 1.8rem; margin-bottom: 15px; }
         .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: rgba(255,255,255,0.9); font-size: 0.95rem; }
@@ -314,7 +322,7 @@
 
         <div class="gift-area reveal">
             <div class="section-header" style="margin-top: 0; margin-bottom: 30px;"><h2>Il nostro futuro</h2></div>
-            <p style="max-width: 600px; margin: 0 auto; color: #666;">La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, questo è il nostro riferimento:</p>
+            <p class="presence-text" style="max-width: 600px; margin: 0 auto;">La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, questo è il nostro riferimento:</p>
             <div class="iban-row"><span class="iban-label">Codice IBAN</span><div class="iban-code">IT57Y0707236670000000767183</div></div>
         </div>
 
