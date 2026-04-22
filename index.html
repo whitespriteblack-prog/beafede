@@ -115,6 +115,7 @@
             .frame-6:hover { transform: translateX(320px) translateY(-10px) rotate(35deg) scale(1.08); }
         }
 
+        /* FIX IPHONE BACKGROUND */
         .program-section {
             position: relative;
             background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('Castellazzo.jpeg');
@@ -122,6 +123,13 @@
             background-position: center;
             background-attachment: fixed;
             width: 100%;
+        }
+
+        /* Forza lo sfondo a comportarsi bene su iPhone/iOS */
+        @supports (-webkit-overflow-scrolling: touch) {
+            .program-section {
+                background-attachment: scroll !important;
+            }
         }
 
         .header-content-integrated {
@@ -218,7 +226,7 @@
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
         .schedule-list { margin-top: 40px; text-align: center; }
         .event-row { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 35px 0; border-top: 1px solid rgba(0,0,0,0.05); }
-        .event-row:last-child { border-bottom: none; } /* Linea rimossa qui */
+        .event-row:last-child { border-bottom: none; }
         .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
         .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
