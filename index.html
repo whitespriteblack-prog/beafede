@@ -84,7 +84,7 @@
             box-shadow: 0 12px 35px rgba(0,0,0,0.18);
             width: 190px; 
             height: auto;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, z-index 0s;
             transform-origin: center center;
             cursor: pointer;
         }
@@ -96,18 +96,26 @@
             display: block;
         }
 
-        /* --- DESKTOP POSITIONS --- */
+        /* POSIZIONI DESKTOP */
         .frame-1 { transform: translateX(-320px) translateY(-10px) rotate(-35deg); z-index: 21; }
         .frame-2 { transform: translateX(-160px) translateY(-45px) rotate(-18deg); z-index: 22; }
         .frame-3 { transform: translateX(0px) translateY(-65px) rotate(0deg); z-index: 23; }
         .frame-4 { transform: translateX(160px) translateY(-45px) rotate(18deg); z-index: 24; }
         .frame-6 { transform: translateX(320px) translateY(-10px) rotate(35deg); z-index: 25; }
 
-        .frame-1:hover { transform: translateX(-320px) translateY(-10px) rotate(-35deg) scale(1.08); z-index: 100; }
-        .frame-2:hover { transform: translateX(-160px) translateY(-45px) rotate(-18deg) scale(1.08); z-index: 100; }
-        .frame-3:hover { transform: translateX(0px) translateY(-65px) rotate(0deg) scale(1.08); z-index: 100; }
-        .frame-4:hover { transform: translateX(160px) translateY(-45px) rotate(18deg) scale(1.08); z-index: 100; }
-        .frame-6:hover { transform: translateX(320px) translateY(-10px) rotate(35deg) scale(1.08); z-index: 100; }
+        /* HOVER DESKTOP */
+        @media (min-width: 601px) {
+            .mosaic-frame:hover {
+                transform: inherit; /* mantiene la posizione del frame */
+                z-index: 100;
+                box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+            }
+            .frame-1:hover { transform: translateX(-320px) translateY(-10px) rotate(-35deg) scale(1.08); }
+            .frame-2:hover { transform: translateX(-160px) translateY(-45px) rotate(-18deg) scale(1.08); }
+            .frame-3:hover { transform: translateX(0px) translateY(-65px) rotate(0deg) scale(1.08); }
+            .frame-4:hover { transform: translateX(160px) translateY(-45px) rotate(18deg) scale(1.08); }
+            .frame-6:hover { transform: translateX(320px) translateY(-10px) rotate(35deg) scale(1.08); }
+        }
 
         .header-content-integrated {
             position: relative;
@@ -170,31 +178,21 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* --- MOBILE: POSITIONS & NO-SHIFT ANIMATION --- */
+        /* --- MOBILE --- */
         @media (max-width: 600px) {
-            .site-header { 
-                padding: 40px 0;
-                justify-content: space-between; 
-            }
-            .header-mosaic-frame { 
-                height: 380px; 
-                margin-top: 10px;
-                align-items: center;
-            }
-            .mosaic-frame { 
-                width: 145px; 
-                padding: 8px 8px 25px 8px; 
-            }
+            .site-header { padding: 40px 0; justify-content: space-between; }
+            .header-mosaic-frame { height: 380px; margin-top: 10px; align-items: center; }
+            .mosaic-frame { width: 145px; padding: 8px 8px 25px 8px; }
             .mosaic-frame img { height: 130px; }
             
-            /* Posizioni Mobile Originali */
+            /* Posizioni Mobile */
             .frame-1 { transform: translate(-85px, -50px) rotate(-12deg); }
             .frame-2 { transform: translate(75px, -60px) rotate(10deg); }
             .frame-3 { transform: translate(0px, 0px) rotate(-3deg); z-index: 30; }
             .frame-4 { transform: translate(80px, 85px) rotate(8deg); }
             .frame-6 { transform: translate(-90px, 95px) rotate(-10deg); }
 
-            /* Fix Animazione Mobile: Manteniamo translate/rotate originali aggiungendo solo scale */
+            /* ANIMAZIONE MOBILE CORRETTA: Nessuno spostamento, solo ingrandimento */
             .frame-1:active { transform: translate(-85px, -50px) rotate(-12deg) scale(1.1); z-index: 100; }
             .frame-2:active { transform: translate(75px, -60px) rotate(10deg) scale(1.1); z-index: 100; }
             .frame-3:active { transform: translate(0px, 0px) rotate(-3deg) scale(1.1); z-index: 100; }
@@ -202,14 +200,10 @@
             .frame-6:active { transform: translate(-90px, 95px) rotate(-10deg) scale(1.1); z-index: 100; }
 
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
-            .header-content-integrated { 
-                margin-bottom: 50px;
-                padding: 20px 10px; 
-                width: 100%; 
-            }
+            .header-content-integrated { margin-bottom: 50px; padding: 20px 10px; width: 100%; }
         }
 
-        /* --- RESTO DEL CODICE --- */
+        /* IL RESTO NON È STATO MODIFICATO */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
