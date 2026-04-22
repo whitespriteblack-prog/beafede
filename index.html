@@ -61,7 +61,7 @@
             padding-top: 20px;
         }
 
-        /* --- MODIFICHE RICHIESTE POLAROID --- */
+        /* --- POLAROID DESKTOP --- */
         .header-mosaic-frame {
             position: relative;
             width: 100%;
@@ -91,7 +91,6 @@
             display: block;
         }
 
-        /* PC: Abbassate di pochissimo come richiesto */
         .frame-1 { transform: translateX(-300px) translateY(-10px) rotate(-35deg); z-index: 21; }
         .frame-2 { transform: translateX(-150px) translateY(-45px) rotate(-18deg); z-index: 22; }
         .frame-3 { transform: translateX(0px) translateY(-65px) rotate(0deg); z-index: 23; }
@@ -140,7 +139,6 @@
             justify-content: center;
         }
 
-        .countdown-segment { text-align: center; }
         .countdown-segment span {
             font-family: 'Afacad Flux', sans-serif;
             font-size: 0.7rem;
@@ -168,7 +166,7 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* MOBILE: Foto alte sopra la scritta, riquadro rimosso */
+        /* --- MOBILE --- */
         @media (max-width: 600px) {
             .site-header { padding-top: 30px; justify-content: center; }
             .header-mosaic-frame { height: 220px; margin-bottom: 10px; margin-top: -40px; }
@@ -195,168 +193,39 @@
             .form-grid { grid-template-columns: 1fr; gap: 0; }
         }
 
-        /* --- CODICE ORIGINALE INVARIATO DA QUI IN POI --- */
+        /* --- RESTO DEL CSS --- */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
-
         .schedule-list { margin-top: 40px; text-align: center; }
-        .event-row { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 10px; 
-            padding: 35px 0; 
-            border-top: 1px solid #eee;
-        }
+        .event-row { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 35px 0; border-top: 1px solid #eee; }
         .event-row:last-child { border-bottom: 1px solid #eee; }
-        
         .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
         .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
-        
-        .map-link { 
-            display: inline-block; 
-            margin-top: 8px; 
-            font-size: 0.9rem; 
-            color: var(--sage-main); 
-            text-decoration: underline; 
-            font-family: 'Playfair Display', serif; 
-            font-style: italic; 
-            font-weight: 400;
-        }
-
-        .gift-area { 
-            position: relative;
-            background-image: url('foto.jpeg'); 
-            background-size: cover;
-            background-position: center;
-            padding: 80px 40px; 
-            border-radius: 20px; 
-            text-align: center; 
-            margin: 80px 0;
-            overflow: hidden;
-            color: white;
-            z-index: 1;
-        }
-
-        .gift-area::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.45); 
-            z-index: -1;
-        }
-
-        .gift-area h2, .gift-area p, .gift-area .iban-label {
-            color: var(--text-dark) !important;
-        }
-
-        .gift-area .iban-row {
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 10px;
-        }
-
-        .iban-row {
-            margin-top: 30px;
-            padding: 25px 0;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .iban-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--sage-main);
-            font-weight: 500;
-        }
-
-        .iban-code { 
-            font-family: 'Afacad Flux', sans-serif;
-            font-size: 1.1rem; 
-            letter-spacing: 1px; 
-            color: var(--sage-dark);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .btn-submit {
-            background: var(--sage-main); color: white; padding: 18px 50px;
-            text-decoration: none; border-radius: 50px; font-size: 0.9rem;
-            letter-spacing: 2px; transition: 0.3s ease; border: none;
-            cursor: pointer; text-transform: uppercase; font-weight: 500;
-            box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3);
-        }
-
-        .form-card { 
-            background: white; padding: 50px; border-radius: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
-        }
+        .map-link { display: inline-block; margin-top: 8px; font-size: 0.9rem; color: var(--sage-main); text-decoration: underline; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+        .gift-area { position: relative; background-image: url('foto.jpeg'); background-size: cover; background-position: center; padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; overflow: hidden; color: white; z-index: 1; }
+        .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
+        .gift-area h2, .gift-area p, .gift-area .iban-label { color: var(--text-dark) !important; }
+        .gift-area .iban-row { background: rgba(255, 255, 255, 0.6); border-radius: 10px; }
+        .iban-row { margin-top: 30px; padding: 25px 0; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .iban-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); font-weight: 500; }
+        .iban-code { font-family: 'Afacad Flux', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: var(--sage-dark); font-weight: 500; white-space: nowrap; }
+        .btn-submit { background: var(--sage-main); color: white; padding: 18px 50px; text-decoration: none; border-radius: 50px; font-size: 0.9rem; letter-spacing: 2px; transition: 0.3s ease; border: none; cursor: pointer; text-transform: uppercase; font-weight: 500; box-shadow: 0 4px 15px rgba(139, 168, 142, 0.3); }
+        .form-card { background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f0f0f0; }
         .form-group { margin-bottom: 30px; text-align: left; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
         label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
-
-        .photo-footer-section {
-            background-color: var(--sage-dark);
-            color: white;
-            padding: 80px 40px;
-            margin: 100px -100vw 0; 
-            position: relative;
-            left: 50%;
-            right: 50%;
-            width: 100vw;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            text-align: center;
-        }
+        .photo-footer-section { background-color: var(--sage-dark); color: white; padding: 80px 40px; margin: 100px -100vw 0; position: relative; left: 50%; right: 50%; width: 100vw; margin-left: -50vw; margin-right: -50vw; text-align: center; }
         .photo-footer-section h3 { color: white; font-size: 1.8rem; margin-bottom: 15px; }
         .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: rgba(255,255,255,0.9); font-size: 0.95rem; }
-
-        .app-links-modern {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 35px;
-            flex-wrap: nowrap;
-        }
-        .modern-btn {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-            transition: 0.3s;
-            flex: 1;
-            max-width: 160px;
-        }
+        .app-links-modern { display: flex; justify-content: center; gap: 12px; margin-bottom: 35px; flex-wrap: nowrap; }
+        .modern-btn { background: transparent; color: white; border: 1px solid white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; transition: 0.3s; flex: 1; max-width: 160px; }
         .modern-btn:hover { background: white; color: var(--sage-dark); }
-
-        .code-box-modern {
-            display: inline-block;
-            border: 2px dashed rgba(255,255,255,0.4);
-            padding: 20px 40px;
-            border-radius: 15px;
-            background-color: white;
-        }
-        .code-box-modern span { 
-            display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px;
-        }
-        .wedding-code-display {
-            font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold;
-        }
-
+        .code-box-modern { display: inline-block; border: 2px dashed rgba(255,255,255,0.4); padding: 20px 40px; border-radius: 15px; background-color: white; }
+        .code-box-modern span { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px; }
+        .wedding-code-display { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold; }
         footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
     </style>
 </head>
@@ -374,22 +243,17 @@
         <div class="header-content-integrated">
             <h1>Beatrice & Federico</h1>
             <p>29 Agosto 2026</p>
-            
             <div id="countdown-timer">
                 <div class="countdown-segment"><div class="countdown-value" id="days">00</div><span>Giorni</span></div>
                 <div class="countdown-segment"><div class="countdown-value" id="hours">00</div><span>Ore</span></div>
                 <div class="countdown-segment"><div class="countdown-value" id="minutes">00</div><span>Minuti</span></div>
             </div>
         </div>
-
         <div class="scroll-indicator">scorri ↓</div>
     </header>
 
     <section class="container">
-        <div class="section-header reveal">
-            <h2>Programma</h2>
-        </div>
-        
+        <div class="section-header reveal"><h2>Programma</h2></div>
         <div class="schedule-list">
             <div class="event-row reveal">
                 <div class="time">17:00</div>
@@ -399,7 +263,6 @@
                     <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/@44.5032817,11.0809058,17z/data=!3m1!4b1!4m6!3m5!1s0x477fded475a7a06d:0x5a77bcb3c7b04a3a!8m2!3d44.5032779!4d11.0834807!16s%2Fg%2F12385022?entry=ttu" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
-
             <div class="event-row reveal">
                 <div class="time">18:00</div>
                 <div class="event-info">
@@ -408,71 +271,29 @@
                     <a href="https://www.google.it/maps/place/Il+Castellazzo/@44.4709487,11.0500158,17z/data=!3m1!4b1!4m9!3m8!1s0x477fdf5cfb57cfe5:0xf6e6162a94120226!5m2!4m1!1i2!8m2!3d44.470945!4d11.0548867!16s%2Fg%2F1tjjn6qp?entry=ttu" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
-
-            <div class="event-row reveal">
-                <div class="time">20:00</div>
-                <div class="event-info"><h3>Cena</h3></div>
-            </div>
-
-            <div class="event-row reveal">
-                <div class="time">22:00</div>
-                <div class="event-info"><h3>Party & Open Bar</h3></div>
-            </div>
+            <div class="event-row reveal"><div class="time">20:00</div><div class="event-info"><h3>Cena</h3></div></div>
+            <div class="event-row reveal"><div class="time">22:00</div><div class="event-info"><h3>Party & Open Bar</h3></div></div>
         </div>
 
         <div id="rsvp" style="text-align: center; margin-top: 80px;" class="reveal">
-            <div class="section-header">
-                <span>R.S.V.P.</span>
-                <h2>Ci sarai?</h2>
-                <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Ti chiediamo gentilmente di confermare compilando il form qui sotto.</p>
-            </div>
-
+            <div class="section-header"><span>R.S.V.P.</span><h2>Ci sarai?</h2><p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Ti chiediamo gentilmente di confermare compilando il form qui sotto.</p></div>
             <div class="form-card">
                 <form action="https://formspree.io/f/mwvwrrdd" method="POST">
-                    <div class="form-group">
-                        <label>Nome e Cognome</label>
-                        <input type="text" name="Nomi" placeholder="Inserisci il tuo nome" required>
-                    </div>
-
+                    <div class="form-group"><label>Nome e Cognome</label><input type="text" name="Nomi" placeholder="Inserisci il tuo nome" required></div>
                     <div class="form-grid">
-                        <div class="form-group">
-                            <label>Partecipazione</label>
-                            <select name="Conferma">
-                                <option value="Sì">Sì, ci sarò!</option>
-                                <option value="No">No, purtroppo no</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Bambini al seguito?</label>
-                            <select name="Bambini">
-                                <option value="No">No</option>
-                                <option value="Sì">1 baby</option>
-                                <option value="Sì">2 babies</option>
-                            </select>
-                        </div>
+                        <div class="form-group"><label>Partecipazione</label><select name="Conferma"><option value="Sì">Sì, ci sarò!</option><option value="No">No, purtroppo no</option></select></div>
+                        <div class="form-group"><label>Bambini al seguito?</label><select name="Bambini"><option value="No">No</option><option value="Sì">1 baby</option><option value="Sì">2 babies</option></select></div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Intolleranze, Preferenze Alimentari o Allergie</label>
-                        <textarea name="Messaggio" placeholder="Segnalaci eventuali esigenze particolari..." rows="3"></textarea>
-                    </div>
-
+                    <div class="form-group"><label>Intolleranze, Preferenze Alimentari o Allergie</label><textarea name="Messaggio" placeholder="Segnalaci eventuali esigenze particolari..." rows="3"></textarea></div>
                     <button type="submit" class="btn-submit">Invia conferma</button>
                 </form>
             </div>
         </div>
 
         <div class="gift-area reveal">
-            <div class="section-header" style="margin-top: 0; margin-bottom: 30px;">
-                <h2>Il nostro futuro</h2>
-            </div>
-            <p style="max-width: 600px; margin: 0 auto; color: #666;">
-                La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, <br> questo è il nostro riferimento:
-            </p>
-            <div class="iban-row">
-                <span class="iban-label">Codice IBAN</span>
-                <div class="iban-code">IT57Y0707236670000000767183</div>
-            </div>
+            <div class="section-header" style="margin-top: 0; margin-bottom: 30px;"><h2>Il nostro futuro</h2></div>
+            <p style="max-width: 600px; margin: 0 auto; color: #666;">La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, <br> questo è il nostro riferimento:</p>
+            <div class="iban-row"><span class="iban-label">Codice IBAN</span><div class="iban-code">IT57Y0707236670000000767183</div></div>
         </div>
 
         <div class="photo-footer-section reveal">
@@ -491,43 +312,34 @@
         </div>
     </section>
 
-    <footer>
-        <p>B & F — 29 . 08 . 2026</p>
-    </footer>
+    <footer><p>B & F — 29 . 08 . 2026</p></footer>
 
     <script>
         function updateCountdown() {
             const targetDate = new Date("2026-08-29T17:00:00").getTime(); 
             const now = new Date().getTime();
             const difference = targetDate - now;
-
             if (difference <= 0) {
                 document.getElementById("days").innerText = "00";
                 document.getElementById("hours").innerText = "00";
                 document.getElementById("minutes").innerText = "00";
                 return;
             }
-
             const d = Math.floor(difference / (1000 * 60 * 60 * 24));
             const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-
             document.getElementById("days").innerText = String(d).padStart(2, '0');
             document.getElementById("hours").innerText = String(h).padStart(2, '0');
             document.getElementById("minutes").innerText = String(m).padStart(2, '0');
         }
-
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
             }
         }
-
         window.addEventListener("scroll", reveal);
         setInterval(updateCountdown, 1000);
         updateCountdown(); 
