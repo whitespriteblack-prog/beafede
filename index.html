@@ -21,7 +21,6 @@
             margin: 0; 
             padding: 0; 
             box-sizing: border-box; 
-            /* Rimuove l'alone blu/grigio al tocco su mobile */
             -webkit-tap-highlight-color: transparent; 
         }
         
@@ -67,7 +66,6 @@
             padding-top: 20px;
         }
 
-        /* --- POLAROID DESKTOP --- */
         .header-mosaic-frame {
             position: relative;
             width: 100%;
@@ -98,30 +96,25 @@
             display: block;
         }
 
-        /* Posizioni PC Larghe */
+        /* --- DESKTOP POSITIONS --- */
         .frame-1 { transform: translateX(-320px) translateY(-10px) rotate(-35deg); z-index: 21; }
         .frame-2 { transform: translateX(-160px) translateY(-45px) rotate(-18deg); z-index: 22; }
         .frame-3 { transform: translateX(0px) translateY(-65px) rotate(0deg); z-index: 23; }
         .frame-4 { transform: translateX(160px) translateY(-45px) rotate(18deg); z-index: 24; }
         .frame-6 { transform: translateX(320px) translateY(-10px) rotate(35deg); z-index: 25; }
 
-        /* Effetto Hover PC */
         .frame-1:hover { transform: translateX(-320px) translateY(-10px) rotate(-35deg) scale(1.08); z-index: 100; }
         .frame-2:hover { transform: translateX(-160px) translateY(-45px) rotate(-18deg) scale(1.08); z-index: 100; }
         .frame-3:hover { transform: translateX(0px) translateY(-65px) rotate(0deg) scale(1.08); z-index: 100; }
         .frame-4:hover { transform: translateX(160px) translateY(-45px) rotate(18deg) scale(1.08); z-index: 100; }
         .frame-6:hover { transform: translateX(320px) translateY(-10px) rotate(35deg) scale(1.08); z-index: 100; }
 
-        /* TESTO HEADER SENZA BOX BIANCO */
         .header-content-integrated {
             position: relative;
             z-index: 10;
             background: transparent;
-            backdrop-filter: none;
             padding: 20px;
-            border-radius: 0;
             max-width: 90%;
-            border: none;
         }
 
         .site-header h1 { 
@@ -177,7 +170,7 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* --- MOBILE: FIX ANIMAZIONE --- */
+        /* --- MOBILE: POSITIONS & NO-SHIFT ANIMATION --- */
         @media (max-width: 600px) {
             .site-header { 
                 padding: 40px 0;
@@ -194,19 +187,19 @@
             }
             .mosaic-frame img { height: 130px; }
             
-            /* Posizioni Mobile */
+            /* Posizioni Mobile Originali */
             .frame-1 { transform: translate(-85px, -50px) rotate(-12deg); }
             .frame-2 { transform: translate(75px, -60px) rotate(10deg); }
             .frame-3 { transform: translate(0px, 0px) rotate(-3deg); z-index: 30; }
             .frame-4 { transform: translate(80px, 85px) rotate(8deg); }
             .frame-6 { transform: translate(-90px, 95px) rotate(-10deg); }
 
-            /* Tocco Mobile: Coordinate fisse + Scale (niente salti blu o di posizione) */
-            .frame-1:active { transform: translate(-85px, -50px) rotate(-12deg) scale(1.08); z-index: 100; }
-            .frame-2:active { transform: translate(75px, -60px) rotate(10deg) scale(1.08); z-index: 100; }
-            .frame-3:active { transform: translate(0px, 0px) rotate(-3deg) scale(1.08); z-index: 100; }
-            .frame-4:active { transform: translate(80px, 85px) rotate(8deg) scale(1.08); z-index: 100; }
-            .frame-6:active { transform: translate(-90px, 95px) rotate(-10deg) scale(1.08); z-index: 100; }
+            /* Fix Animazione Mobile: Manteniamo translate/rotate originali aggiungendo solo scale */
+            .frame-1:active { transform: translate(-85px, -50px) rotate(-12deg) scale(1.1); z-index: 100; }
+            .frame-2:active { transform: translate(75px, -60px) rotate(10deg) scale(1.1); z-index: 100; }
+            .frame-3:active { transform: translate(0px, 0px) rotate(-3deg) scale(1.1); z-index: 100; }
+            .frame-4:active { transform: translate(80px, 85px) rotate(8deg) scale(1.1); z-index: 100; }
+            .frame-6:active { transform: translate(-90px, 95px) rotate(-10deg) scale(1.1); z-index: 100; }
 
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .header-content-integrated { 
@@ -216,7 +209,7 @@
             }
         }
 
-        /* --- RESTO DEL CODICE INALTERATO --- */
+        /* --- RESTO DEL CODICE --- */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
