@@ -51,34 +51,34 @@
         .site-header {
             height: 100vh; 
             display: flex;
-            flex-direction: column; /* Dispone foto e testo in verticale */
+            flex-direction: column;
             justify-content: center; 
             align-items: center;
             text-align: center;
             background-color: var(--sage-light);
             position: relative;
             overflow: hidden; 
-            padding-top: 50px;
+            padding-top: 20px;
         }
 
-        /* AREA VENTAGLIO - POSIZIONATA SOPRA IL TESTO */
+        /* AREA VENTAGLIO DESKTOP - PIU GRANDE PER COPRIRE LO SFONDO */
         .header-mosaic-frame {
             position: relative;
             width: 100%;
-            height: 250px; /* Spazio dedicato alle foto */
+            height: 350px; 
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Le basi delle foto poggiano qui */
+            align-items: flex-end;
             z-index: 5;
-            margin-bottom: 20px;
+            margin-bottom: -10px;
         }
 
         .mosaic-frame {
             position: absolute;
             background: white;
-            padding: 8px 8px 22px 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            width: 140px;
+            padding: 10px 10px 30px 10px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            width: 190px; /* Ingrandite */
             height: auto;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-origin: bottom center;
@@ -86,24 +86,23 @@
 
         .mosaic-frame img {
             width: 100%;
-            height: 125px;
+            height: 170px;
             object-fit: cover; 
             display: block;
         }
 
+        /* Ventaglio desktop ampio */
+        .frame-1 { transform: translateX(-280px) translateY(30px) rotate(-35deg); z-index: 1; }
+        .frame-2 { transform: translateX(-140px) translateY(-15px) rotate(-18deg); z-index: 2; }
+        .frame-3 { transform: translateX(0px) translateY(-40px) rotate(0deg); z-index: 3; }
+        .frame-4 { transform: translateX(140px) translateY(-15px) rotate(18deg); z-index: 4; }
+        .frame-6 { transform: translateX(280px) translateY(30px) rotate(35deg); z-index: 5; }
+
         .mosaic-frame:hover {
             z-index: 100 !important;
-            transform: scale(1.2) translateY(-20px) rotate(0deg) !important;
+            transform: scale(1.1) translateY(-20px) rotate(0deg) !important;
         }
 
-        /* Distribuzione a ventaglio "aperto bene" sopra la scritta */
-        .frame-1 { transform: translateX(-180px) rotate(-35deg); z-index: 1; }
-        .frame-2 { transform: translateX(-95px) translateY(-15px) rotate(-18deg); z-index: 2; }
-        .frame-3 { transform: translateX(0px) translateY(-25px) rotate(0deg); z-index: 3; }
-        .frame-4 { transform: translateX(95px) translateY(-15px) rotate(18deg); z-index: 4; }
-        .frame-6 { transform: translateX(180px) rotate(35deg); z-index: 5; }
-
-        /* Contenitore Testo - Sotto le foto */
         .header-content-integrated {
             position: relative;
             z-index: 10;
@@ -113,30 +112,29 @@
             border-radius: 20px;
             max-width: 90%;
             border: 1px solid rgba(255,255,255,0.5);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
 
         .site-header h1 { 
-            font-size: 3.2rem; 
+            font-size: 3.5rem; 
             font-style: italic; 
             margin-bottom: 10px;
             line-height: 1.2;
         }
 
         .site-header p { 
-            font-size: 0.9rem; 
+            font-size: 1rem; 
             letter-spacing: 4px; 
             text-transform: uppercase; 
             font-weight: 300;
             color: var(--sage-main);
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
         }
 
         #countdown-timer {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--sage-dark);
-            margin-top: 15px;
+            margin-top: 20px;
             display: flex;
             gap: 15px;
             justify-content: center;
@@ -144,7 +142,7 @@
 
         .countdown-segment span {
             font-family: 'Afacad Flux', sans-serif;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--sage-main);
@@ -153,22 +151,41 @@
 
         .scroll-indicator {
             position: absolute;
-            bottom: 20px;
+            bottom: 30px;
             font-size: 0.7rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--sage-main);
-            opacity: 0.6;
+            opacity: 0.7;
             animation: bounce 2s infinite;
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-8px);}
-            60% {transform: translateY(-4px);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
         }
 
-        /* RESTO DEL CODICE INVARIATO */
+        /* MEDIA QUERY MOBILE - EFFETTO SPARSO */
+        @media (max-width: 600px) {
+            .site-header { padding-top: 40px; justify-content: flex-start; }
+            .header-mosaic-frame { height: 260px; margin-bottom: 10px; }
+            .mosaic-frame { width: 110px; padding: 6px 6px 18px 6px; }
+            .mosaic-frame img { height: 100px; }
+            
+            /* Foto sparse sopra la scritta */
+            .frame-1 { transform: translate(-70px, 20px) rotate(-12deg); }
+            .frame-2 { transform: translate(65px, 10px) rotate(8deg); }
+            .frame-3 { transform: translate(-5px, -15px) rotate(-3deg); }
+            .frame-4 { transform: translate(75px, 110px) rotate(14deg); }
+            .frame-6 { transform: translate(-75px, 115px) rotate(-11deg); }
+
+            .site-header h1 { font-size: 2.2rem; }
+            .header-content-integrated { padding: 30px 15px; width: 85%; }
+            .form-grid { grid-template-columns: 1fr; gap: 0; }
+        }
+
+        /* RESTO DEL CODICE ORIGINALE */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
@@ -202,20 +219,6 @@
         .code-box-modern span { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px; }
         .wedding-code-display { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold; }
         footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
-
-        @media (max-width: 600px) {
-            .site-header { padding-top: 20px; }
-            .header-mosaic-frame { height: 180px; margin-bottom: 10px; }
-            .mosaic-frame { width: 85px; padding: 4px 4px 12px 4px; }
-            .mosaic-frame img { height: 75px; }
-            .frame-1 { transform: translateX(-110px) rotate(-35deg); }
-            .frame-2 { transform: translateX(-55px) translateY(-10px) rotate(-18deg); }
-            .frame-3 { transform: translateX(0px) translateY(-15px) rotate(0deg); }
-            .frame-4 { transform: translateX(55px) translateY(-10px) rotate(18deg); }
-            .frame-6 { transform: translateX(110px) rotate(35deg); }
-            .site-header h1 { font-size: 2rem; }
-            .header-content-integrated { padding: 25px 20px; width: 90%; }
-        }
     </style>
 </head>
 <body>
@@ -232,38 +235,24 @@
         <div class="header-content-integrated">
             <h1>Beatrice & Federico</h1>
             <p>29 Agosto 2026</p>
-            
             <div id="countdown-timer">
-                <div class="countdown-segment">
-                    <div class="countdown-value" id="days">00</div>
-                    <span>Giorni</span>
-                </div>
-                <div class="countdown-segment">
-                    <div class="countdown-value" id="hours">00</div>
-                    <span>Ore</span>
-                </div>
-                <div class="countdown-segment">
-                    <div class="countdown-value" id="minutes">00</div>
-                    <span>Minuti</span>
-                </div>
+                <div class="countdown-segment"><div class="countdown-value" id="days">00</div><span>Giorni</span></div>
+                <div class="countdown-segment"><div class="countdown-value" id="hours">00</div><span>Ore</span></div>
+                <div class="countdown-segment"><div class="countdown-value" id="minutes">00</div><span>Minuti</span></div>
             </div>
         </div>
-
         <div class="scroll-indicator">scorri ↓</div>
     </header>
 
     <section class="container">
-        <div class="section-header reveal">
-            <h2>Programma</h2>
-        </div>
-        
+        <div class="section-header reveal"><h2>Programma</h2></div>
         <div class="schedule-list">
             <div class="event-row reveal">
                 <div class="time">17:00</div>
                 <div class="event-info">
                     <h3>Cerimonia</h3>
                     <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/..." target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/@44.5032817,11.0809058,17z/data=!3m1!4b1!4m6!3m5!1s0x477fded475a7a06d:0x5a77bcb3c7b04a3a!8m2!3d44.5032779!4d11.0834807!16s%2Fg%2F12385022?entry=ttu" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
             <div class="event-row reveal">
@@ -271,96 +260,53 @@
                 <div class="event-info">
                     <h3>Stuzzichini</h3>
                     <p>Il Castellazzo, Monteveglio</p>
-                    <a href="https://www.google.it/maps/place/Il+Castellazzo/..." target="_blank" class="map-link">Google Maps</a>
+                    <a href="https://www.google.it/maps/place/Il+Castellazzo/@44.4709487,11.0500158,17z/data=!3m1!4b1!4m9!3m8!1s0x477fdf5cfb57cfe5:0xf6e6162a94120226!5m2!4m1!1i2!8m2!3d44.470945!4d11.0548867!16s%2Fg%2F1tjjn6qp?entry=ttu" target="_blank" class="map-link">Google Maps</a>
                 </div>
             </div>
-            <div class="event-row reveal">
-                <div class="time">20:00</div>
-                <div class="event-info"><h3>Cena</h3></div>
-            </div>
-            <div class="event-row reveal">
-                <div class="time">22:00</div>
-                <div class="event-info"><h3>Party & Open Bar</h3></div>
-            </div>
+            <div class="event-row reveal"><div class="time">20:00</div><div class="event-info"><h3>Cena</h3></div></div>
+            <div class="event-row reveal"><div class="time">22:00</div><div class="event-info"><h3>Party & Open Bar</h3></div></div>
         </div>
 
         <div id="rsvp" style="text-align: center; margin-top: 80px;" class="reveal">
-            <div class="section-header">
-                <span>R.S.V.P.</span>
-                <h2>Ci sarai?</h2>
-            </div>
+            <div class="section-header"><span>R.S.V.P.</span><h2>Ci sarai?</h2><p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Ti chiediamo gentilmente di confermare compilando il form qui sotto.</p></div>
             <div class="form-card">
                 <form action="https://formspree.io/f/mwvwrrdd" method="POST">
-                    <div class="form-group">
-                        <label>Nome e Cognome</label>
-                        <input type="text" name="Nomi" placeholder="Inserisci il tuo nome" required>
-                    </div>
+                    <div class="form-group"><label>Nome e Cognome</label><input type="text" name="Nomi" placeholder="Inserisci il tuo nome" required></div>
                     <div class="form-grid">
-                        <div class="form-group">
-                            <label>Partecipazione</label>
-                            <select name="Conferma">
-                                <option value="Sì">Sì, ci sarò!</option>
-                                <option value="No">No, purtroppo no</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Bambini al seguito?</label>
-                            <select name="Bambini">
-                                <option value="No">No</option>
-                                <option value="Sì">1 baby</option>
-                                <option value="Sì">2 babies</option>
-                            </select>
-                        </div>
+                        <div class="form-group"><label>Partecipazione</label><select name="Conferma"><option value="Sì">Sì, ci sarò!</option><option value="No">No, purtroppo no</option></select></div>
+                        <div class="form-group"><label>Bambini al seguito?</label><select name="Bambini"><option value="No">No</option><option value="Sì">1 baby</option><option value="Sì">2 babies</option></select></div>
                     </div>
-                    <div class="form-group">
-                        <label>Intolleranze o Allergie</label>
-                        <textarea name="Messaggio" placeholder="Segnalaci eventuali esigenze particolari..." rows="3"></textarea>
-                    </div>
+                    <div class="form-group"><label>Intolleranze o Allergie</label><textarea name="Messaggio" placeholder="Segnalaci eventuali esigenze particolari..." rows="3"></textarea></div>
                     <button type="submit" class="btn-submit">Invia conferma</button>
                 </form>
             </div>
         </div>
 
         <div class="gift-area reveal">
-            <div class="section-header" style="margin-top: 0; margin-bottom: 30px;">
-                <h2>Il nostro futuro</h2>
-            </div>
-            <div class="iban-row">
-                <span class="iban-label">Codice IBAN</span>
-                <div class="iban-code">IT57Y0707236670000000767183</div>
-            </div>
+            <div class="section-header" style="margin-top: 0; margin-bottom: 30px;"><h2>Il nostro futuro</h2></div>
+            <p style="max-width: 600px; margin: 0 auto; color: #666;">La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, questo è il nostro riferimento:</p>
+            <div class="iban-row"><span class="iban-label">Codice IBAN</span><div class="iban-code">IT57Y0707236670000000767183</div></div>
         </div>
 
         <div class="photo-footer-section reveal">
             <h3>I vostri scatti</h3>
             <p>Scarica l'app <strong>Wedshoots</strong> e carica le foto nel nostro album condiviso.</p>
-            <div class="app-links-modern">
-                <a href="#" class="modern-btn">App Store</a>
-                <a href="#" class="modern-btn">Play Store</a>
-            </div>
-            <div class="code-box-modern">
-                <span>Codice Album</span>
-                <div class="wedding-code-display">ITa424c233</div>
-            </div>
+            <div class="app-links-modern"><a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="modern-btn">App Store</a><a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a></div>
+            <div class="code-box-modern"><span>Codice Album</span><div class="wedding-code-display">ITa424c233</div></div>
         </div>
     </section>
 
-    <footer>
-        <p>B & F — 29 . 08 . 2026</p>
-    </footer>
+    <footer><p>B & F — 29 . 08 . 2026</p></footer>
 
     <script>
         function updateCountdown() {
-            const targetDate = new Date("2026-08-29T17:00:00").getTime(); 
+            const target = new Date("2026-08-29T17:00:00").getTime();
             const now = new Date().getTime();
-            const difference = targetDate - now;
-            if (difference <= 0) return;
-            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("days").innerText = String(d).padStart(2, '0');
-            document.getElementById("hours").innerText = String(h).padStart(2, '0');
-            document.getElementById("minutes").innerText = String(m).padStart(2, '0');
+            const diff = target - now;
+            if (diff <= 0) return;
+            document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
         }
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
@@ -372,8 +318,7 @@
         }
         window.addEventListener("scroll", reveal);
         setInterval(updateCountdown, 1000);
-        updateCountdown(); 
-        reveal();
+        updateCountdown(); reveal();
     </script>
 </body>
 </html>
