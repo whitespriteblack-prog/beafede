@@ -84,9 +84,12 @@
             box-shadow: 0 12px 35px rgba(0,0,0,0.18);
             width: 190px; 
             height: auto;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, z-index 0s;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
             transform-origin: center center;
             cursor: pointer;
+            /* Evita il menu contestuale su mobile durante il tocco */
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
         }
 
         .mosaic-frame img {
@@ -94,6 +97,7 @@
             height: 170px;
             object-fit: cover; 
             display: block;
+            pointer-events: none; /* Impedisce il "salva immagine" */
         }
 
         /* POSIZIONI DESKTOP */
@@ -105,11 +109,7 @@
 
         /* HOVER DESKTOP */
         @media (min-width: 601px) {
-            .mosaic-frame:hover {
-                transform: inherit; /* mantiene la posizione del frame */
-                z-index: 100;
-                box-shadow: 0 20px 45px rgba(0,0,0,0.25);
-            }
+            .mosaic-frame:hover { z-index: 100; box-shadow: 0 20px 45px rgba(0,0,0,0.25); }
             .frame-1:hover { transform: translateX(-320px) translateY(-10px) rotate(-35deg) scale(1.08); }
             .frame-2:hover { transform: translateX(-160px) translateY(-45px) rotate(-18deg) scale(1.08); }
             .frame-3:hover { transform: translateX(0px) translateY(-65px) rotate(0deg) scale(1.08); }
@@ -192,18 +192,19 @@
             .frame-4 { transform: translate(80px, 85px) rotate(8deg); }
             .frame-6 { transform: translate(-90px, 95px) rotate(-10deg); }
 
-            /* ANIMAZIONE MOBILE CORRETTA: Nessuno spostamento, solo ingrandimento */
-            .frame-1:active { transform: translate(-85px, -50px) rotate(-12deg) scale(1.1); z-index: 100; }
-            .frame-2:active { transform: translate(75px, -60px) rotate(10deg) scale(1.1); z-index: 100; }
-            .frame-3:active { transform: translate(0px, 0px) rotate(-3deg) scale(1.1); z-index: 100; }
-            .frame-4:active { transform: translate(80px, 85px) rotate(8deg) scale(1.1); z-index: 100; }
-            .frame-6:active { transform: translate(-90px, 95px) rotate(-10deg) scale(1.1); z-index: 100; }
+            /* FOCUS MOBILE: Si attiva al click e resta finchè non si preme altrove */
+            .mosaic-frame.active-mobile { z-index: 100 !important; }
+            .frame-1.active-mobile { transform: translate(-85px, -50px) rotate(-12deg) scale(1.15); }
+            .frame-2.active-mobile { transform: translate(75px, -60px) rotate(10deg) scale(1.15); }
+            .frame-3.active-mobile { transform: translate(0px, 0px) rotate(-3deg) scale(1.15); }
+            .frame-4.active-mobile { transform: translate(80px, 85px) rotate(8deg) scale(1.15); }
+            .frame-6.active-mobile { transform: translate(-90px, 95px) rotate(-10deg) scale(1.15); }
 
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .header-content-integrated { margin-bottom: 50px; padding: 20px 10px; width: 100%; }
         }
 
-        /* IL RESTO NON È STATO MODIFICATO */
+        /* RESTO DEL CODICE - INVARIATO */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
@@ -243,11 +244,11 @@
 
     <header class="site-header">
         <div class="header-mosaic-frame">
-            <div class="mosaic-frame frame-1"><img src="foto3.jpeg" alt="foto"></div>
-            <div class="mosaic-frame frame-2"><img src="foto2.jpeg" alt="foto"></div>
-            <div class="mosaic-frame frame-3"><img src="foto4.jpeg" alt="foto"></div>
-            <div class="mosaic-frame frame-4"><img src="foto5.jpeg" alt="foto"></div>
-            <div class="mosaic-frame frame-6"><img src="foto6.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-1" onclick="togglePhoto(this, event)"><img src="foto3.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-2" onclick="togglePhoto(this, event)"><img src="foto2.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-3" onclick="togglePhoto(this, event)"><img src="foto4.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-4" onclick="togglePhoto(this, event)"><img src="foto5.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-6" onclick="togglePhoto(this, event)"><img src="foto6.jpeg" alt="foto"></div>
         </div>
         
         <div class="header-content-integrated">
@@ -323,6 +324,18 @@
     <footer><p>B & F — 29 . 08 . 2026</p></footer>
 
     <script>
+        // FUNZIONE NUOVA PER GESTIRE IL TOCCO FOTO SU MOBILE
+        function togglePhoto(el, event) {
+            if (window.innerWidth > 600) return; // Disabilita su desktop
+            event.stopPropagation();
+            const isActive = el.classList.contains('active-mobile');
+            document.querySelectorAll('.mosaic-frame').forEach(f => f.classList.remove('active-mobile'));
+            if (!isActive) el.classList.add('active-mobile');
+        }
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.mosaic-frame').forEach(f => f.classList.remove('active-mobile'));
+        });
+
         function updateCountdown() {
             const targetDate = new Date("2026-08-29T17:00:00").getTime(); 
             const now = new Date().getTime();
