@@ -59,24 +59,28 @@
             overflow: hidden; 
         }
 
-        /* MODIFICA: EFFETTO POLAROID SPARSE ATTORNO AL TESTO */
+        /* EFFETTO MAZZO DI CARTE APERTO A VENTAGLIO (SPICCHIO) */
         .header-mosaic-frame {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             z-index: 1;
         }
 
         .mosaic-frame {
             position: absolute;
             background: white;
-            padding: 10px 10px 30px 10px; /* Bordo tipico polaroid */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            transition: transform 0.4s ease, z-index 0.3s;
-            width: 180px; /* Dimensione fissa per l'effetto polaroid */
+            padding: 10px 10px 30px 10px; /* Spazio bianco polaroid */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            width: 180px;
             height: auto;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.3s;
+            transform-origin: bottom center; /* Rotazione dalla base */
         }
 
         .mosaic-frame img {
@@ -87,28 +91,27 @@
         }
 
         .mosaic-frame:hover {
-            transform: scale(1.1) rotate(0deg) !important;
-            z-index: 15;
+            z-index: 50 !important;
+            transform: scale(1.15) translateY(-30px) rotate(0deg) !important;
         }
 
-        /* Posizionamento sparso "contorno" */
-        .frame-1 { top: 10%; left: 10%; transform: rotate(-8deg); }
-        .frame-2 { top: 5%; right: 15%; transform: rotate(5deg); }
-        .frame-3 { bottom: 12%; right: 12%; transform: rotate(-5deg); }
-        .frame-4 { bottom: 10%; left: 8%; transform: rotate(7deg); }
-        .frame-6 { top: 45%; left: 5%; transform: rotate(-12deg); }
+        /* Distribuzione a ventaglio attorno alla scritta centrale */
+        .frame-1 { transform: translate(-140px, -60px) rotate(-25deg); z-index: 2; }
+        .frame-2 { transform: translate(-70px, -90px) rotate(-12deg); z-index: 3; }
+        .frame-3 { transform: translate(0px, -110px) rotate(0deg); z-index: 4; }
+        .frame-4 { transform: translate(70px, -90px) rotate(12deg); z-index: 5; }
+        .frame-6 { transform: translate(140px, -60px) rotate(25deg); z-index: 6; }
 
         /* Contenitore centrale della scritta */
         .header-content-integrated {
             position: relative;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
             padding: 50px;
             border-radius: 20px;
             max-width: 90%;
             border: 1px solid rgba(255,255,255,0.5);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .site-header h1 { 
@@ -334,8 +337,15 @@
         @media (max-width: 600px) {
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
-            .mosaic-frame { width: 120px; padding: 5px 5px 15px 5px; }
-            .mosaic-frame img { height: 100px; }
+            .mosaic-frame { width: 110px; padding: 5px 5px 15px 5px; }
+            .mosaic-frame img { height: 90px; }
+            /* Ventaglio mobile */
+            .frame-1 { transform: translate(-80px, -30px) rotate(-25deg); }
+            .frame-2 { transform: translate(-40px, -50px) rotate(-12deg); }
+            .frame-3 { transform: translate(0px, -60px) rotate(0deg); }
+            .frame-4 { transform: translate(40px, -50px) rotate(12deg); }
+            .frame-6 { transform: translate(80px, -30px) rotate(25deg); }
+            
             .header-content-integrated { padding: 30px 15px; width: 85%; }
             .countdown-timer { font-size: 1.1rem; gap: 8px; }
             .container { padding: 60px 20px; }
