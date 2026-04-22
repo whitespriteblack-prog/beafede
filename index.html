@@ -80,8 +80,10 @@
             box-shadow: 0 12px 35px rgba(0,0,0,0.18);
             width: 190px; 
             height: auto;
-            transition: transform 0.3s ease, z-index 0s;
+            /* TRANSITION FLUIDA AGGIUNTA QUI */
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
             transform-origin: center center;
+            cursor: pointer;
         }
 
         .mosaic-frame img {
@@ -91,18 +93,26 @@
             display: block;
         }
 
-        /* Posizioni PC originali (larghe) */
-        .frame-1 { transform: translateX(-300px) translateY(-10px) rotate(-35deg); z-index: 21; }
-        .frame-2 { transform: translateX(-150px) translateY(-45px) rotate(-18deg); z-index: 22; }
+        /* Posizioni PC Larghe */
+        .frame-1 { transform: translateX(-320px) translateY(-10px) rotate(-35deg); z-index: 21; }
+        .frame-2 { transform: translateX(-160px) translateY(-45px) rotate(-18deg); z-index: 22; }
         .frame-3 { transform: translateX(0px) translateY(-65px) rotate(0deg); z-index: 23; }
-        .frame-4 { transform: translateX(150px) translateY(-45px) rotate(18deg); z-index: 24; }
-        .frame-6 { transform: translateX(300px) translateY(-10px) rotate(35deg); z-index: 25; }
+        .frame-4 { transform: translateX(160px) translateY(-45px) rotate(18deg); z-index: 24; }
+        .frame-6 { transform: translateX(320px) translateY(-10px) rotate(35deg); z-index: 25; }
 
-        /* ANIMAZIONE UNIFORME (PC & MOBILE) */
-        .mosaic-frame:hover, .mosaic-frame:active {
+        /* ANIMAZIONE FLUIDA: SOLO SCALA E Z-INDEX */
+        .mosaic-frame:hover {
             z-index: 100 !important;
-            scale: 1.05; /* Ingrandimento minimo */
+            transform: scale(1.08) !important; /* Lieve ingrandimento fluido */
+            box-shadow: 0 20px 45px rgba(0,0,0,0.25);
         }
+        
+        /* Manteniamo la rotazione originale durante lo scale tramite CSS specifico per ogni frame al passaggio del mouse */
+        .frame-1:hover { transform: translateX(-320px) translateY(-10px) rotate(-35deg) scale(1.08) !important; }
+        .frame-2:hover { transform: translateX(-160px) translateY(-45px) rotate(-18deg) scale(1.08) !important; }
+        .frame-3:hover { transform: translateX(0px) translateY(-65px) rotate(0deg) scale(1.08) !important; }
+        .frame-4:hover { transform: translateX(160px) translateY(-45px) rotate(18deg) scale(1.08) !important; }
+        .frame-6:hover { transform: translateX(320px) translateY(-10px) rotate(35deg) scale(1.08) !important; }
 
         .header-content-integrated {
             position: relative;
@@ -168,34 +178,40 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* --- MOBILE: FOTO GRANDI ALTE, SCRITTA BASSA --- */
+        /* --- MOBILE: FOTO GRANDI IN ALTO --- */
         @media (max-width: 600px) {
             .site-header { 
                 padding: 40px 0;
                 justify-content: space-between; 
             }
             .header-mosaic-frame { 
-                height: 350px; 
-                margin-top: 20px;
+                height: 380px; 
+                margin-top: 10px;
                 align-items: center;
             }
             .mosaic-frame { 
-                width: 140px; 
+                width: 145px; 
                 padding: 8px 8px 25px 8px; 
             }
             .mosaic-frame img { height: 130px; }
             
             /* Posizioni Mobile */
-            .frame-1 { transform: translate(-80px, -50px) rotate(-12deg); }
-            .frame-2 { transform: translate(70px, -60px) rotate(10deg); }
+            .frame-1 { transform: translate(-85px, -50px) rotate(-12deg); }
+            .frame-2 { transform: translate(75px, -60px) rotate(10deg); }
             .frame-3 { transform: translate(0px, 0px) rotate(-3deg); z-index: 30; }
-            .frame-4 { transform: translate(75px, 80px) rotate(8deg); }
-            .frame-6 { transform: translate(-85px, 90px) rotate(-10deg); }
+            .frame-4 { transform: translate(80px, 85px) rotate(8deg); }
+            .frame-6 { transform: translate(-90px, 95px) rotate(-10deg); }
+
+            /* Hover Mobile (Touch) */
+            .frame-1:hover { transform: translate(-85px, -50px) rotate(-12deg) scale(1.08) !important; }
+            .frame-2:hover { transform: translate(75px, -60px) rotate(10deg) scale(1.08) !important; }
+            .frame-3:hover { transform: translate(0px, 0px) rotate(-3deg) scale(1.08) !important; }
+            .frame-4:hover { transform: translate(80px, 85px) rotate(8deg) scale(1.08) !important; }
+            .frame-6:hover { transform: translate(-90px, 95px) rotate(-10deg) scale(1.08) !important; }
 
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
-            
             .header-content-integrated { 
-                margin-bottom: 60px;
+                margin-bottom: 50px;
                 padding: 20px 10px; 
                 width: 100%; 
                 background: none; 
@@ -205,7 +221,7 @@
             }
         }
 
-        /* --- RESTO DEL CONTENUTO --- */
+        /* --- SEZIONI --- */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
@@ -288,7 +304,7 @@
         </div>
 
         <div id="rsvp" style="text-align: center; margin-top: 80px;" class="reveal">
-            <div class="section-header"><span>R.S.V.P.</span><h2>Ci sarai?</h2><p style="font-size: 0.9rem; color: #888; margin-top: 10px;">Ti chiediamo gentilmente di confermare compilando il form qui sotto.</p></div>
+            <div class="section-header"><span>R.S.V.P.</span><h2>Ci sarai?</h2></div>
             <div class="form-card">
                 <form action="https://formspree.io/f/mwvwrrdd" method="POST">
                     <div class="form-group"><label>Nome e Cognome</label><input type="text" name="Nomi" placeholder="Inserisci il tuo nome" required></div>
@@ -304,13 +320,13 @@
 
         <div class="gift-area reveal">
             <div class="section-header" style="margin-top: 0; margin-bottom: 30px;"><h2>Il nostro futuro</h2></div>
-            <p style="max-width: 600px; margin: 0 auto; color: #666;">La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, <br> questo è il nostro riferimento:</p>
+            <p style="max-width: 600px; margin: 0 auto; color: #666;">La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, questo è il nostro riferimento:</p>
             <div class="iban-row"><span class="iban-label">Codice IBAN</span><div class="iban-code">IT57Y0707236670000000767183</div></div>
         </div>
 
         <div class="photo-footer-section reveal">
             <h3>I vostri scatti</h3>
-            <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong> e caricando le foto nel nostro album condiviso.</p>
+            <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong>.</p>
             <div class="app-links-modern">
                 <a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="modern-btn">App Store</a>
                 <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a>
