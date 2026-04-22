@@ -53,6 +53,7 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
+        /* HEADER */
         .site-header {
             height: 100vh; 
             display: flex;
@@ -87,7 +88,6 @@
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
             transform-origin: center center;
             cursor: pointer;
-            /* Evita il menu contestuale su mobile durante il tocco */
             -webkit-user-select: none;
             -webkit-touch-callout: none;
         }
@@ -97,17 +97,16 @@
             height: 170px;
             object-fit: cover; 
             display: block;
-            pointer-events: none; /* Impedisce il "salva immagine" */
+            pointer-events: none;
         }
 
-        /* POSIZIONI DESKTOP */
+        /* DESKTOP POSITIONS */
         .frame-1 { transform: translateX(-320px) translateY(-10px) rotate(-35deg); z-index: 21; }
         .frame-2 { transform: translateX(-160px) translateY(-45px) rotate(-18deg); z-index: 22; }
         .frame-3 { transform: translateX(0px) translateY(-65px) rotate(0deg); z-index: 23; }
         .frame-4 { transform: translateX(160px) translateY(-45px) rotate(18deg); z-index: 24; }
         .frame-6 { transform: translateX(320px) translateY(-10px) rotate(35deg); z-index: 25; }
 
-        /* HOVER DESKTOP */
         @media (min-width: 601px) {
             .mosaic-frame:hover { z-index: 100; box-shadow: 0 20px 45px rgba(0,0,0,0.25); }
             .frame-1:hover { transform: translateX(-320px) translateY(-10px) rotate(-35deg) scale(1.08); }
@@ -115,6 +114,16 @@
             .frame-3:hover { transform: translateX(0px) translateY(-65px) rotate(0deg) scale(1.08); }
             .frame-4:hover { transform: translateX(160px) translateY(-45px) rotate(18deg) scale(1.08); }
             .frame-6:hover { transform: translateX(320px) translateY(-10px) rotate(35deg) scale(1.08); }
+        }
+
+        /* SECTION PROGRAMMA CON BACKGROUND */
+        .program-section {
+            position: relative;
+            background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('Castellazzo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            width: 100%;
         }
 
         .header-content-integrated {
@@ -178,21 +187,19 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* --- MOBILE --- */
+        /* MOBILE */
         @media (max-width: 600px) {
             .site-header { padding: 40px 0; justify-content: space-between; }
             .header-mosaic-frame { height: 380px; margin-top: 10px; align-items: center; }
             .mosaic-frame { width: 145px; padding: 8px 8px 25px 8px; }
             .mosaic-frame img { height: 130px; }
             
-            /* Posizioni Mobile */
             .frame-1 { transform: translate(-85px, -50px) rotate(-12deg); }
             .frame-2 { transform: translate(75px, -60px) rotate(10deg); }
             .frame-3 { transform: translate(0px, 0px) rotate(-3deg); z-index: 30; }
             .frame-4 { transform: translate(80px, 85px) rotate(8deg); }
             .frame-6 { transform: translate(-90px, 95px) rotate(-10deg); }
 
-            /* FOCUS MOBILE: Si attiva al click e resta finchè non si preme altrove */
             .mosaic-frame.active-mobile { z-index: 100 !important; }
             .frame-1.active-mobile { transform: translate(-85px, -50px) rotate(-12deg) scale(1.15); }
             .frame-2.active-mobile { transform: translate(75px, -60px) rotate(10deg) scale(1.15); }
@@ -204,13 +211,13 @@
             .header-content-integrated { margin-bottom: 50px; padding: 20px 10px; width: 100%; }
         }
 
-        /* RESTO DEL CODICE - INVARIATO */
+        /* RESTO DELLO STILE */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
         .schedule-list { margin-top: 40px; text-align: center; }
-        .event-row { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 35px 0; border-top: 1px solid #eee; }
-        .event-row:last-child { border-bottom: 1px solid #eee; }
+        .event-row { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 35px 0; border-top: 1px solid rgba(0,0,0,0.05); }
+        .event-row:last-child { border-bottom: 1px solid rgba(0,0,0,0.05); }
         .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
         .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
@@ -263,30 +270,34 @@
         <div class="scroll-indicator">scorri ↓</div>
     </header>
 
-    <section class="container">
-        <div class="section-header reveal"><h2>Programma</h2></div>
-        <div class="schedule-list">
-            <div class="event-row reveal">
-                <div class="time">17:00</div>
-                <div class="event-info">
-                    <h3>Cerimonia</h3>
-                    <p>Rocca dei Bentivoglio, Bazzano</p>
-                    <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/@44.5032817,11.0809058,17z/data=!3m1!4b1!4m6!3m5!1s0x477fded475a7a06d:0x5a77bcb3c7b04a3a!8m2!3d44.5032779!4d11.0834807!16s%2Fg%2F12385022?entry=ttu" target="_blank" class="map-link">Google Maps</a>
+    <div class="program-section">
+        <section class="container">
+            <div class="section-header reveal"><h2>Programma</h2></div>
+            <div class="schedule-list">
+                <div class="event-row reveal">
+                    <div class="time">17:00</div>
+                    <div class="event-info">
+                        <h3>Cerimonia</h3>
+                        <p>Rocca dei Bentivoglio, Bazzano</p>
+                        <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/..." target="_blank" class="map-link">Google Maps</a>
+                    </div>
                 </div>
-            </div>
-            <div class="event-row reveal">
-                <div class="time">18:00</div>
-                <div class="event-info">
-                    <h3>Stuzzichini</h3>
-                    <p>Il Castellazzo, Monteveglio</p>
-                    <a href="https://www.google.it/maps/place/Il+Castellazzo/@44.4709487,11.0500158,17z/data=!3m1!4b1!4m9!3m8!1s0x477fdf5cfb57cfe5:0xf6e6162a94120226!5m2!4m1!1i2!8m2!3d44.470945!4d11.0548867!16s%2Fg%2F1tjjn6qp?entry=ttu" target="_blank" class="map-link">Google Maps</a>
+                <div class="event-row reveal">
+                    <div class="time">18:00</div>
+                    <div class="event-info">
+                        <h3>Stuzzichini</h3>
+                        <p>Il Castellazzo, Monteveglio</p>
+                        <a href="https://www.google.it/maps/place/Il+Castellazzo/..." target="_blank" class="map-link">Google Maps</a>
+                    </div>
                 </div>
+                <div class="event-row reveal"><div class="time">20:00</div><div class="event-info"><h3>Cena</h3></div></div>
+                <div class="event-row reveal"><div class="time">22:00</div><div class="event-info"><h3>Party & Open Bar</h3></div></div>
             </div>
-            <div class="event-row reveal"><div class="time">20:00</div><div class="event-info"><h3>Cena</h3></div></div>
-            <div class="event-row reveal"><div class="time">22:00</div><div class="event-info"><h3>Party & Open Bar</h3></div></div>
-        </div>
+        </section>
+    </div>
 
-        <div id="rsvp" style="text-align: center; margin-top: 80px;" class="reveal">
+    <section class="container">
+        <div id="rsvp" style="text-align: center;" class="reveal">
             <div class="section-header"><span>R.S.V.P.</span><h2>Ci sarai?</h2></div>
             <div class="form-card">
                 <form action="https://formspree.io/f/mwvwrrdd" method="POST">
@@ -295,7 +306,7 @@
                         <div class="form-group"><label>Partecipazione</label><select name="Conferma"><option value="Sì">Sì, ci sarò!</option><option value="No">No, purtroppo no</option></select></div>
                         <div class="form-group"><label>Bambini al seguito?</label><select name="Bambini"><option value="No">No</option><option value="Sì">1 baby</option><option value="Sì">2 babies</option></select></div>
                     </div>
-                    <div class="form-group"><label>Intolleranze, Preferenze Alimentari o Allergie</label><textarea name="Messaggio" placeholder="Segnalaci eventuali esigenze particolari..." rows="3"></textarea></div>
+                    <div class="form-group"><label>Intolleranze, Preferenze Alimentari o Allergie</label><textarea name="Messaggio" placeholder="Scrivici eventuali esigenze..." rows="3"></textarea></div>
                     <button type="submit" class="btn-submit">Invia conferma</button>
                 </form>
             </div>
@@ -324,9 +335,8 @@
     <footer><p>B & F — 29 . 08 . 2026</p></footer>
 
     <script>
-        // FUNZIONE NUOVA PER GESTIRE IL TOCCO FOTO SU MOBILE
         function togglePhoto(el, event) {
-            if (window.innerWidth > 600) return; // Disabilita su desktop
+            if (window.innerWidth > 600) return;
             event.stopPropagation();
             const isActive = el.classList.contains('active-mobile');
             document.querySelectorAll('.mosaic-frame').forEach(f => f.classList.remove('active-mobile'));
