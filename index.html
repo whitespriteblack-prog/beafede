@@ -115,7 +115,6 @@
             .frame-6:hover { transform: translateX(320px) translateY(-10px) rotate(35deg) scale(1.08); }
         }
 
-        /* FIX IPHONE BACKGROUND */
         .program-section {
             position: relative;
             background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('Castellazzo.jpeg');
@@ -125,7 +124,6 @@
             width: 100%;
         }
 
-        /* Forza lo sfondo a comportarsi bene su iPhone/iOS */
         @supports (-webkit-overflow-scrolling: touch) {
             .program-section {
                 background-attachment: scroll !important;
@@ -236,9 +234,10 @@
         .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
         .gift-area h2, .gift-area .iban-label { color: var(--text-dark) !important; }
         
+        /* Font riportato ad Afacad Flux come richiesto */
         .gift-area .presence-text { 
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
+            font-family: 'Afacad Flux', sans-serif;
+            font-size: 1rem;
             color: var(--sage-whitish) !important; 
             text-shadow: 
                 -0.5px -0.5px 0 #000,  
