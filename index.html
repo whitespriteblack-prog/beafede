@@ -80,8 +80,8 @@
             box-shadow: 0 12px 35px rgba(0,0,0,0.18);
             width: 190px; 
             height: auto;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-origin: bottom center;
+            transition: transform 0.3s ease-out;
+            transform-origin: center center;
         }
 
         .mosaic-frame img {
@@ -99,7 +99,8 @@
 
         .mosaic-frame:hover {
             z-index: 100 !important;
-            transform: scale(1.1) translateY(-80px) rotate(0deg) !important;
+            transform: inherit;
+            scale: 1.1;
         }
 
         .header-content-integrated {
@@ -166,33 +167,35 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* --- MOBILE: FOTO IN ALTO SOPRA LA SCRITTA --- */
+        /* --- MOBILE: FOTO GRANDI IN ALTO, SCRITTA IN BASSO --- */
         @media (max-width: 600px) {
             .site-header { 
-                padding-top: 0; 
-                justify-content: flex-start; /* Spinge tutto verso l'alto */
+                padding: 40px 0;
+                justify-content: space-between; /* Spinge foto su e testo giù */
             }
             .header-mosaic-frame { 
-                height: 200px; 
-                margin-top: 20px; 
-                margin-bottom: 0px; 
+                height: 350px; /* Più spazio per le foto grandi */
+                margin-top: 20px;
                 align-items: center;
             }
-            .mosaic-frame { width: 95px; padding: 5px 5px 15px 5px; }
-            .mosaic-frame img { height: 80px; }
+            .mosaic-frame { 
+                width: 140px; /* Foto molto più grandi */
+                padding: 8px 8px 25px 8px; 
+            }
+            .mosaic-frame img { height: 130px; }
             
-            /* Foto posizionate alte per non toccare la scritta */
-            .frame-1 { transform: translate(-90px, -20px) rotate(-15deg); }
-            .frame-2 { transform: translate(80px, -30px) rotate(12deg); }
-            .frame-3 { transform: translate(0px, -45px) rotate(-3deg); }
-            .frame-4 { transform: translate(85px, 65px) rotate(10deg); }
-            .frame-6 { transform: translate(-95px, 75px) rotate(-8deg); }
+            /* Distribuzione foto nello spazio in alto */
+            .frame-1 { transform: translate(-80px, -50px) rotate(-12deg); }
+            .frame-2 { transform: translate(70px, -60px) rotate(10deg); }
+            .frame-3 { transform: translate(0px, 0px) rotate(-3deg); z-index: 30; }
+            .frame-4 { transform: translate(75px, 80px) rotate(8deg); }
+            .frame-6 { transform: translate(-85px, 90px) rotate(-10deg); }
 
-            .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-top: 10px; margin-bottom: 5px; }            
-            .site-header p { font-size: 0.8rem; letter-spacing: 3px; }
+            .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             
             .header-content-integrated { 
-                padding: 15px 10px; 
+                margin-bottom: 60px; /* Allontana dal fondo e dalla freccia */
+                padding: 20px 10px; 
                 width: 100%; 
                 background: none; 
                 border: none; 
@@ -202,7 +205,7 @@
             .form-grid { grid-template-columns: 1fr; gap: 0; }
         }
 
-        /* --- RESTO DEL CSS --- */
+        /* --- RESTO DEL CODICE --- */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
@@ -308,12 +311,10 @@
         <div class="photo-footer-section reveal">
             <h3>I vostri scatti</h3>
             <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong> e caricando le foto nel nostro album condiviso.</p>
-            
             <div class="app-links-modern">
                 <a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="modern-btn">App Store</a>
                 <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a>
             </div>
-            
             <div class="code-box-modern">
                 <span>Codice Album</span>
                 <div class="wedding-code-display">ITa424c233</div>
