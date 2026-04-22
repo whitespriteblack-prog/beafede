@@ -80,7 +80,7 @@
             box-shadow: 0 12px 35px rgba(0,0,0,0.18);
             width: 190px; 
             height: auto;
-            transition: transform 0.3s ease-out;
+            transition: transform 0.3s ease, z-index 0s;
             transform-origin: center center;
         }
 
@@ -91,16 +91,17 @@
             display: block;
         }
 
+        /* Posizioni PC originali (larghe) */
         .frame-1 { transform: translateX(-300px) translateY(-10px) rotate(-35deg); z-index: 21; }
         .frame-2 { transform: translateX(-150px) translateY(-45px) rotate(-18deg); z-index: 22; }
         .frame-3 { transform: translateX(0px) translateY(-65px) rotate(0deg); z-index: 23; }
         .frame-4 { transform: translateX(150px) translateY(-45px) rotate(18deg); z-index: 24; }
         .frame-6 { transform: translateX(300px) translateY(-10px) rotate(35deg); z-index: 25; }
 
-        .mosaic-frame:hover {
+        /* ANIMAZIONE UNIFORME (PC & MOBILE) */
+        .mosaic-frame:hover, .mosaic-frame:active {
             z-index: 100 !important;
-            transform: inherit;
-            scale: 1.1;
+            scale: 1.05; /* Ingrandimento minimo */
         }
 
         .header-content-integrated {
@@ -167,24 +168,24 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* --- MOBILE: FOTO GRANDI IN ALTO, SCRITTA IN BASSO --- */
+        /* --- MOBILE: FOTO GRANDI ALTE, SCRITTA BASSA --- */
         @media (max-width: 600px) {
             .site-header { 
                 padding: 40px 0;
-                justify-content: space-between; /* Spinge foto su e testo giù */
+                justify-content: space-between; 
             }
             .header-mosaic-frame { 
-                height: 350px; /* Più spazio per le foto grandi */
+                height: 350px; 
                 margin-top: 20px;
                 align-items: center;
             }
             .mosaic-frame { 
-                width: 140px; /* Foto molto più grandi */
+                width: 140px; 
                 padding: 8px 8px 25px 8px; 
             }
             .mosaic-frame img { height: 130px; }
             
-            /* Distribuzione foto nello spazio in alto */
+            /* Posizioni Mobile */
             .frame-1 { transform: translate(-80px, -50px) rotate(-12deg); }
             .frame-2 { transform: translate(70px, -60px) rotate(10deg); }
             .frame-3 { transform: translate(0px, 0px) rotate(-3deg); z-index: 30; }
@@ -194,7 +195,7 @@
             .site-header h1 { font-size: 2.2rem; white-space: nowrap; margin-bottom: 5px; }            
             
             .header-content-integrated { 
-                margin-bottom: 60px; /* Allontana dal fondo e dalla freccia */
+                margin-bottom: 60px;
                 padding: 20px 10px; 
                 width: 100%; 
                 background: none; 
@@ -202,10 +203,9 @@
                 backdrop-filter: none;
                 box-shadow: none;
             }
-            .form-grid { grid-template-columns: 1fr; gap: 0; }
         }
 
-        /* --- RESTO DEL CODICE --- */
+        /* --- RESTO DEL CONTENUTO --- */
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
         .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
