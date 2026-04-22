@@ -209,7 +209,6 @@
 
             .form-grid { grid-template-columns: 1fr !important; gap: 0; }
             
-            /* IBAN Fix: niente barra, tutto dentro */
             .iban-code { font-size: 0.75rem !important; letter-spacing: 0.5px !important; }
             .iban-row { padding: 20px 5px !important; width: 100%; overflow: hidden; }
         }
@@ -219,7 +218,7 @@
         .section-header span { color: var(--sage-main); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; font-weight: 500; }
         .schedule-list { margin-top: 40px; text-align: center; }
         .event-row { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 35px 0; border-top: 1px solid rgba(0,0,0,0.05); }
-        .event-row:last-child { border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .event-row:last-child { border-bottom: none; } /* Linea rimossa qui */
         .time { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--sage-main); }
         .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
@@ -229,7 +228,6 @@
         .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
         .gift-area h2, .gift-area .iban-label { color: var(--text-dark) !important; }
         
-        /* Font uniformato a Playfair Display come il titolo */
         .gift-area .presence-text { 
             font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
@@ -297,7 +295,7 @@
                     <div class="event-info">
                         <h3>Cerimonia</h3>
                         <p>Rocca dei Bentivoglio, Bazzano</p>
-                        <a href="https://www.google.com/maps/place/Rocca+dei+Bentivoglio+e+Museo/@44.5032817,11.0809058,17z/data=!3m1!4b1!4m6!3m5!1s0x477fded475a7a06d:0x5a77bcb3c7b04a3a!8m2!3d44.5032779!4d11.0834807!16s%2Fg%2F12385022?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Google Maps</a>
+                        <a href="https://www.google.it/maps/place/Rocca+dei+Bentivoglio+e+Museo/..." target="_blank" class="map-link">Google Maps</a>
                     </div>
                 </div>
                 <div class="event-row reveal">
@@ -305,7 +303,7 @@
                     <div class="event-info">
                         <h3>Stuzzichini</h3>
                         <p>Il Castellazzo, Monteveglio</p>
-                        <a href="https://www.google.com/maps/place/Il+Castellazzo/@44.4709488,11.0523118,17z/data=!3m1!4b1!4m9!3m8!1s0x477fdf5cfb57cfe5:0xf6e6162a94120226!5m2!4m1!1i2!8m2!3d44.470945!4d11.0548867!16s%2Fg%2F1tjjn6qp?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Google Maps</a>
+                        <a href="https://www.google.it/maps/place/Il+Castellazzo/..." target="_blank" class="map-link">Google Maps</a>
                     </div>
                 </div>
                 <div class="event-row reveal"><div class="time">20:00</div><div class="event-info"><h3>Cena</h3></div></div>
@@ -332,13 +330,13 @@
 
         <div class="gift-area reveal">
             <div class="section-header" style="margin-top: 0; margin-bottom: 30px;"><h2>Il nostro futuro</h2></div>
-            <p class="presence-text" style="max-width: 600px; margin: 0 auto;">La vostra presenza è il dono più prezioso, se desiderate contribuire al nostro futuro insieme, questo è il nostro riferimento:</p>
+            <p class="presence-text" style="max-width: 600px; margin: 0 auto;">La vostra presenza è il dono più prezioso, ma se desiderate contribuire al nostro futuro insieme, questo è il nostro riferimento:</p>
             <div class="iban-row"><span class="iban-label">Codice IBAN</span><div class="iban-code">IT57Y0707236670000000767183</div></div>
         </div>
 
         <div class="photo-footer-section reveal">
             <h3>I vostri scatti</h3>
-            <p>C'è un fotografo in giro, se avete piacere di condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong>.</p>
+            <p>C'è un fotografo in giro, ma se volete condividere con tutti sfumature personali potete farlo scaricando l'app <strong>Wedshoots</strong>.</p>
             <div class="app-links-modern">
                 <a href="https://apps.apple.com/it/app/wedshoots/id660256196" target="_blank" class="modern-btn">App Store</a>
                 <a href="https://play.google.com/store/apps/details?id=net.bodas.android.wedshoots" target="_blank" class="modern-btn">Play Store</a>
