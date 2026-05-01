@@ -117,7 +117,7 @@
             margin-top: 5px;
         }
 
-        /* SEZIONE POLAROID PC - ORIENTAMENTO OBLIQUO ARMONIOSO */
+        /* SEZIONE POLAROID PC */
         .footer-mosaic-frame {
             position: relative;
             width: 100%;
@@ -135,7 +135,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             width: 190px; 
             height: auto;
-            transition: transform 0.5s ease;
         }
 
         .mosaic-frame img {
@@ -145,7 +144,6 @@
             display: block;
         }
 
-        /* Disposizione PC: Ventaglio ampio con rotazioni oblique alternate */
         .frame-1 { transform: translateX(-380px) translateY(30px) rotate(-12deg); z-index: 1; }
         .frame-2 { transform: translateX(-200px) translateY(-15px) rotate(6deg); z-index: 3; }
         .frame-3 { transform: translateX(0px) translateY(-40px) rotate(-3deg); z-index: 4; }
@@ -174,30 +172,30 @@
             .site-header h1 { font-size: 2.8rem; }
             #countdown-timer { font-size: 1.5rem; gap: 15px; }
             
-            /* Layout Mobile: Foto piccole, raggruppate a due a due con lievi sovrapposizioni */
+            /* MODIFICA MOBILE: Griglia 2x2 per mostrare 2 sopra e 2 sotto */
             .footer-mosaic-frame { 
                 height: auto; 
                 display: grid; 
-                grid-template-columns: 1fr 1fr;
-                gap: 5px; 
-                padding: 40px 10px;
+                grid-template-columns: 1fr 1fr; /* Due colonne */
+                grid-template-rows: auto auto;   /* Due righe */
+                gap: 10px; 
+                padding: 40px 15px;
                 justify-items: center;
-                align-items: center;
             }
             .mosaic-frame { 
                 position: relative; 
-                width: 145px; 
-                padding: 5px 5px 18px 5px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                width: 140px; 
+                padding: 6px 6px 18px 6px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             }
-            .mosaic-frame img { height: 120px; }
+            .mosaic-frame img { height: 110px; }
             
-            /* Effetto raggruppato e leggermente sovrapposto su mobile */
-            .frame-1 { transform: rotate(-4deg) translateX(10px); z-index: 2; }
-            .frame-2 { transform: rotate(3deg) translateX(-10px); z-index: 1; }
-            .frame-3 { transform: rotate(-2deg) translateY(-10px); grid-column: span 2; z-index: 3; }
-            .frame-4 { transform: rotate(5deg) translateY(-20px) translateX(5px); grid-column: span 2; z-index: 2; }
-            .frame-6 { display: none; } 
+            /* Posizionamento sparso ma ordinato 2x2 con sovrapposizioni minime */
+            .frame-1 { transform: rotate(-5deg) translate(5px, 5px); z-index: 1; }
+            .frame-2 { transform: rotate(4deg) translate(-5px, 2px); z-index: 2; }
+            .frame-3 { transform: rotate(-3deg) translate(8px, -5px); z-index: 3; }
+            .frame-4 { transform: rotate(6deg) translate(-8px, -10px); z-index: 1; }
+            .frame-6 { display: none; } /* Rimosso per mantenere il 2x2 pulito */
             
             .form-grid { grid-template-columns: 1fr !important; gap: 0; }
             .iban-code { font-size: 0.75rem !important; }
