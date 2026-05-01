@@ -125,7 +125,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 10px; /* Ridotto per avvicinare al footer */
+            margin-top: 10px;
         }
 
         .mosaic-frame {
@@ -172,12 +172,15 @@
             .site-header h1 { font-size: 2.8rem; }
             #countdown-timer { font-size: 1.5rem; gap: 15px; }
             
+            /* Titolo regalo: interlinea ridotta */
+            .gift-area h2 { line-height: 1.1; }
+
             .footer-mosaic-frame { 
                 height: auto; 
                 display: grid; 
                 grid-template-columns: 1fr 1fr;
                 gap: 5px; 
-                padding: 20px 10px 0px 10px; /* Ridotto il padding inferiore */
+                padding: 40px 10px 40px 10px; /* Aumentata distanza da sfondo (sopra) e scritta (sotto) */
                 justify-items: center;
                 align-items: center;
             }
@@ -218,7 +221,10 @@
         
         .gift-area { position: relative; background-image: url('foto.jpeg'); background-size: cover; background-position: center; padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; overflow: hidden; color: white; z-index: 1; }
         .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
-        .gift-area h2, .gift-area .iban-label { color: var(--text-dark) !important; }
+        
+        /* Titolo Regalo uguale a Programma */
+        .gift-area h2 { color: var(--sage-dark) !important; }
+        .gift-area .iban-label { color: var(--text-dark) !important; }
         
         .gift-area .presence-text { 
             font-family: 'Afacad Flux', sans-serif; 
@@ -238,6 +244,7 @@
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         label { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--sage-main); margin-bottom: 10px; display: block; font-weight: 500; }
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e8ede8; background: #fafcfa; border-radius: 8px; font-family: inherit; font-size: 1rem; }
+        
         .photo-footer-section { background-color: var(--sage-dark); color: white; padding: 80px 40px; margin: 100px -100vw 0; position: relative; left: 50%; right: 50%; width: 100vw; margin-left: -50vw; margin-right: -50vw; text-align: center; }
         .photo-footer-section h3 { color: white; font-size: 1.8rem; margin-bottom: 15px; }
         .photo-footer-section p { max-width: 550px; margin: 0 auto 30px; color: rgba(255,255,255,0.9); font-size: 0.95rem; }
