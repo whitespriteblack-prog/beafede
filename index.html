@@ -117,7 +117,7 @@
             margin-top: 5px;
         }
 
-        /* SEZIONE POLAROID */
+        /* SEZIONE POLAROID MODIFICATA SOLO PER DISTANZE */
         .footer-mosaic-frame {
             position: relative;
             width: 100%;
@@ -125,8 +125,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* PC: Aumentato margine sopra (uguale al sotto) e ridotto sotto per il footer */
-            margin: 60px 0 20px 0; 
+            margin: 100px 0 0px 0; /* PC: Più staccata sopra, zero spazio sotto per il footer */
             z-index: 5;
         }
 
@@ -181,8 +180,7 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 15px; 
                 padding: 0 10px;
-                /* MOBILE: Ridotto margine sotto per avvicinare il footer */
-                margin: 40px 0 -20px 0; 
+                margin: 40px 0 -40px 0; /* MOBILE: Margine negativo sotto per avvicinare il footer */
                 justify-items: center;
             }
             .mosaic-frame { 
@@ -216,7 +214,7 @@
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
         .map-link { display: inline-block; margin-top: 8px; font-size: 0.9rem; color: var(--sage-main); text-decoration: underline; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
         
-        /* SEZIONE REGALO AGGIORNATA */
+        /* SEZIONE REGALO - MODIFICATA PER POSIZIONAMENTO */
         .gift-area { 
             position: relative; 
             background-image: url('foto.jpeg'); 
@@ -229,20 +227,17 @@
             overflow: hidden; 
             color: white; 
             z-index: 1; 
-            /* Layout per spostare elementi su/giù */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 550px; 
+            min-height: 500px;
         }
         .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
         
         .gift-area h2 { color: var(--sage-dark) !important; }
         .gift-area .iban-label { color: var(--text-dark) !important; }
         
-        .gift-content-top {
-            margin-top: 20px; /* Sposta le scritte più in alto */
-        }
+        .gift-top-box { margin-top: 0; } /* Scritte in alto */
 
         .gift-area .presence-text { 
             font-family: 'Afacad Flux', sans-serif; 
@@ -255,8 +250,7 @@
         .gift-area .iban-row { 
             background: rgba(255, 255, 255, 0.6); 
             border-radius: 10px; 
-            margin-top: auto; /* Spinge l'iban in basso */
-            margin-bottom: 20px;
+            margin-top: auto; /* Spinge IBAN in basso */
             padding: 25px 0; 
             border-top: 1px solid rgba(0,0,0,0.05); 
             border-bottom: 1px solid rgba(0,0,0,0.05); 
@@ -345,18 +339,13 @@
         </div>
 
         <div class="gift-area reveal">
-            <div class="gift-content-top">
+            <div class="gift-top-box">
                 <div class="section-header" style="margin-top: 0; margin-bottom: 30px;"><h2>22°54′10″S 43°12′28″W</h2></div>
                 <p class="presence-text" style="max-width: 600px; margin: 0 auto;">Se volete farci un regalo, potete contribuire alla nostra prossima avventura. <br>Obrigadão!</p>
             </div>
-            
-            <div class="iban-row">
-                <span class="iban-label">Codice IBAN</span>
-                <div class="iban-code">IT57Y0707236670000000767183</div>
-            </div>
+            <div class="iban-row"><span class="iban-label">Codice IBAN</span><div class="iban-code">IT57Y0707236670000000767183</div></div>
         </div>
 
-        <!-- SEZIONE SCURA SCRITTA -->
         <div class="photo-footer-section reveal">
             <h3>I vostri scatti</h3>
             <p>Condividete con noi le vostre foto della giornata scaricando l'app <strong>Wedshoots</strong>.</p>
@@ -370,7 +359,6 @@
             </div>
         </div>
 
-        <!-- SEZIONE FOTO MOSAICO -->
         <div class="footer-mosaic-frame reveal">
             <div class="mosaic-frame frame-1"><img src="foto2.jpeg" alt="foto"></div>
             <div class="mosaic-frame frame-2"><img src="foto6.jpeg" alt="foto"></div>
