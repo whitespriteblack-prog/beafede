@@ -125,7 +125,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 10px; /* Ridotto per avvicinare al footer */
         }
 
         .mosaic-frame {
@@ -172,13 +172,12 @@
             .site-header h1 { font-size: 2.8rem; }
             #countdown-timer { font-size: 1.5rem; gap: 15px; }
             
-            /* MODIFICA MOBILE: Griglia dinamica per 2+2+1 centrale */
             .footer-mosaic-frame { 
                 height: auto; 
                 display: grid; 
                 grid-template-columns: 1fr 1fr;
                 gap: 5px; 
-                padding: 40px 10px;
+                padding: 20px 10px 0px 10px; /* Ridotto il padding inferiore */
                 justify-items: center;
                 align-items: center;
             }
@@ -190,12 +189,10 @@
             }
             .mosaic-frame img { height: 110px; }
             
-            /* Posizionamento 2 sopra, 2 sotto, 1 al centro in fondo */
             .frame-1 { transform: rotate(-5deg) translate(8px, 5px); z-index: 1; }
             .frame-2 { transform: rotate(3deg) translate(-8px, 2px); z-index: 2; }
             .frame-3 { transform: rotate(-4deg) translate(10px, -5px); z-index: 3; }
             .frame-4 { transform: rotate(5deg) translate(-10px, -8px); z-index: 1; }
-            /* Foto 6: centrata sotto le altre quattro */
             .frame-6 { 
                 grid-column: span 2; 
                 transform: rotate(-2deg) translateY(-15px); 
@@ -219,7 +216,6 @@
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
         .map-link { display: inline-block; margin-top: 8px; font-size: 0.9rem; color: var(--sage-main); text-decoration: underline; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
         
-        /* SEZIONE REGALO */
         .gift-area { position: relative; background-image: url('foto.jpeg'); background-size: cover; background-position: center; padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; overflow: hidden; color: white; z-index: 1; }
         .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
         .gift-area h2, .gift-area .iban-label { color: var(--text-dark) !important; }
@@ -228,11 +224,7 @@
             font-family: 'Afacad Flux', sans-serif; 
             font-size: 1rem; 
             color: #000 !important; 
-            text-shadow: 
-                -0.8px -0.8px 0 #fff,  
-                 0.8px -0.8px 0 #fff,
-                -0.8px  0.8px 0 #fff,
-                 0.8px  0.8px 0 #fff; 
+            text-shadow: -0.8px -0.8px 0 #fff, 0.8px -0.8px 0 #fff, -0.8px 0.8px 0 #fff, 0.8px 0.8px 0 #fff; 
             font-weight: 500;
         }
 
@@ -255,7 +247,8 @@
         .code-box-modern { display: inline-block; border: 2px dashed rgba(255,255,255,0.4); padding: 20px 40px; border-radius: 15px; background-color: white; }
         .code-box-modern span { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); margin-bottom: 8px; }
         .wedding-code-display { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 4px; color: var(--text-dark); font-weight: bold; }
-        footer { text-align: center; padding: 60px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
+        
+        footer { text-align: center; padding: 30px 24px; font-size: 0.8rem; letter-spacing: 2px; color: var(--sage-main); background-color: var(--white-pure); }
     </style>
 </head>
 <body>
@@ -334,7 +327,6 @@
             </div>
         </div>
 
-        <!-- SEZIONE FOTO AGGIORNATA -->
         <div class="footer-mosaic-frame reveal">
             <div class="mosaic-frame frame-1"><img src="foto2.jpeg" alt="foto"></div>
             <div class="mosaic-frame frame-2"><img src="foto6.jpeg" alt="foto"></div>
