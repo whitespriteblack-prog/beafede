@@ -54,7 +54,6 @@
 
         .container { padding: 100px 24px; max-width: 800px; margin: auto; }
 
-        /* HEADER RI-IMPAGINATO SENZA FOTO */
         .site-header {
             height: 100vh; 
             display: flex;
@@ -83,7 +82,7 @@
         }
 
         .site-header h1 { 
-            font-size: 4.5rem; /* Leggermente più grande per compensare l'assenza di foto */
+            font-size: 4.5rem; 
             font-style: italic; 
             margin-bottom: 15px;
             line-height: 1.1;
@@ -100,7 +99,7 @@
 
         #countdown-timer {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem; /* Più visibile */
+            font-size: 2rem; 
             color: var(--sage-dark);
             margin-top: 20px;
             display: flex;
@@ -118,7 +117,7 @@
             margin-top: 5px;
         }
 
-        /* SEZIONE MOSAICO SPOSTATA IN FONDO */
+        /* SEZIONE POLAROID SENZA ANIMAZIONI */
         .footer-mosaic-frame {
             position: relative;
             width: 100%;
@@ -133,11 +132,10 @@
             position: absolute;
             background: white;
             padding: 10px 10px 35px 10px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
             width: 200px; 
             height: auto;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-            cursor: pointer;
+            /* Rimosse transizioni e cursor pointer */
         }
 
         .mosaic-frame img {
@@ -147,13 +145,12 @@
             display: block;
         }
 
-        .frame-1 { transform: translateX(-280px) translateY(-20px) rotate(-15deg); z-index: 1; }
-        .frame-2 { transform: translateX(-140px) translateY(10px) rotate(-5deg); z-index: 2; }
-        .frame-3 { transform: translateX(0px) translateY(-30px) rotate(3deg); z-index: 3; }
-        .frame-4 { transform: translateX(140px) translateY(10px) rotate(8deg); z-index: 2; }
-        .frame-6 { transform: translateX(280px) translateY(-20px) rotate(18deg); z-index: 1; }
-
-        .mosaic-frame:hover { z-index: 10; transform: scale(1.1) rotate(0deg) !important; box-shadow: 0 20px 45px rgba(0,0,0,0.25); }
+        /* Posizioni statiche PC senza rotazioni */
+        .frame-1 { transform: translateX(-320px) translateY(0); z-index: 1; }
+        .frame-2 { transform: translateX(-160px) translateY(0); z-index: 1; }
+        .frame-3 { transform: translateX(0px) translateY(0); z-index: 1; }
+        .frame-4 { transform: translateX(160px) translateY(0); z-index: 1; }
+        .frame-6 { transform: translateX(320px) translateY(0); z-index: 1; }
 
         .scroll-indicator {
             position: absolute;
@@ -177,21 +174,26 @@
             .site-header h1 { font-size: 2.8rem; }
             #countdown-timer { font-size: 1.5rem; gap: 15px; }
             
-            .footer-mosaic-frame { height: 450px; }
-            .mosaic-frame { width: 140px; }
-            .frame-1 { transform: translate(-70px, -110px) rotate(-10deg); }
-            .frame-2 { transform: translate(70px, -100px) rotate(8deg); }
-            .frame-3 { transform: translate(0px, 0px) rotate(-3deg); }
-            .frame-4 { transform: translate(-70px, 110px) rotate(-5deg); }
-            .frame-6 { transform: translate(70px, 100px) rotate(12deg); }
-            
-            .mosaic-frame.active-mobile { z-index: 100 !important; transform: scale(1.2) rotate(0deg) !important; }
+            /* Layout Mobile: 2x2 grid ordinata senza sovrapposizioni e senza foto 6 */
+            .footer-mosaic-frame { 
+                height: auto; 
+                display: grid; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 15px; 
+                padding: 20px 0;
+            }
+            .mosaic-frame { 
+                position: relative; 
+                width: 100%; 
+                transform: none !important; 
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            .frame-6 { display: none; } /* Rimozione foto6.jpeg su cellulare */
             
             .form-grid { grid-template-columns: 1fr !important; gap: 0; }
             .iban-code { font-size: 0.75rem !important; }
         }
 
-        /* RESTO DELLO STILE NON TOCCATO */
         .program-section { position: relative; background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('Castellazzo.jpeg'); background-size: cover; background-position: center; background-attachment: fixed; width: 100%; }
         @supports (-webkit-overflow-scrolling: touch) { .program-section { background-attachment: scroll !important; } }
         .section-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
@@ -203,10 +205,24 @@
         .event-info h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--text-dark); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
         .map-link { display: inline-block; margin-top: 8px; font-size: 0.9rem; color: var(--sage-main); text-decoration: underline; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+        
+        /* SEZIONE REGALO AGGIORNATA */
         .gift-area { position: relative; background-image: url('foto.jpeg'); background-size: cover; background-position: center; padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; overflow: hidden; color: white; z-index: 1; }
         .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
         .gift-area h2, .gift-area .iban-label { color: var(--text-dark) !important; }
-        .gift-area .presence-text { font-family: 'Afacad Flux', sans-serif; font-size: 1rem; color: var(--sage-whitish) !important; text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000; }
+        
+        .gift-area .presence-text { 
+            font-family: 'Afacad Flux', sans-serif; 
+            font-size: 1rem; 
+            color: #000 !important; /* Testo Nero */
+            text-shadow: 
+                -1px -1px 0 #fff,  
+                 1px -1px 0 #fff,
+                -1px  1px 0 #fff,
+                 1px  1px 0 #fff; /* Contorno Bianco */
+            font-weight: 500;
+        }
+
         .gift-area .iban-row { background: rgba(255, 255, 255, 0.6); border-radius: 10px; }
         .iban-row { margin-top: 30px; padding: 25px 0; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .iban-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); font-weight: 500; }
@@ -305,30 +321,18 @@
             </div>
         </div>
 
-        <!-- MOSAICO SPOSTATO QUI -->
         <div class="footer-mosaic-frame reveal">
-            <div class="mosaic-frame frame-1" onclick="togglePhoto(this, event)"><img src="foto3.jpeg" alt="foto"></div>
-            <div class="mosaic-frame frame-2" onclick="togglePhoto(this, event)"><img src="foto2.jpeg" alt="foto"></div>
-            <div class="mosaic-frame frame-3" onclick="togglePhoto(this, event)"><img src="foto4.jpeg" alt="foto"></div>
-            <div class="mosaic-frame frame-4" onclick="togglePhoto(this, event)"><img src="foto5.jpeg" alt="foto"></div>
-            <div class="mosaic-frame frame-6" onclick="togglePhoto(this, event)"><img src="foto6.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-1"><img src="foto3.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-2"><img src="foto2.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-3"><img src="foto4.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-4"><img src="foto5.jpeg" alt="foto"></div>
+            <div class="mosaic-frame frame-6"><img src="foto6.jpeg" alt="foto"></div>
         </div>
     </section>
 
     <footer><p>B & F — 29 . 08 . 2026</p></footer>
 
     <script>
-        function togglePhoto(el, event) {
-            if (window.innerWidth > 600) return;
-            event.stopPropagation();
-            const isActive = el.classList.contains('active-mobile');
-            document.querySelectorAll('.mosaic-frame').forEach(f => f.classList.remove('active-mobile'));
-            if (!isActive) el.classList.add('active-mobile');
-        }
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.mosaic-frame').forEach(f => f.classList.remove('active-mobile'));
-        });
-
         function updateCountdown() {
             const targetDate = new Date("2026-08-29T17:00:00").getTime(); 
             const now = new Date().getTime();
