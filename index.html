@@ -172,15 +172,15 @@
             .site-header h1 { font-size: 2.8rem; }
             #countdown-timer { font-size: 1.5rem; gap: 15px; }
             
-            /* MODIFICA MOBILE: Griglia 2x2 per mostrare 2 sopra e 2 sotto */
+            /* MODIFICA MOBILE: Griglia dinamica per 2+2+1 centrale */
             .footer-mosaic-frame { 
                 height: auto; 
                 display: grid; 
-                grid-template-columns: 1fr 1fr; /* Due colonne */
-                grid-template-rows: auto auto;   /* Due righe */
-                gap: 10px; 
-                padding: 40px 15px;
+                grid-template-columns: 1fr 1fr;
+                gap: 5px; 
+                padding: 40px 10px;
                 justify-items: center;
+                align-items: center;
             }
             .mosaic-frame { 
                 position: relative; 
@@ -190,12 +190,18 @@
             }
             .mosaic-frame img { height: 110px; }
             
-            /* Posizionamento sparso ma ordinato 2x2 con sovrapposizioni minime */
-            .frame-1 { transform: rotate(-5deg) translate(5px, 5px); z-index: 1; }
-            .frame-2 { transform: rotate(4deg) translate(-5px, 2px); z-index: 2; }
-            .frame-3 { transform: rotate(-3deg) translate(8px, -5px); z-index: 3; }
-            .frame-4 { transform: rotate(6deg) translate(-8px, -10px); z-index: 1; }
-            .frame-6 { display: none; } /* Rimosso per mantenere il 2x2 pulito */
+            /* Posizionamento 2 sopra, 2 sotto, 1 al centro in fondo */
+            .frame-1 { transform: rotate(-5deg) translate(8px, 5px); z-index: 1; }
+            .frame-2 { transform: rotate(3deg) translate(-8px, 2px); z-index: 2; }
+            .frame-3 { transform: rotate(-4deg) translate(10px, -5px); z-index: 3; }
+            .frame-4 { transform: rotate(5deg) translate(-10px, -8px); z-index: 1; }
+            /* Foto 6: centrata sotto le altre quattro */
+            .frame-6 { 
+                grid-column: span 2; 
+                transform: rotate(-2deg) translateY(-15px); 
+                z-index: 4; 
+                display: block; 
+            }
             
             .form-grid { grid-template-columns: 1fr !important; gap: 0; }
             .iban-code { font-size: 0.75rem !important; }
@@ -222,7 +228,6 @@
             font-family: 'Afacad Flux', sans-serif; 
             font-size: 1rem; 
             color: #000 !important; 
-            /* Bagliore bianco rimpicciolito (0.8px) */
             text-shadow: 
                 -0.8px -0.8px 0 #fff,  
                  0.8px -0.8px 0 #fff,
@@ -277,7 +282,7 @@
                     <div class="event-info">
                         <h3>Cerimonia</h3>
                         <p>Rocca dei Bentivoglio, Bazzano</p>
-                        <a href="https://www.google.com/maps/place/Rocca+dei+Bentivoglio+e+Museo/..." target="_blank" class="map-link">Google Maps</a>
+                        <a href="#" target="_blank" class="map-link">Google Maps</a>
                     </div>
                 </div>
                 <div class="event-row reveal">
@@ -285,7 +290,7 @@
                     <div class="event-info">
                         <h3>Stuzzichini</h3>
                         <p>Il Castellazzo, Monteveglio</p>
-                        <a href="https://www.google.com/maps/place/Il+Castellazzo/..." target="_blank" class="map-link">Google Maps</a>
+                        <a href="#" target="_blank" class="map-link">Google Maps</a>
                     </div>
                 </div>
                 <div class="event-row reveal"><div class="time">20:00</div><div class="event-info"><h3>Cena</h3></div></div>
@@ -329,6 +334,7 @@
             </div>
         </div>
 
+        <!-- SEZIONE FOTO AGGIORNATA -->
         <div class="footer-mosaic-frame reveal">
             <div class="mosaic-frame frame-1"><img src="foto3.jpeg" alt="foto"></div>
             <div class="mosaic-frame frame-2"><img src="foto2.jpeg" alt="foto"></div>
