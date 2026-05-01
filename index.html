@@ -125,7 +125,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: -40px 0 60px 0; /* Margine negativo per avvicinarle alla sezione scura */
+            /* PC: Aumentato margine sopra (uguale al sotto) e ridotto sotto per il footer */
+            margin: 60px 0 20px 0; 
             z-index: 5;
         }
 
@@ -180,7 +181,8 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 15px; 
                 padding: 0 10px;
-                margin: 40px 0 20px 0; /* Spostato spazio su mobile */
+                /* MOBILE: Ridotto margine sotto per avvicinare il footer */
+                margin: 40px 0 -20px 0; 
                 justify-items: center;
             }
             .mosaic-frame { 
@@ -188,7 +190,7 @@
                 width: 140px; 
                 padding: 6px 6px 18px 6px;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-                left: auto; transform: none !important; /* Reset trasformazioni per griglia */
+                left: auto; transform: none !important; 
             }
             .mosaic-frame img { height: 110px; }
             
@@ -214,22 +216,55 @@
         .event-info p { font-size: 0.95rem; color: #666; font-weight: 300; }
         .map-link { display: inline-block; margin-top: 8px; font-size: 0.9rem; color: var(--sage-main); text-decoration: underline; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
         
-        .gift-area { position: relative; background-image: url('foto.jpeg'); background-size: cover; background-position: center; padding: 80px 40px; border-radius: 20px; text-align: center; margin: 80px 0; overflow: hidden; color: white; z-index: 1; }
+        /* SEZIONE REGALO AGGIORNATA */
+        .gift-area { 
+            position: relative; 
+            background-image: url('foto.jpeg'); 
+            background-size: cover; 
+            background-position: center; 
+            padding: 80px 40px; 
+            border-radius: 20px; 
+            text-align: center; 
+            margin: 80px 0; 
+            overflow: hidden; 
+            color: white; 
+            z-index: 1; 
+            /* Layout per spostare elementi su/giù */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 550px; 
+        }
         .gift-area::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.45); z-index: -1; }
         
         .gift-area h2 { color: var(--sage-dark) !important; }
         .gift-area .iban-label { color: var(--text-dark) !important; }
         
+        .gift-content-top {
+            margin-top: 20px; /* Sposta le scritte più in alto */
+        }
+
         .gift-area .presence-text { 
             font-family: 'Afacad Flux', sans-serif; 
             font-size: 1rem; 
-            color: var(--sage-dark) !important; /* Uguale al colore titolo programma */
-            text-shadow: -0.3px -0.3px 0 #fff, 0.3px -0.3px 0 #fff, -0.3px 0.3px 0 #fff, 0.3px 0.3px 0 #fff; /* Bagliore ridotto */
+            color: var(--sage-dark) !important; 
+            text-shadow: -0.3px -0.3px 0 #fff, 0.3px -0.3px 0 #fff, -0.3px 0.3px 0 #fff, 0.3px 0.3px 0 #fff; 
             font-weight: 500;
         }
 
-        .gift-area .iban-row { background: rgba(255, 255, 255, 0.6); border-radius: 10px; }
-        .iban-row { margin-top: 30px; padding: 25px 0; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .gift-area .iban-row { 
+            background: rgba(255, 255, 255, 0.6); 
+            border-radius: 10px; 
+            margin-top: auto; /* Spinge l'iban in basso */
+            margin-bottom: 20px;
+            padding: 25px 0; 
+            border-top: 1px solid rgba(0,0,0,0.05); 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 5px; 
+        }
         .iban-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--sage-main); font-weight: 500; }
         .iban-code { font-family: 'Afacad Flux', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: var(--sage-dark); font-weight: 500; white-space: nowrap; }
         
@@ -310,9 +345,15 @@
         </div>
 
         <div class="gift-area reveal">
-            <div class="section-header" style="margin-top: 0; margin-bottom: 30px;"><h2>22°54′10″S 43°12′28″W</h2></div>
-            <p class="presence-text" style="max-width: 600px; margin: 0 auto;">Se volete farci un regalo, potete contribuire alla nostra prossima avventura. <br>Obrigadão!</p>
-            <div class="iban-row"><span class="iban-label">Codice IBAN</span><div class="iban-code">IT57Y0707236670000000767183</div></div>
+            <div class="gift-content-top">
+                <div class="section-header" style="margin-top: 0; margin-bottom: 30px;"><h2>22°54′10″S 43°12′28″W</h2></div>
+                <p class="presence-text" style="max-width: 600px; margin: 0 auto;">Se volete farci un regalo, potete contribuire alla nostra prossima avventura. <br>Obrigadão!</p>
+            </div>
+            
+            <div class="iban-row">
+                <span class="iban-label">Codice IBAN</span>
+                <div class="iban-code">IT57Y0707236670000000767183</div>
+            </div>
         </div>
 
         <!-- SEZIONE SCURA SCRITTA -->
